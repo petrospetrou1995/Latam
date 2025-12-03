@@ -10,6 +10,7 @@ const languages = {
             brokers: 'Brokers',
             allBrokers: 'Todos los Brokers',
             categories: 'Categorías',
+            guides: 'Guías',
             forex: 'Forex',
             stocks: 'Acciones',
             crypto: 'Criptomonedas',
@@ -22,7 +23,12 @@ const languages = {
             contact: 'Contacto',
             admin: 'Admin',
             login: 'Iniciar Sesión',
-            logout: 'Cerrar Sesión'
+            logout: 'Cerrar Sesión',
+            guideChooseBroker: 'Cómo Elegir un Broker',
+            guideRegulatedBrokers: 'Brokers Regulados',
+            guideTradingPlatforms: 'Plataformas de Trading',
+            guidePaymentMethods: 'Métodos de Pago',
+            guideCompareBrokers: 'Comparar Brokers'
         },
         
         // Hero Section
@@ -1835,6 +1841,243 @@ const languages = {
                             ]
                         }
                     }
+                },
+                // New Educational Blog Posts
+                chooseForexBroker: {
+                    title: 'Cómo Elegir un Broker de Forex en Latinoamérica',
+                    description: 'Guía completa para elegir el mejor broker de Forex: factores clave, regulación, spreads y plataformas.',
+                    category: 'Educación'
+                },
+                chooseBrokerLatam: {
+                    title: 'Cómo Elegir un Broker en Latinoamérica - Guía Completa',
+                    description: 'Todo lo que necesitas saber para elegir el broker perfecto en Latinoamérica: métodos de pago, regulación y más.',
+                    category: 'Educación'
+                },
+                bestBrokersLatam: {
+                    title: 'Mejores Brokers en Latinoamérica - Guía 2024',
+                    description: 'Descubre los mejores brokers para traders latinoamericanos: comparativa, características y recomendaciones.',
+                    category: 'Brokers'
+                },
+                tradingBeginners: {
+                    title: 'Trading para Principiantes - Guía Completa',
+                    description: 'Aprende los fundamentos del trading desde cero: conceptos básicos, estrategias y consejos para empezar.',
+                    category: 'Educación'
+                },
+                platformComparison: {
+                    title: 'Comparación de Plataformas de Trading',
+                    description: 'Compara las mejores plataformas: MT4 vs MT5, plataformas web y móviles para traders latinoamericanos.',
+                    category: 'Plataformas'
+                },
+                forexVsStocks: {
+                    title: 'Forex vs Acciones: ¿Cuál Elegir?',
+                    description: 'Comparación detallada entre trading de Forex y acciones: ventajas, desventajas y cuál es mejor para ti.',
+                    category: 'Educación'
+                },
+                chooseBrokerLatin: {
+                    title: 'Elegir Broker en Latinoamérica - Factores Clave',
+                    description: 'Los factores más importantes a considerar al elegir un broker en Latinoamérica: regulación, métodos de pago y más.',
+                    category: 'Educación'
+                },
+                // Regulation Blog Posts
+                regulatedBrokersLatam: {
+                    title: 'Brokers Regulados en Latinoamérica - Guía de Seguridad',
+                    description: 'Descubre los brokers más seguros y regulados para traders latinoamericanos: FCA, CySEC y reguladores locales.',
+                    category: 'Regulación'
+                },
+                safeBrokersLatam: {
+                    title: 'Brokers Seguros para Latinoamérica - Lista 2024',
+                    description: 'Lista de los brokers más seguros y confiables para traders latinoamericanos con regulación verificada.',
+                    category: 'Regulación'
+                },
+                fcaBrokersLatam: {
+                    title: 'Brokers Regulados por FCA en Latinoamérica',
+                    description: 'Guía completa sobre brokers regulados por FCA disponibles para traders latinoamericanos y sus beneficios.',
+                    category: 'Regulación'
+                },
+                cysecBrokersLatam: {
+                    title: 'Brokers Regulados por CySEC en Latinoamérica',
+                    description: 'Todo sobre brokers CySEC para Latinoamérica: protección de fondos, regulación europea y más.',
+                    category: 'Regulación'
+                },
+                brokerRegulationLatam: {
+                    title: 'Regulación de Brokers en Latinoamérica',
+                    description: 'Entiende la regulación de brokers: qué significa, por qué es importante y cómo verificar la regulación.',
+                    category: 'Regulación'
+                },
+                // Platform Blog Posts
+                mt4Brokers: {
+                    title: 'Brokers con MetaTrader 4 - Guía Completa',
+                    description: 'Lista de los mejores brokers que ofrecen MetaTrader 4: características, ventajas y cómo elegir.',
+                    category: 'Plataformas'
+                },
+                mt5Brokers: {
+                    title: 'Brokers con MetaTrader 5 - Guía 2024',
+                    description: 'Descubre los mejores brokers con MetaTrader 5: ventajas sobre MT4 y brokers recomendados.',
+                    category: 'Plataformas'
+                },
+                mt4BrokersLatam: {
+                    title: 'Brokers MT4 en Latinoamérica - Lista Completa',
+                    description: 'Los mejores brokers con MetaTrader 4 disponibles para traders latinoamericanos con métodos de pago locales.',
+                    category: 'Plataformas'
+                },
+                mt5BrokersLatam: {
+                    title: 'Brokers MT5 en Latinoamérica - Guía 2024',
+                    description: 'Brokers con MetaTrader 5 para Latinoamérica: características, ventajas y recomendaciones.',
+                    category: 'Plataformas'
+                },
+                tradingPlatformsLatam: {
+                    title: 'Plataformas de Trading en Latinoamérica',
+                    description: 'Guía completa de plataformas de trading disponibles para traders latinoamericanos: MT4, MT5 y alternativas.',
+                    category: 'Plataformas'
+                },
+                // Niche Topics Blog Posts
+                forexBrokersLatam: {
+                    title: 'Forex Brokers en Latinoamérica - Guía Completa 2024',
+                    description: 'Los mejores brokers de Forex para traders latinoamericanos: spreads competitivos, regulación y métodos de pago locales.',
+                    category: 'Forex'
+                },
+                cfdBrokersLatam: {
+                    title: 'Brokers de CFDs en Latinoamérica - Lista 2024',
+                    description: 'Guía completa de brokers de CFDs disponibles para traders latinoamericanos con las mejores condiciones.',
+                    category: 'CFDs'
+                },
+                cryptoBrokersLatam: {
+                    title: 'Brokers de Criptomonedas en Latinoamérica',
+                    description: 'Los mejores brokers para trading de criptomonedas en Latinoamérica: seguridad, regulación y características.',
+                    category: 'Crypto'
+                },
+                stockBrokersLatam: {
+                    title: 'Brokers de Acciones en Latinoamérica - Guía 2024',
+                    description: 'Brokers especializados en trading de acciones para traders latinoamericanos con acceso a mercados globales.',
+                    category: 'Acciones'
+                },
+                // Payment Method Blog Posts
+                brokersSpei: {
+                    title: 'Brokers con SPEI en México - Lista Completa 2024',
+                    description: 'Encuentra brokers que aceptan SPEI en México. Transferencias instantáneas y seguras para traders mexicanos.',
+                    category: 'Brokers'
+                },
+                brokersPse: {
+                    title: 'Brokers con PSE en Colombia - Guía 2024',
+                    description: 'Lista de brokers que aceptan PSE (Pagos Seguros en Línea) para traders colombianos.',
+                    category: 'Brokers'
+                },
+                brokersCbuAlias: {
+                    title: 'Brokers con CBU/ALIAS en Argentina',
+                    description: 'Brokers que aceptan transferencias CBU y ALIAS para traders argentinos.',
+                    category: 'Brokers'
+                },
+                brokersWebpay: {
+                    title: 'Brokers con Webpay en Chile - Lista 2024',
+                    description: 'Brokers que aceptan Webpay para depósitos desde Chile con tarjetas y transferencias.',
+                    category: 'Brokers'
+                },
+                paymentMethodsLatamBrokers: {
+                    title: 'Métodos de Pago LATAM para Brokers',
+                    description: 'Guía completa de métodos de pago locales disponibles en brokers para Latinoamérica.',
+                    category: 'Brokers'
+                },
+                // Broker Comparison Blog Posts
+                compareBrokers: {
+                    title: 'Cómo Comparar Brokers - Guía Completa',
+                    description: 'Aprende a comparar brokers efectivamente: factores clave, herramientas y qué buscar.',
+                    category: 'Brokers'
+                },
+                brokerComparison: {
+                    title: 'Comparación de Brokers - Guía 2024',
+                    description: 'Compara brokers de trading: spreads, comisiones, plataformas y características principales.',
+                    category: 'Brokers'
+                },
+                libertexVsEtoro: {
+                    title: 'Libertex vs eToro - Comparación Completa',
+                    description: 'Comparación detallada entre Libertex y eToro: ¿Cuál es mejor para traders latinoamericanos?',
+                    category: 'Brokers'
+                },
+                etoroVsXtb: {
+                    title: 'eToro vs XTB - Comparación 2024',
+                    description: 'Comparación entre eToro (trading social) y XTB (broker profesional con MT4/MT5).',
+                    category: 'Brokers'
+                },
+                interactiveBrokersVsEtoro: {
+                    title: 'Interactive Brokers vs eToro',
+                    description: 'Comparación entre broker profesional (IB) y plataforma de trading social (eToro).',
+                    category: 'Brokers'
+                },
+                avatradeVsXtb: {
+                    title: 'AvaTrade vs XTB - Comparación',
+                    description: 'Comparación detallada entre AvaTrade y XTB: características, spreads y plataformas.',
+                    category: 'Brokers'
+                },
+                cmcMarketsVsPlus500: {
+                    title: 'CMC Markets vs Plus500',
+                    description: 'Comparación entre dos brokers líderes en CFDs: CMC Markets y Plus500.',
+                    category: 'Brokers'
+                },
+                admiralsVsIcMarkets: {
+                    title: 'Admirals vs IC Markets - Comparación',
+                    description: 'Comparación entre Admirals y IC Markets: brokers ECN con spreads bajos.',
+                    category: 'Brokers'
+                },
+                // Category-based Topics
+                bestBrokersBeginners: {
+                    title: 'Mejores Brokers para Principiantes en Latinoamérica',
+                    description: 'Brokers ideales para principiantes: cuentas demo, educación, plataformas fáciles y soporte en español.',
+                    category: 'Brokers'
+                },
+                bestBrokersAdvanced: {
+                    title: 'Mejores Brokers para Traders Avanzados',
+                    description: 'Brokers profesionales con spreads bajos, plataformas avanzadas y herramientas para traders expertos.',
+                    category: 'Brokers'
+                },
+                bestCryptoBrokers: {
+                    title: 'Mejores Brokers de Criptomonedas en LATAM',
+                    description: 'Brokers que ofrecen trading de Bitcoin, Ethereum y altcoins con métodos de pago locales.',
+                    category: 'Crypto'
+                },
+                bestDayTradingBrokers: {
+                    title: 'Mejores Brokers para Day Trading',
+                    description: 'Brokers ideales para day trading: spreads bajos, ejecución rápida y plataformas estables.',
+                    category: 'Brokers'
+                },
+                bestFuturesBrokers: {
+                    title: 'Mejores Brokers para Futures Trading',
+                    description: 'Brokers especializados en trading de futuros: commodities, índices y futuros financieros.',
+                    category: 'Brokers'
+                },
+                bestLowFeeBrokers: {
+                    title: 'Mejores Brokers con Comisiones Bajas',
+                    description: 'Brokers con spreads y comisiones más bajas para maximizar tus ganancias.',
+                    category: 'Brokers'
+                },
+                bestMobileTradingApps: {
+                    title: 'Mejores Apps Móviles de Trading',
+                    description: 'Brokers con las mejores aplicaciones móviles para trading desde iOS y Android.',
+                    category: 'Plataformas'
+                },
+                bestNoMinimumDepositBrokers: {
+                    title: 'Mejores Brokers Sin Depósito Mínimo',
+                    description: 'Brokers que permiten empezar sin depósito mínimo o con depósitos muy bajos.',
+                    category: 'Brokers'
+                },
+                bestOptionsBrokers: {
+                    title: 'Mejores Brokers para Options Trading',
+                    description: 'Brokers especializados en trading de opciones con plataformas avanzadas.',
+                    category: 'Brokers'
+                },
+                bestScalpingBrokers: {
+                    title: 'Mejores Brokers para Scalping',
+                    description: 'Brokers con spreads ultra-bajos y ejecución instantánea para estrategias de scalping.',
+                    category: 'Brokers'
+                },
+                bestStockTradingBrokers: {
+                    title: 'Mejores Brokers para Stock Trading',
+                    description: 'Brokers especializados en trading de acciones con acceso a mercados globales.',
+                    category: 'Brokers'
+                },
+                bestSwingTradingBrokers: {
+                    title: 'Mejores Brokers para Swing Trading',
+                    description: 'Brokers con herramientas de análisis técnico avanzadas para swing trading.',
+                    category: 'Brokers'
                 }
             },
             categories: {
@@ -1872,6 +2115,104 @@ const languages = {
             education: {
                 title: 'Educación y Capacitación',
                 description: 'Recursos educativos completos, cursos, estrategias y herramientas para mejorar tus habilidades de trading.'
+            },
+            // New Guide Pages
+            chooseBroker: {
+                title: 'Cómo Elegir un Broker en Latinoamérica',
+                description: 'Guía completa paso a paso para encontrar el broker perfecto para tus necesidades de trading',
+                heroTitle: 'Cómo Elegir el Mejor Broker en Latinoamérica',
+                heroSubtitle: 'Guía completa paso a paso para encontrar el broker perfecto para tus necesidades de trading en 2024',
+                intro: {
+                    title: '¿Por Qué es Importante Elegir el Broker Correcto?',
+                    text: 'Elegir el broker adecuado es una de las decisiones más importantes que tomarás como trader. Un buen broker no solo te proporciona acceso a los mercados financieros, sino que también te ofrece herramientas, educación y soporte necesarios para tener éxito.'
+                },
+                step1: {
+                    title: 'Verificar la Regulación y Seguridad',
+                    text: 'La seguridad de tus fondos es lo más importante. Busca brokers regulados por autoridades reconocidas:',
+                    list1: 'FCA (Reino Unido): Una de las regulaciones más estrictas del mundo',
+                    list2: 'CySEC (Chipre): Regulación europea reconocida internacionalmente',
+                    list3: 'ASIC (Australia): Regulación sólida para brokers internacionales',
+                    list4: 'Reguladores Locales: CNV (Argentina), CNBV (México), CMF (Chile)',
+                    note: '💡 Consejo: Siempre verifica el número de licencia del broker en el sitio web del regulador oficial.'
+                },
+                step2: {
+                    title: 'Comparar Comisiones y Spreads',
+                    text: 'Los costos de trading pueden afectar significativamente tus ganancias. Considera:',
+                    list1: 'Spreads: Diferencia entre precio de compra y venta (más bajo es mejor)',
+                    list2: 'Comisiones: Algunos brokers cobran comisión por operación',
+                    list3: 'Comisiones de Depósito/Retiro: Verifica si hay cargos por transferencias',
+                    list4: 'Comisiones de Inactividad: Algunos brokers cobran si no operas por un tiempo'
+                },
+                step3: {
+                    title: 'Evaluar Plataformas de Trading',
+                    text: 'La plataforma es tu herramienta principal de trading. Verifica:',
+                    list1: 'MetaTrader 4/5: Las plataformas más populares y confiables',
+                    list2: 'Plataforma Web: Para trading desde cualquier dispositivo',
+                    list3: 'App Móvil: Para trading sobre la marcha',
+                    list4: 'Herramientas: Gráficos avanzados, indicadores técnicos, análisis'
+                },
+                step4: {
+                    title: 'Métodos de Pago Disponibles en LATAM',
+                    text: 'En Latinoamérica, es crucial verificar métodos de pago locales:',
+                    list1: 'Transferencias Bancarias: Método más común y seguro',
+                    list2: 'Tarjetas de Crédito/Débito: Depósitos rápidos',
+                    list3: 'Billeteras Digitales: PayPal, Skrill, Neteller',
+                    list4: 'Métodos Locales: PagoEfectivo, OXXO, Rapipago (según país)'
+                },
+                step5: {
+                    title: 'Soporte al Cliente y Educación',
+                    text: 'Un buen broker ofrece:',
+                    list1: 'Soporte en Español: Chat en vivo, email, teléfono',
+                    list2: 'Horarios de Atención: Disponibilidad según tu zona horaria',
+                    list3: 'Recursos Educativos: Webinars, tutoriales, guías',
+                    list4: 'Cuenta Demo: Para practicar sin riesgo'
+                },
+                step6: {
+                    title: 'Tipos de Cuenta y Depósito Mínimo',
+                    text: 'Considera tus necesidades:',
+                    list1: 'Cuenta Micro: Para principiantes con depósitos pequeños',
+                    list2: 'Cuenta Estándar: Para traders intermedios',
+                    list3: 'Cuenta VIP/Premium: Para traders profesionales',
+                    list4: 'Depósito Mínimo: Verifica que sea accesible para ti'
+                },
+                checklist1: '✓ Broker regulado por autoridad reconocida',
+                checklist2: '✓ Spreads y comisiones competitivos',
+                checklist3: '✓ Plataforma de trading adecuada para tus necesidades',
+                checklist4: '✓ Métodos de pago disponibles en tu país',
+                checklist5: '✓ Soporte al cliente en español',
+                checklist6: '✓ Cuenta demo disponible',
+                checklist7: '✓ Reseñas positivas de otros traders',
+                cta: 'Ver Todos los Brokers'
+            },
+            regulatedBrokers: {
+                title: 'Brokers Regulados en Latinoamérica',
+                description: 'Descubre los brokers regulados más seguros para Latinoamérica',
+                heroTitle: 'Brokers Regulados y Seguros en Latinoamérica',
+                heroSubtitle: 'Protege tu capital eligiendo brokers regulados por las autoridades más estrictas del mundo',
+                intro: {
+                    title: '¿Por Qué es Crucial Elegir un Broker Regulado?',
+                    text: 'La regulación es la garantía más importante de seguridad para tus fondos. Los brokers regulados deben cumplir con estándares estrictos de capital, transparencia y protección al cliente.'
+                }
+            },
+            tradingPlatforms: {
+                title: 'Plataformas de Trading en Latinoamérica',
+                description: 'Guía completa de plataformas de trading: MT4, MT5 y más',
+                heroTitle: 'Plataformas de Trading en Latinoamérica',
+                heroSubtitle: 'Descubre las mejores plataformas: MetaTrader 4, MetaTrader 5 y plataformas modernas para traders latinoamericanos',
+                intro: {
+                    title: 'Elige la Plataforma Correcta para tu Trading',
+                    text: 'La plataforma de trading es tu herramienta principal. Debe ser intuitiva, estable y ofrecer todas las funciones que necesitas.'
+                }
+            },
+            paymentMethods: {
+                title: 'Métodos de Pago para Brokers en Latinoamérica',
+                description: 'Guía completa de métodos de pago: SPEI, PSE, CBU/ALIAS, Webpay',
+                heroTitle: 'Métodos de Pago para Brokers en Latinoamérica',
+                heroSubtitle: 'Encuentra brokers que aceptan métodos de pago locales: SPEI, PSE, CBU/ALIAS, Webpay y más',
+                intro: {
+                    title: 'Métodos de Pago por País',
+                    text: 'En Latinoamérica, cada país tiene sus propios métodos de pago locales. Encontrar un broker que acepte estos métodos puede hacer que depositar y retirar fondos sea mucho más fácil y económico.'
+                }
             }
         },
         
@@ -2949,6 +3290,7 @@ const languages = {
             brokers: 'Brokers',
             allBrokers: 'All Brokers',
             categories: 'Categories',
+            guides: 'Guides',
             forex: 'Forex',
             stocks: 'Stocks',
             crypto: 'Cryptocurrencies',
@@ -2961,7 +3303,12 @@ const languages = {
             contact: 'Contact',
             admin: 'Admin',
             login: 'Login',
-            logout: 'Logout'
+            logout: 'Logout',
+            guideChooseBroker: 'How to Choose a Broker',
+            guideRegulatedBrokers: 'Regulated Brokers',
+            guideTradingPlatforms: 'Trading Platforms',
+            guidePaymentMethods: 'Payment Methods',
+            guideCompareBrokers: 'Compare Brokers'
         },
         
         // Hero Section
@@ -3914,6 +4261,27 @@ const languages = {
                             ]
                         }
                     }
+                },
+                // Niche Topics Blog Posts
+                forexBrokersLatam: {
+                    title: 'Forex Brokers in Latin America - Complete Guide 2024',
+                    description: 'The best Forex brokers for Latin American traders: competitive spreads, regulation and local payment methods.',
+                    category: 'Forex'
+                },
+                cfdBrokersLatam: {
+                    title: 'CFD Brokers in Latin America - List 2024',
+                    description: 'Complete guide to CFD brokers available for Latin American traders with the best conditions.',
+                    category: 'CFDs'
+                },
+                cryptoBrokersLatam: {
+                    title: 'Cryptocurrency Brokers in Latin America',
+                    description: 'The best brokers for cryptocurrency trading in Latin America: security, regulation and features.',
+                    category: 'Crypto'
+                },
+                stockBrokersLatam: {
+                    title: 'Stock Brokers in Latin America - Guide 2024',
+                    description: 'Brokers specialized in stock trading for Latin American traders with access to global markets.',
+                    category: 'Stocks'
                 }
             },
             categories: {

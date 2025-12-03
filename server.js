@@ -140,6 +140,118 @@ app.get('/education-training', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'education-training.html'));
 });
 
+// Serve educational guide pages
+app.get('/how-to-choose-broker', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'how-to-choose-broker.html'));
+});
+
+app.get('/regulated-brokers-latam', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'regulated-brokers-latam.html'));
+});
+
+app.get('/trading-platforms-latam', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'trading-platforms-latam.html'));
+});
+
+// Payment method pages
+app.get('/payment-methods-latam', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'payment-methods-latam.html'));
+});
+
+app.get('/brokers-spei', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'brokers-spei.html'));
+});
+
+app.get('/brokers-pse', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'brokers-pse.html'));
+});
+
+app.get('/brokers-cbu-alias', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'brokers-cbu-alias.html'));
+});
+
+app.get('/brokers-webpay', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'brokers-webpay.html'));
+});
+
+// Broker comparison pages
+app.get('/compare-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'broker-comparison.html'));
+});
+
+app.get('/libertex-vs-etoro', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'libertex-vs-etoro.html'));
+});
+
+app.get('/etoro-vs-xtb', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'etoro-vs-xtb.html'));
+});
+
+app.get('/interactive-brokers-vs-etoro', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'interactive-brokers-vs-etoro.html'));
+});
+
+app.get('/avatrade-vs-xtb', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'avatrade-vs-xtb.html'));
+});
+
+app.get('/cmc-markets-vs-plus500', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'cmc-markets-vs-plus500.html'));
+});
+
+app.get('/admirals-vs-ic-markets', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'admirals-vs-ic-markets.html'));
+});
+
+// Category-based topic pages
+app.get('/best-brokers-beginners', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-brokers-beginners.html'));
+});
+
+app.get('/best-brokers-advanced', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-brokers-advanced.html'));
+});
+
+app.get('/best-crypto-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-crypto-brokers.html'));
+});
+
+app.get('/best-day-trading-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-day-trading-brokers.html'));
+});
+
+app.get('/best-futures-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-futures-brokers.html'));
+});
+
+app.get('/best-low-fee-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-low-fee-brokers.html'));
+});
+
+app.get('/best-mobile-trading-apps', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-mobile-trading-apps.html'));
+});
+
+app.get('/best-no-minimum-deposit-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-no-minimum-deposit-brokers.html'));
+});
+
+app.get('/best-options-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-options-brokers.html'));
+});
+
+app.get('/best-scalping-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-scalping-brokers.html'));
+});
+
+app.get('/best-stock-trading-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-stock-trading-brokers.html'));
+});
+
+app.get('/best-swing-trading-brokers', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'best-swing-trading-brokers.html'));
+});
+
 // Serve blog page
 app.get('/blog', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'blog.html'));
@@ -197,7 +309,34 @@ app.get('/sitemap.xml', async (req, res) => {
       { url: '/cfd-trading', priority: '0.8', changefreq: 'weekly' },
       { url: '/commodities-trading', priority: '0.8', changefreq: 'weekly' },
       { url: '/education-training', priority: '0.8', changefreq: 'weekly' },
-      { url: '/broker-comparison', priority: '0.9', changefreq: 'weekly' }
+      { url: '/broker-comparison', priority: '0.9', changefreq: 'weekly' },
+      { url: '/how-to-choose-broker', priority: '0.9', changefreq: 'monthly' },
+      { url: '/regulated-brokers-latam', priority: '0.9', changefreq: 'monthly' },
+      { url: '/trading-platforms-latam', priority: '0.9', changefreq: 'monthly' },
+      { url: '/payment-methods-latam', priority: '0.9', changefreq: 'monthly' },
+      { url: '/brokers-spei', priority: '0.8', changefreq: 'monthly' },
+      { url: '/brokers-pse', priority: '0.8', changefreq: 'monthly' },
+      { url: '/brokers-cbu-alias', priority: '0.8', changefreq: 'monthly' },
+      { url: '/brokers-webpay', priority: '0.8', changefreq: 'monthly' },
+      { url: '/compare-brokers', priority: '0.9', changefreq: 'weekly' },
+      { url: '/libertex-vs-etoro', priority: '0.8', changefreq: 'monthly' },
+      { url: '/etoro-vs-xtb', priority: '0.8', changefreq: 'monthly' },
+      { url: '/interactive-brokers-vs-etoro', priority: '0.8', changefreq: 'monthly' },
+      { url: '/avatrade-vs-xtb', priority: '0.8', changefreq: 'monthly' },
+      { url: '/cmc-markets-vs-plus500', priority: '0.8', changefreq: 'monthly' },
+      { url: '/admirals-vs-ic-markets', priority: '0.8', changefreq: 'monthly' },
+      { url: '/best-brokers-beginners', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-brokers-advanced', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-crypto-brokers', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-day-trading-brokers', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-futures-brokers', priority: '0.8', changefreq: 'monthly' },
+      { url: '/best-low-fee-brokers', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-mobile-trading-apps', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-no-minimum-deposit-brokers', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-options-brokers', priority: '0.8', changefreq: 'monthly' },
+      { url: '/best-scalping-brokers', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-stock-trading-brokers', priority: '0.9', changefreq: 'monthly' },
+      { url: '/best-swing-trading-brokers', priority: '0.9', changefreq: 'monthly' }
     ];
     
     // Get all active brokers

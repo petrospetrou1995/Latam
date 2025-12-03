@@ -103,6 +103,19 @@
                     applyTranslations(lang);
                 } else {
                     console.error('Languages object still not available after timeout');
+                    // Try multiple times
+                    let attempts = 0;
+                    const maxAttempts = 10;
+                    const checkLanguages = setInterval(() => {
+                        attempts++;
+                        if (typeof languages !== 'undefined') {
+                            clearInterval(checkLanguages);
+                            applyTranslations(lang);
+                        } else if (attempts >= maxAttempts) {
+                            clearInterval(checkLanguages);
+                            console.error('Languages object not available after multiple attempts');
+                        }
+                    }, 100);
                 }
             }, 200);
             return;

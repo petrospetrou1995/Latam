@@ -138,6 +138,381 @@ const blogPostMap = {
         date: '10 Oct 2024',
         imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
         contentKey: 'blog.posts.taxes.content'
+    },
+    // New Educational Topics
+    'como-elegir-broker-forex': {
+        titleKey: 'blog.posts.chooseForexBroker.title',
+        descriptionKey: 'blog.posts.chooseForexBroker.description',
+        categoryKey: 'blog.categories.education',
+        date: '20 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.chooseForexBroker.content'
+    },
+    'como-elegir-broker-latam': {
+        titleKey: 'blog.posts.chooseBrokerLatam.title',
+        descriptionKey: 'blog.posts.chooseBrokerLatam.description',
+        categoryKey: 'blog.categories.education',
+        date: '18 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.chooseBrokerLatam.content'
+    },
+    'mejores-brokers-latinoamerica-guia': {
+        titleKey: 'blog.posts.bestBrokersLatam.title',
+        descriptionKey: 'blog.posts.bestBrokersLatam.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '15 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestBrokersLatam.content'
+    },
+    'trading-para-principiantes': {
+        titleKey: 'blog.posts.tradingBeginners.title',
+        descriptionKey: 'blog.posts.tradingBeginners.description',
+        categoryKey: 'blog.categories.education',
+        date: '12 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.tradingBeginners.content'
+    },
+    'comparacion-plataformas-trading': {
+        titleKey: 'blog.posts.platformComparison.title',
+        descriptionKey: 'blog.posts.platformComparison.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '10 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.platformComparison.content'
+    },
+    'forex-vs-acciones': {
+        titleKey: 'blog.posts.forexVsStocks.title',
+        descriptionKey: 'blog.posts.forexVsStocks.description',
+        categoryKey: 'blog.categories.education',
+        date: '8 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.forexVsStocks.content'
+    },
+    'elegir-broker-latinoamerica': {
+        titleKey: 'blog.posts.chooseBrokerLatin.title',
+        descriptionKey: 'blog.posts.chooseBrokerLatin.description',
+        categoryKey: 'blog.categories.education',
+        date: '5 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.chooseBrokerLatin.content'
+    },
+    // Regulation Topics
+    'brokers-regulados-latam': {
+        titleKey: 'blog.posts.regulatedBrokersLatam.title',
+        descriptionKey: 'blog.posts.regulatedBrokersLatam.description',
+        categoryKey: 'blog.categories.regulation',
+        date: '22 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.regulatedBrokersLatam.content'
+    },
+    'brokers-seguros-latinoamerica': {
+        titleKey: 'blog.posts.safeBrokersLatam.title',
+        descriptionKey: 'blog.posts.safeBrokersLatam.description',
+        categoryKey: 'blog.categories.regulation',
+        date: '20 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.safeBrokersLatam.content'
+    },
+    'brokers-regulados-fca-latam': {
+        titleKey: 'blog.posts.fcaBrokersLatam.title',
+        descriptionKey: 'blog.posts.fcaBrokersLatam.description',
+        categoryKey: 'blog.categories.regulation',
+        date: '18 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.fcaBrokersLatam.content'
+    },
+    'brokers-regulados-cysec-latam': {
+        titleKey: 'blog.posts.cysecBrokersLatam.title',
+        descriptionKey: 'blog.posts.cysecBrokersLatam.description',
+        categoryKey: 'blog.categories.regulation',
+        date: '15 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.cysecBrokersLatam.content'
+    },
+    'regulacion-brokers-latam': {
+        titleKey: 'blog.posts.brokerRegulationLatam.title',
+        descriptionKey: 'blog.posts.brokerRegulationLatam.description',
+        categoryKey: 'blog.categories.regulation',
+        date: '12 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.brokerRegulationLatam.content'
+    },
+    // Platform Topics
+    'brokers-metatrader-4': {
+        titleKey: 'blog.posts.mt4Brokers.title',
+        descriptionKey: 'blog.posts.mt4Brokers.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '25 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.mt4Brokers.content'
+    },
+    'brokers-metatrader-5': {
+        titleKey: 'blog.posts.mt5Brokers.title',
+        descriptionKey: 'blog.posts.mt5Brokers.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '23 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.mt5Brokers.content'
+    },
+    'brokers-mt4-latam': {
+        titleKey: 'blog.posts.mt4BrokersLatam.title',
+        descriptionKey: 'blog.posts.mt4BrokersLatam.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '20 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.mt4BrokersLatam.content'
+    },
+    'brokers-mt5-latam': {
+        titleKey: 'blog.posts.mt5BrokersLatam.title',
+        descriptionKey: 'blog.posts.mt5BrokersLatam.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '18 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.mt5BrokersLatam.content'
+    },
+    'plataformas-trading-latam': {
+        titleKey: 'blog.posts.tradingPlatformsLatam.title',
+        descriptionKey: 'blog.posts.tradingPlatformsLatam.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '15 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.tradingPlatformsLatam.content'
+    },
+    // Payment Method Topics
+    'brokers-spei': {
+        titleKey: 'blog.posts.brokersSpei.title',
+        descriptionKey: 'blog.posts.brokersSpei.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '28 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.brokersSpei.content'
+    },
+    'brokers-pse': {
+        titleKey: 'blog.posts.brokersPse.title',
+        descriptionKey: 'blog.posts.brokersPse.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '27 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.brokersPse.content'
+    },
+    'brokers-cbu-alias': {
+        titleKey: 'blog.posts.brokersCbuAlias.title',
+        descriptionKey: 'blog.posts.brokersCbuAlias.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '26 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.brokersCbuAlias.content'
+    },
+    'brokers-webpay': {
+        titleKey: 'blog.posts.brokersWebpay.title',
+        descriptionKey: 'blog.posts.brokersWebpay.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '25 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.brokersWebpay.content'
+    },
+    'metodos-pago-latam-brokers': {
+        titleKey: 'blog.posts.paymentMethodsLatamBrokers.title',
+        descriptionKey: 'blog.posts.paymentMethodsLatamBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '24 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.paymentMethodsLatamBrokers.content'
+    },
+    // Broker Comparison Topics
+    'comparar-brokers': {
+        titleKey: 'blog.posts.compareBrokers.title',
+        descriptionKey: 'blog.posts.compareBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '30 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.compareBrokers.content'
+    },
+    'comparacion-brokers': {
+        titleKey: 'blog.posts.brokerComparison.title',
+        descriptionKey: 'blog.posts.brokerComparison.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '29 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.brokerComparison.content'
+    },
+    'libertex-vs-etoro': {
+        titleKey: 'blog.posts.libertexVsEtoro.title',
+        descriptionKey: 'blog.posts.libertexVsEtoro.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '23 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.libertexVsEtoro.content'
+    },
+    'etoro-vs-xtb': {
+        titleKey: 'blog.posts.etoroVsXtb.title',
+        descriptionKey: 'blog.posts.etoroVsXtb.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '22 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.etoroVsXtb.content'
+    },
+    'interactive-brokers-vs-etoro': {
+        titleKey: 'blog.posts.interactiveBrokersVsEtoro.title',
+        descriptionKey: 'blog.posts.interactiveBrokersVsEtoro.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '21 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.interactiveBrokersVsEtoro.content'
+    },
+    'avatrade-vs-xtb': {
+        titleKey: 'blog.posts.avatradeVsXtb.title',
+        descriptionKey: 'blog.posts.avatradeVsXtb.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '20 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.avatradeVsXtb.content'
+    },
+    'cmc-markets-vs-plus500': {
+        titleKey: 'blog.posts.cmcMarketsVsPlus500.title',
+        descriptionKey: 'blog.posts.cmcMarketsVsPlus500.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '19 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.cmcMarketsVsPlus500.content'
+    },
+    'admirals-vs-ic-markets': {
+        titleKey: 'blog.posts.admiralsVsIcMarkets.title',
+        descriptionKey: 'blog.posts.admiralsVsIcMarkets.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '18 Dic 2024',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.admiralsVsIcMarkets.content'
+    },
+    // Category-based Topics
+    'mejores-brokers-principiantes': {
+        titleKey: 'blog.posts.bestBrokersBeginners.title',
+        descriptionKey: 'blog.posts.bestBrokersBeginners.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '2 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestBrokersBeginners.content'
+    },
+    'mejores-brokers-avanzados': {
+        titleKey: 'blog.posts.bestBrokersAdvanced.title',
+        descriptionKey: 'blog.posts.bestBrokersAdvanced.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '3 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestBrokersAdvanced.content'
+    },
+    'mejores-brokers-criptomonedas': {
+        titleKey: 'blog.posts.bestCryptoBrokers.title',
+        descriptionKey: 'blog.posts.bestCryptoBrokers.description',
+        categoryKey: 'blog.categories.crypto',
+        date: '4 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestCryptoBrokers.content'
+    },
+    'mejores-brokers-day-trading': {
+        titleKey: 'blog.posts.bestDayTradingBrokers.title',
+        descriptionKey: 'blog.posts.bestDayTradingBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '5 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestDayTradingBrokers.content'
+    },
+    'mejores-brokers-futuros': {
+        titleKey: 'blog.posts.bestFuturesBrokers.title',
+        descriptionKey: 'blog.posts.bestFuturesBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '6 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestFuturesBrokers.content'
+    },
+    'mejores-brokers-comisiones-bajas': {
+        titleKey: 'blog.posts.bestLowFeeBrokers.title',
+        descriptionKey: 'blog.posts.bestLowFeeBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '7 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestLowFeeBrokers.content'
+    },
+    'mejores-apps-trading-movil': {
+        titleKey: 'blog.posts.bestMobileTradingApps.title',
+        descriptionKey: 'blog.posts.bestMobileTradingApps.description',
+        categoryKey: 'blog.categories.platforms',
+        date: '8 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestMobileTradingApps.content'
+    },
+    'mejores-brokers-sin-deposito-minimo': {
+        titleKey: 'blog.posts.bestNoMinimumDepositBrokers.title',
+        descriptionKey: 'blog.posts.bestNoMinimumDepositBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '9 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestNoMinimumDepositBrokers.content'
+    },
+    'mejores-brokers-opciones': {
+        titleKey: 'blog.posts.bestOptionsBrokers.title',
+        descriptionKey: 'blog.posts.bestOptionsBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '10 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestOptionsBrokers.content'
+    },
+    'mejores-brokers-scalping': {
+        titleKey: 'blog.posts.bestScalpingBrokers.title',
+        descriptionKey: 'blog.posts.bestScalpingBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '11 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestScalpingBrokers.content'
+    },
+    'mejores-brokers-acciones': {
+        titleKey: 'blog.posts.bestStockTradingBrokers.title',
+        descriptionKey: 'blog.posts.bestStockTradingBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '12 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestStockTradingBrokers.content'
+    },
+    'mejores-brokers-swing-trading': {
+        titleKey: 'blog.posts.bestSwingTradingBrokers.title',
+        descriptionKey: 'blog.posts.bestSwingTradingBrokers.description',
+        categoryKey: 'blog.categories.brokers',
+        date: '13 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.bestSwingTradingBrokers.content'
+    },
+    // Niche Topics
+    'forex-brokers-latam': {
+        titleKey: 'blog.posts.forexBrokersLatam.title',
+        descriptionKey: 'blog.posts.forexBrokersLatam.description',
+        categoryKey: 'blog.categories.forex',
+        date: '14 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.forexBrokersLatam.content'
+    },
+    'cfd-brokers-latam': {
+        titleKey: 'blog.posts.cfdBrokersLatam.title',
+        descriptionKey: 'blog.posts.cfdBrokersLatam.description',
+        categoryKey: 'blog.categories.cfds',
+        date: '15 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.cfdBrokersLatam.content'
+    },
+    'crypto-brokers-latam': {
+        titleKey: 'blog.posts.cryptoBrokersLatam.title',
+        descriptionKey: 'blog.posts.cryptoBrokersLatam.description',
+        categoryKey: 'blog.categories.crypto',
+        date: '16 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.cryptoBrokersLatam.content'
+    },
+    'stock-brokers-latam': {
+        titleKey: 'blog.posts.stockBrokersLatam.title',
+        descriptionKey: 'blog.posts.stockBrokersLatam.description',
+        categoryKey: 'blog.categories.stocks',
+        date: '17 Ene 2025',
+        imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+        contentKey: 'blog.posts.stockBrokersLatam.content'
     }
 };
 
