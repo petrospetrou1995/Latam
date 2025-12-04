@@ -27,6 +27,13 @@ async function buildStatic() {
     fs.copyFileSync(redirectsFile, path.join(OUTPUT_DIR, '_redirects'));
     console.log('✅ Copied _redirects file for Cloudflare Pages\n');
   }
+  
+  // Copy _headers file for Cloudflare Pages (MIME types)
+  const headersFile = path.join(__dirname, '_headers');
+  if (fs.existsSync(headersFile)) {
+    fs.copyFileSync(headersFile, path.join(OUTPUT_DIR, '_headers'));
+    console.log('✅ Copied _headers file for Cloudflare Pages (MIME types)\n');
+  }
 
   // Copy all HTML files from views (excluding admin/login pages)
   console.log('📄 Copying HTML pages...');
