@@ -222,13 +222,7 @@
                     </button>
                 </div>
                 <div class="chatbot-messages" id="chatbotMessages">
-                    <!-- Language selection or welcome message will be added here -->
-                </div>
-                <div class="chatbot-input-container">
-                    <input type="text" id="chatbotInput" class="chatbot-input" placeholder="Escribe tu pregunta..." data-translate-placeholder="faqBot.placeholder" disabled>
-                    <button id="chatbotSend" class="chatbot-send" disabled>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
+                    <!-- Language selection or FAQ questions will be added here -->
                 </div>
             </div>
             <button id="chatbotToggle" class="chatbot-toggle">
