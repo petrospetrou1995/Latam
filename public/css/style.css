@@ -1730,6 +1730,7 @@ section {
         margin: 0;
         width: 100%;
         border-bottom: 1px solid #e9ecef;
+        flex-shrink: 0;
     }
 
     .nav-link {
