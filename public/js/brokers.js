@@ -451,20 +451,25 @@
             container.innerHTML = `
                 <div style="text-align: center; padding: 40px; color: #666;">
                     <i class="fas fa-balance-scale" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
-                    <h3>Selecciona brokers para comparar</h3>
-                    <p>Haz clic en "Comparar" en las tarjetas de brokers para agregarlos a la comparación.</p>
+                    <h3 data-translate="brokers.comparison.noBrokers">${getTranslation('brokers.comparison.noBrokers')}</h3>
+                    <p data-translate="brokers.comparison.selectBrokers">${getTranslation('brokers.comparison.selectBrokers')}</p>
                 </div>
             `;
+            // Apply translations
+            const currentLang = localStorage.getItem('language') || 'en';
+            if (typeof window.applyTranslations === 'function') {
+                window.applyTranslations(currentLang);
+            }
             return;
         }
         
         container.innerHTML = `
             <div class="comparison-container">
                 <div class="comparison-header">
-                    <h3>Comparación de Brokers</h3>
-                    <button class="btn btn-primary" id="openComparisonModalBtn">
+                    <h3 data-translate="brokers.comparison.title">${getTranslation('brokers.comparison.title') || 'Comparación de Brokers'}</h3>
+                    <button class="btn btn-primary" id="openComparisonModalBtn" data-translate="brokers.comparison.viewFull">
                         <i class="fas fa-expand"></i>
-                        Ver Comparación Completa
+                        <span data-translate="brokers.comparison.viewFull">${getTranslation('brokers.comparison.viewFull') || 'Ver Comparación Completa'}</span>
                     </button>
                 </div>
                 <div class="comparison-grid">
@@ -472,6 +477,12 @@
                 </div>
             </div>
         `;
+        
+        // Apply translations to newly created comparison cards
+        const currentLang = localStorage.getItem('language') || 'en';
+        if (typeof window.applyTranslations === 'function') {
+            window.applyTranslations(currentLang);
+        }
     }
     
     // Create comparison card
@@ -527,6 +538,11 @@
         
         if (modal && table) {
             table.innerHTML = createComparisonTable();
+            // Apply translations to comparison table
+            const currentLang = localStorage.getItem('language') || 'en';
+            if (typeof window.applyTranslations === 'function') {
+                window.applyTranslations(currentLang);
+            }
             modal.style.display = 'block';
         }
     }
@@ -548,14 +564,17 @@
             'languages', 'tradingPlatforms', 'accountTypes', 'regulations'
         ];
         
-        let table = '<table class="comparison-table"><thead><tr><th>Característica</th>';
+        let table = `<table class="comparison-table"><thead><tr><th data-translate="brokers.comparison.feature">${getTranslation('brokers.comparison.feature') || 'Característica'}</th>`;
         comparisonBrokers.forEach(broker => {
             table += `<th>${broker.name}</th>`;
         });
         table += '</tr></thead><tbody>';
         
         features.forEach(feature => {
-            table += `<tr><td>${getFeatureLabel(feature)}</td>`;
+            const label = getFeatureLabel(feature);
+            // Add data-translate attribute for feature labels
+            const translateKey = `brokers.${feature === 'totalReviews' ? 'reviews' : feature}`;
+            table += `<tr><td data-translate="${translateKey}">${label}</td>`;
             comparisonBrokers.forEach(broker => {
                 table += `<td>${getFeatureValue(broker, feature)}</td>`;
             });
