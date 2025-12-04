@@ -2486,8 +2486,8 @@ const languages = {
                 answer: 'Los brokers generalmente permiten retiros usando los mismos métodos de depósito. Procesos comunes incluyen transferencias bancarias, tarjetas, y métodos de pago electrónicos. Los tiempos de procesamiento varían (1-5 días hábiles típicamente). Verifica las políticas de retiro y posibles comisiones antes de depositar.'
             },
             faqBot: {
-                title: 'Asistente de Preguntas',
-                welcome: '¡Hola! Soy tu asistente de preguntas frecuentes. Selecciona una pregunta para ver la respuesta:',
+                title: 'Preguntas Frecuentes',
+                welcome: '¡Hola! Selecciona una pregunta para ver la respuesta:',
                 selectLanguage: 'Por favor, selecciona tu idioma preferido:',
                 languageSelected: 'Idioma configurado. Selecciona una pregunta:',
                 selectQuestion: 'Selecciona una pregunta:',
@@ -4903,8 +4903,8 @@ const languages = {
                 answer: 'Brokers generally allow withdrawals using the same deposit methods. Common processes include bank transfers, cards, and electronic payment methods. Processing times vary (typically 1-5 business days). Check withdrawal policies and possible fees before depositing.'
             },
             faqBot: {
-                title: 'FAQ Assistant',
-                welcome: 'Hello! I\'m your FAQ assistant. Select a question to see the answer:',
+                title: 'Frequently Asked Questions',
+                welcome: 'Hello! Select a question to see the answer:',
                 selectLanguage: 'Please select your preferred language:',
                 languageSelected: 'Language set. Select a question:',
                 selectQuestion: 'Select a question:',
