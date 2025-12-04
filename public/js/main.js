@@ -155,9 +155,15 @@ async function loadFeaturedBrokers() {
     try {
         // Try static data loader first, then fallback to JSON file
         if (window.loadBrokers) {
-            const data = await window.loadBrokers({ featured: true });
+            // Load ALL brokers (remove featured filter to show all)
+            const data = await window.loadBrokers();
             if (data.brokers && data.brokers.length > 0) {
-                displayBrokers(data.brokers.slice(0, 6), 'brokersGrid');
+                // Sort by rating and show all brokers
+                const sortedBrokers = data.brokers.sort((a, b) => {
+                    if (b.rating !== a.rating) return b.rating - a.rating;
+                    return (b.totalReviews || 0) - (a.totalReviews || 0);
+                });
+                displayBrokers(sortedBrokers, 'brokersGrid');
                 return;
             }
         }
@@ -206,13 +212,13 @@ async function loadFeaturedBrokers() {
             }
         }
         
-        const featuredBrokers = brokers.filter(b => b.isFeatured === true).slice(0, 6);
+        // Show ALL brokers, sorted by rating
+        const sortedBrokers = brokers.sort((a, b) => {
+            if (b.rating !== a.rating) return b.rating - a.rating;
+            return (b.totalReviews || 0) - (a.totalReviews || 0);
+        });
         
-        if (featuredBrokers.length > 0) {
-            displayBrokers(featuredBrokers, 'brokersGrid');
-        } else {
-            displayBrokers(brokers.slice(0, 6), 'brokersGrid');
-        }
+        displayBrokers(sortedBrokers, 'brokersGrid');
     } catch (error) {
         console.error('Error loading featured brokers:', error);
         displayBrokerPlaceholders();

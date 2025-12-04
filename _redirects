@@ -12,6 +12,17 @@
 /broker/* /broker/:splat.html 200
 /brokers /brokers.html 200
 
+# Specific broker redirects (ensure all broker slugs redirect correctly)
+/broker/libertex /broker/libertex.html 200
+/broker/xm-group /broker/xm-group.html 200
+/broker/xm /broker/xm-group.html 200
+/broker/etoro /broker/etoro.html 200
+/broker/plus500 /broker/plus500.html 200
+/broker/avatrade /broker/avatrade.html 200
+/broker/ig-markets /broker/ig-markets.html 200
+/broker/ig /broker/ig-markets.html 200
+/broker/interactive-brokers /broker/interactive-brokers.html 200
+
 # Category pages redirects
 /forex-trading /forex-trading.html 200
 /stocks-trading /stocks-trading.html 200
