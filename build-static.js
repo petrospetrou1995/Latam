@@ -261,7 +261,16 @@ function generateSitemap(brokers) {
 }
 
 function generateBrokerPages(brokers) {
-  const brokerDetailTemplate = fs.readFileSync(path.join(VIEWS_DIR, 'broker-detail.html'), 'utf8');
+  let brokerDetailTemplate = fs.readFileSync(path.join(VIEWS_DIR, 'broker-detail.html'), 'utf8');
+  
+  // Update script paths for static deployment (same as main HTML processing)
+  brokerDetailTemplate = brokerDetailTemplate.replace(/src="\/js\//g, 'src="/public/js/');
+  brokerDetailTemplate = brokerDetailTemplate.replace(/href="\/css\//g, 'href="/public/css/');
+  brokerDetailTemplate = brokerDetailTemplate.replace(/href="\/images\//g, 'href="/public/images/');
+  // Fix broker detail page links to use .html extension
+  brokerDetailTemplate = brokerDetailTemplate.replace(/href="\/broker\/([^"]+)"/g, 'href="/broker/$1.html"');
+  // Fix blog post links
+  brokerDetailTemplate = brokerDetailTemplate.replace(/href="\/blog\/([^"]+)"/g, 'href="/blog/$1.html"');
   
   for (const broker of brokers) {
     // Create broker directory
