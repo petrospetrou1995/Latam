@@ -356,6 +356,13 @@
             console.log('Broker _id:', currentBroker._id);
             console.log('Broker slug:', currentBroker.slug);
             
+            // Wait for window.loadReviews to be available
+            let waitAttempts = 0;
+            while (typeof window.loadReviews === 'undefined' && waitAttempts < 30) {
+                await new Promise(resolve => setTimeout(resolve, 100));
+                waitAttempts++;
+            }
+            
             // Use static data loader or JSON file
             let data;
             if (window.loadReviews) {
@@ -373,6 +380,50 @@
                 console.log('Reviews loaded:', data);
                 console.log('Number of reviews:', data.reviews?.length || 0);
             } else {
+                // Fallback: Load reviews directly from languages.js
+                console.log('⚠️ window.loadReviews not available, loading directly from languages.js');
+                if (typeof languages !== 'undefined' && languages.reviews) {
+                    const brokerSlug = currentBroker.slug || currentBroker._id;
+                    const brokerReviews = languages.reviews[brokerSlug] || [];
+                    console.log(`📝 Found ${brokerReviews.length} reviews directly from languages.js for ${brokerSlug}`);
+                    
+                    const currentLang = localStorage.getItem('language') || 'en';
+                    const lang = currentLang === 'es' ? 'es' : 'en';
+                    
+                    const translatedReviews = brokerReviews.map(review => ({
+                        _id: review.id,
+                        id: review.id,
+                        broker: { slug: brokerSlug, _id: brokerSlug },
+                        user: review.user,
+                        rating: review.rating,
+                        title: review.title[lang] || review.title.es || review.title.en,
+                        content: review.content[lang] || review.content.es || review.content.en,
+                        pros: review.pros[lang] || review.pros.es || review.pros.en,
+                        cons: review.cons[lang] || review.cons.es || review.cons.en,
+                        experience: review.experience,
+                        tradingDuration: review.tradingDuration,
+                        verified: review.verified,
+                        helpful: review.helpful || 0,
+                        notHelpful: review.notHelpful || 0,
+                        createdAt: review.createdAt || new Date().toISOString(),
+                        date: review.createdAt || new Date().toISOString(),
+                        isApproved: true
+                    }));
+                    
+                    data = {
+                        reviews: translatedReviews,
+                        total: translatedReviews.length,
+                        totalPages: 1,
+                        currentPage: 1
+                    };
+                    console.log(`✅ Loaded ${translatedReviews.length} reviews directly from languages.js`);
+                } else {
+                    console.error('❌ languages.reviews not available');
+                    data = { reviews: [], total: 0, totalPages: 1, currentPage: 1 };
+                }
+            }
+            
+            if (!data) {
                 // Fallback to direct JSON fetch with multiple path attempts
                 const paths = [
                     '/public/data/reviews.json',
