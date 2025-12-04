@@ -2878,9 +2878,18 @@ const languages = {
         
         // CFD page
         cfd: {
+            meta: {
+                title: 'CFD Trading en América Latina - Guía Completa 2024',
+                description: 'Aprende todo sobre trading de CFDs en América Latina. Contratos por diferencia, leverage, estrategias y brokers especializados en CFDs.'
+            },
             hero: {
                 title: 'CFD Trading en América Latina',
-                subtitle: 'Opera con Contratos por Diferencia (CFDs) en miles de instrumentos. Accede a mercados globales con leverage y sin comisiones.'
+                subtitle: 'Opera con Contratos por Diferencia (CFDs) en miles de instrumentos. Accede a mercados globales con leverage y sin comisiones.',
+                stats: {
+                    instruments: 'Instrumentos',
+                    maxLeverage: 'Leverage Máximo',
+                    tradingHours: 'Horario de Trading'
+                }
             },
             bestBrokers: {
                 title: 'Mejores Brokers de CFDs para Latinoamérica'
