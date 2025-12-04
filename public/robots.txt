@@ -27,3 +27,4 @@ Sitemap: https://latambrokerreviews.com/sitemap.xml
 Crawl-delay: 1
 
 
+

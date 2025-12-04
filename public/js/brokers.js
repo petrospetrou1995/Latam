@@ -26,6 +26,47 @@
         return featureName;
     }
     
+    // Translate category name
+    function translateCategory(category) {
+        if (!category) return '';
+        
+        if (typeof languages !== 'undefined') {
+            const currentLang = localStorage.getItem('language') || 'en';
+            const translations = languages[currentLang];
+            
+            // Try brokers.filters.categoryName first
+            if (translations && translations.brokers && translations.brokers.filters) {
+                const categoryMap = {
+                    'forex': translations.brokers.filters.forex || 'Forex',
+                    'stocks': translations.brokers.filters.stocks || 'Stocks',
+                    'crypto': translations.brokers.filters.crypto || 'Crypto',
+                    'cfd': translations.brokers.filters.cfds || 'CFDs',
+                    'commodities': translations.brokers.filters.commodities || 'Commodities'
+                };
+                if (categoryMap[category.toLowerCase()]) {
+                    return categoryMap[category.toLowerCase()];
+                }
+            }
+            
+            // Fallback to nav translations
+            if (translations && translations.nav) {
+                const navMap = {
+                    'forex': translations.nav.forex || 'Forex',
+                    'stocks': translations.nav.stocks || 'Stocks',
+                    'crypto': translations.nav.crypto || 'Crypto',
+                    'cfd': translations.nav.cfds || 'CFDs',
+                    'commodities': translations.nav.commodities || 'Commodities'
+                };
+                if (navMap[category.toLowerCase()]) {
+                    return navMap[category.toLowerCase()];
+                }
+            }
+        }
+        
+        // Final fallback: capitalize first letter
+        return category.charAt(0).toUpperCase() + category.slice(1);
+    }
+    
     let brokers = [];
     let filteredBrokers = [];
     let currentView = 'grid';
@@ -309,7 +350,7 @@
                         <span class="stat-label">${getTranslation('brokers.countries')}</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">${broker.category}</span>
+                        <span class="stat-value">${translateCategory(broker.category)}</span>
                         <span class="stat-label">${getTranslation('brokers.category')}</span>
                     </div>
                 </div>
@@ -452,7 +493,7 @@
                     </div>
                     <div class="stat-row">
                         <span class="stat-label">${getTranslation('brokers.category')}:</span>
-                        <span class="stat-value">${broker.category}</span>
+                        <span class="stat-value">${translateCategory(broker.category)}</span>
                     </div>
                 </div>
                 
@@ -534,6 +575,9 @@
     
     // Get feature value
     function getFeatureValue(broker, feature) {
+        if (feature === 'category') {
+            return translateCategory(broker.category);
+        }
         const value = broker[feature];
         if (Array.isArray(value)) {
             return value.join(', ');

@@ -137,6 +137,18 @@ async function buildStatic() {
     generateSitemap([]);
   }
 
+  // Generate blog post pages (always, regardless of database connection)
+  console.log('📝 Generating blog post pages...');
+  const blogPostSlugs = await generateBlogPostPages();
+  console.log('✅ Blog post pages generated\n');
+  
+  // Update sitemap with blog posts
+  if (blogPostSlugs && blogPostSlugs.length > 0) {
+    console.log('🗺️  Updating sitemap with blog posts...');
+    updateSitemapWithBlogPosts(blogPostSlugs);
+    console.log('✅ Sitemap updated\n');
+  }
+
   // Create index.html redirect (if needed)
   const indexPath = path.join(OUTPUT_DIR, 'index.html');
   if (!fs.existsSync(indexPath)) {
@@ -288,6 +300,90 @@ async function generateBrokerPages(brokers) {
     // The JavaScript will load broker data from JSON
     fs.writeFileSync(path.join(brokerDir, `${broker.slug}.html`), brokerDetailTemplate);
   }
+}
+
+async function generateBlogPostPages() {
+  const blogPostTemplate = fs.readFileSync(path.join(VIEWS_DIR, 'blog-post.html'), 'utf8');
+  
+  // Read languages.js to extract blog post slugs
+  const languagesPath = path.join(PUBLIC_DIR, 'js', 'languages.js');
+  if (!fs.existsSync(languagesPath)) {
+    console.log('⚠️  languages.js not found, skipping blog post generation');
+    return [];
+  }
+  
+  const languagesContent = fs.readFileSync(languagesPath, 'utf8');
+  
+  // Extract blog post slugs using regex
+  // Match pattern: 'slug-name': { ... slug: 'slug-name', ...
+  const blogPostRegex = /'([^']+)':\s*\{[\s\S]*?slug:\s*'([^']+)'/g;
+  const blogPostSlugs = [];
+  let match;
+  
+  while ((match = blogPostRegex.exec(languagesContent)) !== null) {
+    const slug = match[2] || match[1]; // Use slug property if available, otherwise use key
+    if (!blogPostSlugs.includes(slug)) {
+      blogPostSlugs.push(slug);
+    }
+  }
+  
+  if (blogPostSlugs.length === 0) {
+    console.log('⚠️  No blog posts found in languages.js');
+    return [];
+  }
+  
+  // Create blog directory
+  const blogDir = path.join(OUTPUT_DIR, 'blog');
+  if (!fs.existsSync(blogDir)) {
+    fs.mkdirSync(blogDir, { recursive: true });
+  }
+  
+  // Generate HTML file for each blog post
+  for (const slug of blogPostSlugs) {
+    let content = blogPostTemplate;
+    
+    // Update script paths for static deployment
+    content = content.replace(/src="\/js\//g, 'src="/public/js/');
+    content = content.replace(/href="\/css\//g, 'href="/public/css/');
+    content = content.replace(/href="\/images\//g, 'href="/public/images/');
+    
+    // Fix internal links to use .html extension
+    content = content.replace(/href="\/blog\/([^"]+)"/g, 'href="/blog/$1.html"');
+    content = content.replace(/href="\/broker\/([^"]+)"/g, 'href="/broker/$1.html"');
+    
+    // Write the blog post HTML file
+    fs.writeFileSync(path.join(blogDir, `${slug}.html`), content);
+    console.log(`  ✓ blog/${slug}.html`);
+  }
+  
+  console.log(`  Generated ${blogPostSlugs.length} blog post pages`);
+  return blogPostSlugs;
+}
+
+function updateSitemapWithBlogPosts(blogPostSlugs) {
+  const sitemapPath = path.join(OUTPUT_DIR, 'sitemap.xml');
+  if (!fs.existsSync(sitemapPath)) {
+    console.log('⚠️  Sitemap not found, skipping blog post update');
+    return;
+  }
+  
+  let sitemap = fs.readFileSync(sitemapPath, 'utf8');
+  const baseUrl = 'https://latambrokerreviews.com';
+  const currentDate = new Date().toISOString().split('T')[0];
+  
+  // Find the closing </urlset> tag and insert blog posts before it
+  const closingTag = '</urlset>';
+  const blogPostEntries = blogPostSlugs.map(slug => {
+    return `  <url>
+    <loc>${baseUrl}/blog/${slug}</loc>
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }).join('\n');
+  
+  sitemap = sitemap.replace(closingTag, blogPostEntries + '\n' + closingTag);
+  fs.writeFileSync(sitemapPath, sitemap);
 }
 
 // Run build

@@ -5509,6 +5509,81 @@ const languages = {
                 helpful: 14,
                 notHelpful: 2,
                 createdAt: '2023-08-15T15:00:00Z'
+            },
+            {
+                id: 'lib-9',
+                user: { name: 'Diego Martínez', country: 'Argentina' },
+                rating: 5,
+                title: { es: 'Plataforma excepcional para trading', en: 'Exceptional platform for trading' },
+                content: { es: 'Libertex ha superado todas mis expectativas. La plataforma es muy intuitiva, los spreads son excelentes y el soporte al cliente es de primera clase. He estado operando con ellos durante más de un año y nunca he tenido problemas.', en: 'Libertex has exceeded all my expectations. The platform is very intuitive, spreads are excellent and customer support is first class. I have been trading with them for over a year and never had any problems.' },
+                pros: { es: ['Plataforma intuitiva', 'Spreads excelentes', 'Soporte de primera'], en: ['Intuitive platform', 'Excellent spreads', 'First class support'] },
+                cons: { es: ['Algunas limitaciones en países específicos'], en: ['Some limitations in specific countries'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 18,
+                notHelpful: 1,
+                createdAt: '2023-09-05T10:15:00Z'
+            },
+            {
+                id: 'lib-10',
+                user: { name: 'Sofía Mendoza', country: 'Colombia' },
+                rating: 4,
+                title: { es: 'Muy buena opción para principiantes', en: 'Very good option for beginners' },
+                content: { es: 'Como principiante, Libertex me ha ayudado mucho a aprender sobre trading. La cuenta demo es perfecta para practicar y la plataforma es muy fácil de entender. El soporte siempre está disponible para ayudar.', en: 'As a beginner, Libertex has helped me a lot to learn about trading. The demo account is perfect for practicing and the platform is very easy to understand. Support is always available to help.' },
+                pros: { es: ['Ideal para principiantes', 'Cuenta demo excelente', 'Soporte disponible'], en: ['Ideal for beginners', 'Excellent demo account', 'Available support'] },
+                cons: { es: ['Herramientas avanzadas limitadas'], en: ['Limited advanced tools'] },
+                experience: 'beginner',
+                tradingDuration: 'less-than-1-year',
+                verified: true,
+                helpful: 11,
+                notHelpful: 2,
+                createdAt: '2023-10-12T14:30:00Z'
+            },
+            {
+                id: 'lib-11',
+                user: { name: 'Ricardo Alvarado', country: 'México' },
+                rating: 5,
+                title: { es: 'El mejor broker que he usado', en: 'The best broker I have used' },
+                content: { es: 'Después de probar varios brokers, Libertex es definitivamente el mejor. La ejecución es rápida, los spreads son competitivos y la plataforma móvil funciona perfectamente. Altamente recomendado.', en: 'After trying several brokers, Libertex is definitely the best. Execution is fast, spreads are competitive and the mobile platform works perfectly. Highly recommended.' },
+                pros: { es: ['Ejecución rápida', 'Spreads competitivos', 'App móvil perfecta'], en: ['Fast execution', 'Competitive spreads', 'Perfect mobile app'] },
+                cons: { es: ['Ninguna queja importante'], en: ['No major complaints'] },
+                experience: 'advanced',
+                tradingDuration: '3-5-years',
+                verified: true,
+                helpful: 25,
+                notHelpful: 0,
+                createdAt: '2023-11-20T09:45:00Z'
+            },
+            {
+                id: 'lib-12',
+                user: { name: 'Valentina Cruz', country: 'Chile' },
+                rating: 4,
+                title: { es: 'Buena experiencia general', en: 'Good overall experience' },
+                content: { es: 'Mi experiencia con Libertex ha sido muy positiva. La plataforma es estable, los depósitos son rápidos y el soporte responde rápido. Los spreads podrían ser un poco mejores, pero en general estoy satisfecha.', en: 'My experience with Libertex has been very positive. The platform is stable, deposits are fast and support responds quickly. Spreads could be a bit better, but overall I am satisfied.' },
+                pros: { es: ['Plataforma estable', 'Depósitos rápidos', 'Soporte rápido'], en: ['Stable platform', 'Fast deposits', 'Quick support'] },
+                cons: { es: ['Spreads podrían mejorar'], en: ['Spreads could improve'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 13,
+                notHelpful: 3,
+                createdAt: '2023-12-08T16:20:00Z'
+            },
+            {
+                id: 'lib-13',
+                user: { name: 'Gabriel Ortiz', country: 'Perú' },
+                rating: 5,
+                title: { es: 'Excelente para trading de CFDs', en: 'Excellent for CFD trading' },
+                content: { es: 'Uso Libertex principalmente para trading de CFDs y la experiencia es excelente. La ejecución es rápida, los spreads son competitivos y la plataforma es muy intuitiva. El soporte siempre está disponible cuando lo necesito.', en: 'I use Libertex mainly for CFD trading and the experience is excellent. Execution is fast, spreads are competitive and the platform is very intuitive. Support is always available when I need it.' },
+                pros: { es: ['Excelente para CFDs', 'Ejecución rápida', 'Soporte disponible'], en: ['Excellent for CFDs', 'Fast execution', 'Available support'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 16,
+                notHelpful: 2,
+                createdAt: '2024-01-10T11:00:00Z'
             }
         ],
         
@@ -5633,6 +5708,81 @@ const languages = {
                 helpful: 35,
                 notHelpful: 1,
                 createdAt: '2023-08-20T12:00:00Z'
+            },
+            {
+                id: 'xm-9',
+                user: { name: 'Lucía Fernández', country: 'España' },
+                rating: 5,
+                title: { es: 'Broker confiable con excelente educación', en: 'Reliable broker with excellent education' },
+                content: { es: 'XM Group es un broker muy confiable. La educación que ofrecen es excelente y me ha ayudado mucho. Los spreads son competitivos y la plataforma funciona perfectamente. Recomendado para todos los niveles.', en: 'XM Group is a very reliable broker. The education they offer is excellent and has helped me a lot. Spreads are competitive and the platform works perfectly. Recommended for all levels.' },
+                pros: { es: ['Educación excelente', 'Spreads competitivos', 'Plataforma estable'], en: ['Excellent education', 'Competitive spreads', 'Stable platform'] },
+                cons: { es: ['Algunas restricciones geográficas'], en: ['Some geographic restrictions'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 19,
+                notHelpful: 2,
+                createdAt: '2023-09-25T10:00:00Z'
+            },
+            {
+                id: 'xm-10',
+                user: { name: 'Miguel Ángel Ruiz', country: 'México' },
+                rating: 4,
+                title: { es: 'Muy buena experiencia de trading', en: 'Very good trading experience' },
+                content: { es: 'Mi experiencia con XM ha sido muy positiva. La plataforma es fácil de usar, los spreads son razonables y el soporte al cliente responde rápido. Los webinars educativos son muy útiles.', en: 'My experience with XM has been very positive. The platform is easy to use, spreads are reasonable and customer support responds quickly. Educational webinars are very useful.' },
+                pros: { es: ['Fácil de usar', 'Spreads razonables', 'Webinars útiles'], en: ['Easy to use', 'Reasonable spreads', 'Useful webinars'] },
+                cons: { es: ['No disponible en todos los países'], en: ['Not available in all countries'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 15,
+                notHelpful: 3,
+                createdAt: '2023-10-18T14:20:00Z'
+            },
+            {
+                id: 'xm-11',
+                user: { name: 'Isabella Torres', country: 'Colombia' },
+                rating: 5,
+                title: { es: 'Excelente para traders principiantes', en: 'Excellent for beginner traders' },
+                content: { es: 'Como principiante, XM ha sido perfecto para mí. La cuenta demo es excelente para aprender, la educación es muy completa y el soporte siempre está disponible. Los spreads son competitivos.', en: 'As a beginner, XM has been perfect for me. The demo account is excellent for learning, education is very complete and support is always available. Spreads are competitive.' },
+                pros: { es: ['Ideal para principiantes', 'Educación completa', 'Soporte disponible'], en: ['Ideal for beginners', 'Complete education', 'Available support'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'beginner',
+                tradingDuration: 'less-than-1-year',
+                verified: true,
+                helpful: 12,
+                notHelpful: 1,
+                createdAt: '2023-11-12T09:30:00Z'
+            },
+            {
+                id: 'xm-12',
+                user: { name: 'Javier Hernández', country: 'Argentina' },
+                rating: 5,
+                title: { es: 'El mejor broker que he probado', en: 'The best broker I have tried' },
+                content: { es: 'Después de probar varios brokers, XM es definitivamente el mejor. Los spreads son excelentes, la ejecución es rápida y la plataforma es muy profesional. El soporte al cliente es de primera clase.', en: 'After trying several brokers, XM is definitely the best. Spreads are excellent, execution is fast and the platform is very professional. Customer support is first class.' },
+                pros: { es: ['Spreads excelentes', 'Ejecución rápida', 'Soporte de primera'], en: ['Excellent spreads', 'Fast execution', 'First class support'] },
+                cons: { es: ['Ninguna queja importante'], en: ['No major complaints'] },
+                experience: 'advanced',
+                tradingDuration: 'more-than-5-years',
+                verified: true,
+                helpful: 28,
+                notHelpful: 1,
+                createdAt: '2023-12-05T16:45:00Z'
+            },
+            {
+                id: 'xm-13',
+                user: { name: 'Mariana López', country: 'Chile' },
+                rating: 4,
+                title: { es: 'Broker sólido con buenos recursos educativos', en: 'Solid broker with good educational resources' },
+                content: { es: 'XM es un broker sólido con excelentes recursos educativos. Los webinars son muy informativos y me han ayudado a mejorar mi trading. La plataforma es estable y los spreads son competitivos.', en: 'XM is a solid broker with excellent educational resources. The webinars are very informative and have helped me improve my trading. The platform is stable and spreads are competitive.' },
+                pros: { es: ['Recursos educativos excelentes', 'Plataforma estable', 'Spreads competitivos'], en: ['Excellent educational resources', 'Stable platform', 'Competitive spreads'] },
+                cons: { es: ['Algunas restricciones geográficas'], en: ['Some geographic restrictions'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 17,
+                notHelpful: 2,
+                createdAt: '2024-01-15T11:20:00Z'
             }
         ],
         
@@ -5757,6 +5907,81 @@ const languages = {
                 helpful: 21,
                 notHelpful: 3,
                 createdAt: '2023-08-28T15:00:00Z'
+            },
+            {
+                id: 'eto-9',
+                user: { name: 'Alejandro Vargas', country: 'México' },
+                rating: 5,
+                title: { es: 'Excelente plataforma de trading social', en: 'Excellent social trading platform' },
+                content: { es: 'eToro es la mejor plataforma de trading social que he usado. La función de copiar traders es genial y me ha ayudado a aprender mucho. La plataforma es intuitiva y el soporte es bueno.', en: 'eToro is the best social trading platform I have used. The copy trading feature is great and has helped me learn a lot. The platform is intuitive and support is good.' },
+                pros: { es: ['Trading social excelente', 'Función de copiar', 'Plataforma intuitiva'], en: ['Excellent social trading', 'Copy feature', 'Intuitive platform'] },
+                cons: { es: ['Comisiones pueden ser altas'], en: ['Commissions can be high'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 20,
+                notHelpful: 2,
+                createdAt: '2023-09-30T13:15:00Z'
+            },
+            {
+                id: 'eto-10',
+                user: { name: 'Camila Rojas', country: 'Colombia' },
+                rating: 4,
+                title: { es: 'Muy buena para principiantes', en: 'Very good for beginners' },
+                content: { es: 'Como principiante, eToro ha sido perfecto para mí. La función de copiar traders me permite aprender mientras gano. La plataforma es fácil de usar y el soporte responde rápido.', en: 'As a beginner, eToro has been perfect for me. The copy trading feature allows me to learn while earning. The platform is easy to use and support responds quickly.' },
+                pros: { es: ['Ideal para principiantes', 'Copiar traders', 'Fácil de usar'], en: ['Ideal for beginners', 'Copy traders', 'Easy to use'] },
+                cons: { es: ['Comisiones pueden ser altas'], en: ['Commissions can be high'] },
+                experience: 'beginner',
+                tradingDuration: 'less-than-1-year',
+                verified: true,
+                helpful: 14,
+                notHelpful: 3,
+                createdAt: '2023-10-25T10:45:00Z'
+            },
+            {
+                id: 'eto-11',
+                user: { name: 'Daniel Castro', country: 'Argentina' },
+                rating: 5,
+                title: { es: 'La mejor plataforma social de trading', en: 'The best social trading platform' },
+                content: { es: 'eToro es sin duda la mejor plataforma de trading social. La comunidad es activa, la función de copiar es excelente y la plataforma funciona perfectamente. Recomendado para todos los niveles.', en: 'eToro is definitely the best social trading platform. The community is active, the copy feature is excellent and the platform works perfectly. Recommended for all levels.' },
+                pros: { es: ['Comunidad activa', 'Copiar excelente', 'Plataforma perfecta'], en: ['Active community', 'Excellent copy', 'Perfect platform'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 22,
+                notHelpful: 1,
+                createdAt: '2023-11-18T15:30:00Z'
+            },
+            {
+                id: 'eto-12',
+                user: { name: 'Elena Morales', country: 'Chile' },
+                rating: 4,
+                title: { es: 'Buena plataforma con trading social', en: 'Good platform with social trading' },
+                content: { es: 'Mi experiencia con eToro ha sido positiva. La función de copiar traders es muy útil y me ha permitido aprender mucho. La plataforma es estable y el soporte es bueno.', en: 'My experience with eToro has been positive. The copy trading feature is very useful and has allowed me to learn a lot. The platform is stable and support is good.' },
+                pros: { es: ['Copiar útil', 'Plataforma estable', 'Buen soporte'], en: ['Useful copy', 'Stable platform', 'Good support'] },
+                cons: { es: ['Comisiones pueden ser altas'], en: ['Commissions can be high'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 16,
+                notHelpful: 2,
+                createdAt: '2023-12-12T12:00:00Z'
+            },
+            {
+                id: 'eto-13',
+                user: { name: 'Fernando Silva', country: 'Perú' },
+                rating: 5,
+                title: { es: 'Excelente para aprender trading', en: 'Excellent for learning trading' },
+                content: { es: 'eToro es excelente para aprender trading. La función de copiar traders es perfecta para principiantes y la comunidad es muy activa. La plataforma es intuitiva y fácil de usar.', en: 'eToro is excellent for learning trading. The copy trading feature is perfect for beginners and the community is very active. The platform is intuitive and easy to use.' },
+                pros: { es: ['Ideal para aprender', 'Comunidad activa', 'Fácil de usar'], en: ['Ideal for learning', 'Active community', 'Easy to use'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'beginner',
+                tradingDuration: 'less-than-1-year',
+                verified: true,
+                helpful: 13,
+                notHelpful: 1,
+                createdAt: '2024-01-20T09:15:00Z'
             }
         ],
         
@@ -5881,6 +6106,81 @@ const languages = {
                 helpful: 20,
                 notHelpful: 2,
                 createdAt: '2023-09-05T12:00:00Z'
+            },
+            {
+                id: 'plu-9',
+                user: { name: 'Gabriela Mendoza', country: 'México' },
+                rating: 4,
+                title: { es: 'Buena plataforma para CFDs', en: 'Good platform for CFDs' },
+                content: { es: 'Plus500 es una buena plataforma para trading de CFDs. La plataforma es intuitiva, los spreads son competitivos y la ejecución es rápida. El soporte al cliente es bueno.', en: 'Plus500 is a good platform for CFD trading. The platform is intuitive, spreads are competitive and execution is fast. Customer support is good.' },
+                pros: { es: ['Buena para CFDs', 'Spreads competitivos', 'Ejecución rápida'], en: ['Good for CFDs', 'Competitive spreads', 'Fast execution'] },
+                cons: { es: ['Limitado en algunos países'], en: ['Limited in some countries'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 15,
+                notHelpful: 2,
+                createdAt: '2023-10-08T14:20:00Z'
+            },
+            {
+                id: 'plu-10',
+                user: { name: 'Héctor Ramírez', country: 'Colombia' },
+                rating: 5,
+                title: { es: 'Excelente broker para principiantes', en: 'Excellent broker for beginners' },
+                content: { es: 'Como principiante, Plus500 ha sido perfecto para mí. La plataforma es muy fácil de usar, no hay comisiones ocultas y el soporte siempre está disponible. Los spreads son razonables.', en: 'As a beginner, Plus500 has been perfect for me. The platform is very easy to use, there are no hidden fees and support is always available. Spreads are reasonable.' },
+                pros: { es: ['Fácil de usar', 'Sin comisiones ocultas', 'Soporte disponible'], en: ['Easy to use', 'No hidden fees', 'Available support'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'beginner',
+                tradingDuration: 'less-than-1-year',
+                verified: true,
+                helpful: 12,
+                notHelpful: 1,
+                createdAt: '2023-11-15T11:30:00Z'
+            },
+            {
+                id: 'plu-11',
+                user: { name: 'Irene Sánchez', country: 'Argentina' },
+                rating: 4,
+                title: { es: 'Plataforma estable y confiable', en: 'Stable and reliable platform' },
+                content: { es: 'Mi experiencia con Plus500 ha sido positiva. La plataforma es estable, los spreads son competitivos y la ejecución es rápida. El soporte al cliente responde rápido.', en: 'My experience with Plus500 has been positive. The platform is stable, spreads are competitive and execution is fast. Customer support responds quickly.' },
+                pros: { es: ['Plataforma estable', 'Spreads competitivos', 'Soporte rápido'], en: ['Stable platform', 'Competitive spreads', 'Quick support'] },
+                cons: { es: ['Limitado en algunos países'], en: ['Limited in some countries'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 18,
+                notHelpful: 3,
+                createdAt: '2023-12-20T16:00:00Z'
+            },
+            {
+                id: 'plu-12',
+                user: { name: 'Jorge Torres', country: 'Chile' },
+                rating: 5,
+                title: { es: 'El mejor broker para CFDs', en: 'The best broker for CFDs' },
+                content: { es: 'Plus500 es el mejor broker para trading de CFDs que he usado. La plataforma es excelente, los spreads son muy competitivos y la ejecución es rápida. Recomendado para todos los niveles.', en: 'Plus500 is the best broker for CFD trading I have used. The platform is excellent, spreads are very competitive and execution is fast. Recommended for all levels.' },
+                pros: { es: ['Excelente para CFDs', 'Spreads competitivos', 'Ejecución rápida'], en: ['Excellent for CFDs', 'Competitive spreads', 'Fast execution'] },
+                cons: { es: ['Ninguna queja importante'], en: ['No major complaints'] },
+                experience: 'advanced',
+                tradingDuration: '3-5-years',
+                verified: true,
+                helpful: 24,
+                notHelpful: 1,
+                createdAt: '2024-01-05T10:15:00Z'
+            },
+            {
+                id: 'plu-13',
+                user: { name: 'Karina Vega', country: 'Perú' },
+                rating: 4,
+                title: { es: 'Buena opción para trading móvil', en: 'Good option for mobile trading' },
+                content: { es: 'Plus500 tiene una excelente aplicación móvil. Puedo operar desde cualquier lugar y la plataforma funciona perfectamente. Los spreads son razonables y el soporte es bueno.', en: 'Plus500 has an excellent mobile app. I can trade from anywhere and the platform works perfectly. Spreads are reasonable and support is good.' },
+                pros: { es: ['App móvil excelente', 'Operar desde cualquier lugar', 'Spreads razonables'], en: ['Excellent mobile app', 'Trade from anywhere', 'Reasonable spreads'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 16,
+                notHelpful: 2,
+                createdAt: '2024-01-25T13:45:00Z'
             }
         ],
         
@@ -6005,6 +6305,81 @@ const languages = {
                 helpful: 14,
                 notHelpful: 5,
                 createdAt: '2023-09-10T12:00:00Z'
+            },
+            {
+                id: 'ava-9',
+                user: { name: 'Luis Fernando', country: 'México' },
+                rating: 5,
+                title: { es: 'Excelente broker con MT4 y MT5', en: 'Excellent broker with MT4 and MT5' },
+                content: { es: 'AvaTrade es excelente porque ofrece tanto MT4 como MT5. La plataforma es estable, los spreads son competitivos y el soporte al cliente es profesional. Recomendado para traders serios.', en: 'AvaTrade is excellent because it offers both MT4 and MT5. The platform is stable, spreads are competitive and customer support is professional. Recommended for serious traders.' },
+                pros: { es: ['MT4 y MT5', 'Plataforma estable', 'Soporte profesional'], en: ['MT4 and MT5', 'Stable platform', 'Professional support'] },
+                cons: { es: ['Depósito mínimo puede ser alto'], en: ['Minimum deposit can be high'] },
+                experience: 'advanced',
+                tradingDuration: '3-5-years',
+                verified: true,
+                helpful: 21,
+                notHelpful: 2,
+                createdAt: '2023-10-15T09:30:00Z'
+            },
+            {
+                id: 'ava-10',
+                user: { name: 'María José', country: 'Colombia' },
+                rating: 4,
+                title: { es: 'Muy buena plataforma educativa', en: 'Very good educational platform' },
+                content: { es: 'AvaTrade tiene excelentes recursos educativos. Los webinars son muy informativos y me han ayudado a mejorar mi trading. La plataforma es fácil de usar y el soporte es bueno.', en: 'AvaTrade has excellent educational resources. The webinars are very informative and have helped me improve my trading. The platform is easy to use and support is good.' },
+                pros: { es: ['Recursos educativos excelentes', 'Webinars informativos', 'Fácil de usar'], en: ['Excellent educational resources', 'Informative webinars', 'Easy to use'] },
+                cons: { es: ['Depósito mínimo puede ser alto'], en: ['Minimum deposit can be high'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 17,
+                notHelpful: 3,
+                createdAt: '2023-11-22T14:10:00Z'
+            },
+            {
+                id: 'ava-11',
+                user: { name: 'Nicolás Pérez', country: 'Argentina' },
+                rating: 5,
+                title: { es: 'Broker profesional con excelente servicio', en: 'Professional broker with excellent service' },
+                content: { es: 'He estado con AvaTrade por más de 3 años y la experiencia ha sido excelente. Los spreads son competitivos, la ejecución es rápida y el soporte al cliente es de primera clase. Los bonos son un plus.', en: 'I have been with AvaTrade for more than 3 years and the experience has been excellent. Spreads are competitive, execution is fast and customer support is first class. Bonuses are a plus.' },
+                pros: { es: ['Spreads competitivos', 'Ejecución rápida', 'Soporte de primera'], en: ['Competitive spreads', 'Fast execution', 'First class support'] },
+                cons: { es: ['Depósito mínimo puede ser alto'], en: ['Minimum deposit can be high'] },
+                experience: 'advanced',
+                tradingDuration: '3-5-years',
+                verified: true,
+                helpful: 26,
+                notHelpful: 1,
+                createdAt: '2023-12-28T11:20:00Z'
+            },
+            {
+                id: 'ava-12',
+                user: { name: 'Olga Rodríguez', country: 'Chile' },
+                rating: 4,
+                title: { es: 'Buena opción para traders intermedios', en: 'Good option for intermediate traders' },
+                content: { es: 'AvaTrade es una buena opción para traders de nivel intermedio. La plataforma es estable, los spreads son razonables y el soporte es bueno. Los recursos educativos son útiles.', en: 'AvaTrade is a good option for intermediate level traders. The platform is stable, spreads are reasonable and support is good. Educational resources are useful.' },
+                pros: { es: ['Ideal para intermedios', 'Plataforma estable', 'Recursos útiles'], en: ['Ideal for intermediate', 'Stable platform', 'Useful resources'] },
+                cons: { es: ['Depósito mínimo puede ser alto'], en: ['Minimum deposit can be high'] },
+                experience: 'intermediate',
+                tradingDuration: '1-3-years',
+                verified: true,
+                helpful: 15,
+                notHelpful: 2,
+                createdAt: '2024-01-18T15:00:00Z'
+            },
+            {
+                id: 'ava-13',
+                user: { name: 'Pablo González', country: 'Perú' },
+                rating: 5,
+                title: { es: 'Excelente broker con regulación múltiple', en: 'Excellent broker with multiple regulation' },
+                content: { es: 'AvaTrade es un excelente broker con regulación en múltiples jurisdicciones. Esto me da mucha confianza. La plataforma es profesional, los spreads son competitivos y el soporte es excelente.', en: 'AvaTrade is an excellent broker with regulation in multiple jurisdictions. This gives me a lot of confidence. The platform is professional, spreads are competitive and support is excellent.' },
+                pros: { es: ['Regulación múltiple', 'Plataforma profesional', 'Soporte excelente'], en: ['Multiple regulation', 'Professional platform', 'Excellent support'] },
+                cons: { es: ['Algunas limitaciones menores'], en: ['Some minor limitations'] },
+                experience: 'advanced',
+                tradingDuration: 'more-than-5-years',
+                verified: true,
+                helpful: 23,
+                notHelpful: 1,
+                createdAt: '2024-02-01T10:30:00Z'
             }
         ],
         
@@ -6129,8 +6504,1245 @@ const languages = {
                 helpful: 34,
                 notHelpful: 1,
                 createdAt: '2023-10-01T12:00:00Z'
+            },
+            {
+                id: 'ig-9',
+                user: { name: 'Quique Martínez', country: 'México' },
+                rating: 5,
+                title: { es: 'El broker más completo del mercado', en: 'The most complete broker in the market' },
+                content: { es: 'IG Markets es el broker más completo que he visto. Tienen más de 17,000 instrumentos, spreads muy competitivos y una plataforma profesional. La educación es excelente y el soporte es de primera clase.', en: 'IG Markets is the most complete broker I have seen. They have more than 17,000 instruments, very competitive spreads and a professional platform. Education is excellent and support is first class.' },
+                pros: { es: ['Más de 17,000 instrumentos', 'Spreads competitivos', 'Educación excelente'], en: ['More than 17,000 instruments', 'Competitive spreads', 'Excellent education'] },
+                cons: { es: ['Depósito mínimo alto'], en: ['High minimum deposit'] },
+                experience: 'advanced',
+                tradingDuration: 'more-than-5-years',
+                verified: true,
+                helpful: 29,
+                notHelpful: 1,
+                createdAt: '2023-10-20T13:15:00Z'
+            },
+            {
+                id: 'ig-10',
+                user: { name: 'Rosa María', country: 'Colombia' },
+                rating: 4,
+                title: { es: 'Broker premium con excelentes recursos', en: 'Premium broker with excellent resources' },
+                content: { es: 'IG Markets es un broker premium con excelentes recursos educativos. Los webinars son muy informativos y la plataforma es muy profesional. Los spreads son competitivos y el soporte es bueno.', en: 'IG Markets is a premium broker with excellent educational resources. The webinars are very informative and the platform is very professional. Spreads are competitive and support is good.' },
+                pros: { es: ['Recursos educativos excelentes', 'Plataforma profesional', 'Spreads competitivos'], en: ['Excellent educational resources', 'Professional platform', 'Competitive spreads'] },
+                cons: { es: ['Depósito mínimo alto'], en: ['High minimum deposit'] },
+                experience: 'advanced',
+                tradingDuration: '3-5-years',
+                verified: true,
+                helpful: 20,
+                notHelpful: 2,
+                createdAt: '2023-11-25T10:45:00Z'
+            },
+            {
+                id: 'ig-11',
+                user: { name: 'Sergio López', country: 'Argentina' },
+                rating: 5,
+                title: { es: 'Perfecto para traders profesionales', en: 'Perfect for professional traders' },
+                content: { es: 'IG Markets es perfecto para traders profesionales. Tienen más de 17,000 instrumentos, spreads muy competitivos y una plataforma profesional. La educación es excelente y el soporte es de primera clase.', en: 'IG Markets is perfect for professional traders. They have more than 17,000 instruments, very competitive spreads and a professional platform. Education is excellent and support is first class.' },
+                pros: { es: ['Ideal para profesionales', 'Más de 17,000 instrumentos', 'Soporte de primera'], en: ['Ideal for professionals', 'More than 17,000 instruments', 'First class support'] },
+                cons: { es: ['Depósito mínimo alto'], en: ['High minimum deposit'] },
+                experience: 'advanced',
+                tradingDuration: 'more-than-5-years',
+                verified: true,
+                helpful: 27,
+                notHelpful: 1,
+                createdAt: '2023-12-15T14:30:00Z'
+            },
+            {
+                id: 'ig-12',
+                user: { name: 'Teresa Fernández', country: 'Chile' },
+                rating: 4,
+                title: { es: 'Broker sólido con muchas opciones', en: 'Solid broker with many options' },
+                content: { es: 'IG Markets es un broker sólido con muchas opciones de trading. La plataforma es profesional, los spreads son competitivos y el soporte es bueno. Sin embargo, puede ser complejo para principiantes.', en: 'IG Markets is a solid broker with many trading options. The platform is professional, spreads are competitive and support is good. However, it can be complex for beginners.' },
+                pros: { es: ['Muchas opciones', 'Plataforma profesional', 'Spreads competitivos'], en: ['Many options', 'Professional platform', 'Competitive spreads'] },
+                cons: { es: ['Complejo para principiantes', 'Depósito mínimo alto'], en: ['Complex for beginners', 'High minimum deposit'] },
+                experience: 'advanced',
+                tradingDuration: '3-5-years',
+                verified: true,
+                helpful: 19,
+                notHelpful: 3,
+                createdAt: '2024-01-08T12:00:00Z'
+            },
+            {
+                id: 'ig-13',
+                user: { name: 'Ulises Torres', country: 'Perú' },
+                rating: 5,
+                title: { es: 'El mejor broker premium disponible', en: 'The best premium broker available' },
+                content: { es: 'IG Markets es el mejor broker premium disponible. Tienen más de 17,000 instrumentos, spreads muy competitivos y una plataforma profesional. La educación es excelente y el soporte es de primera clase. Altamente recomendado.', en: 'IG Markets is the best premium broker available. They have more than 17,000 instruments, very competitive spreads and a professional platform. Education is excellent and support is first class. Highly recommended.' },
+                pros: { es: ['Mejor broker premium', 'Más de 17,000 instrumentos', 'Soporte de primera'], en: ['Best premium broker', 'More than 17,000 instruments', 'First class support'] },
+                cons: { es: ['Depósito mínimo alto'], en: ['High minimum deposit'] },
+                experience: 'advanced',
+                tradingDuration: 'more-than-5-years',
+                verified: true,
+                helpful: 31,
+                notHelpful: 0,
+                createdAt: '2024-02-10T09:20:00Z'
             }
         ]
+    },
+    
+    // Hardcoded Blog Posts - Similar to reviews structure
+    blogPosts: {
+        'guia-forex-principiantes': {
+            slug: 'guia-forex-principiantes',
+            date: '15 Dic 2024',
+            imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+            category: 'forex',
+            translated: {
+                es: {
+                    title: 'Guía Completa de Forex Trading para Principiantes',
+                    description: 'Aprende los fundamentos del trading de divisas, desde conceptos básicos hasta estrategias avanzadas para traders latinoamericanos.',
+                    category: 'Forex',
+                    content: {
+                        introduction: {
+                            title: 'Introducción al Mercado Forex',
+                            paragraphs: [
+                                'El mercado de divisas, conocido como Forex (Foreign Exchange), es el mercado financiero más grande del mundo, con un volumen diario de transacciones que supera los 6 billones de dólares. Para traders latinoamericanos, Forex ofrece oportunidades únicas de inversión y trading las 24 horas del día.',
+                                'Esta guía completa te llevará desde los conceptos básicos hasta estrategias avanzadas, ayudándote a entender cómo funciona el mercado Forex y cómo puedes comenzar a operar de manera efectiva.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. ¿Qué es el Mercado Forex?',
+                                paragraphs: [
+                                    'Forex es el mercado donde se compran y venden divisas. A diferencia de otros mercados financieros, Forex opera las 24 horas del día, cinco días a la semana, permitiendo a los traders de todo el mundo participar en cualquier momento.',
+                                    'El mercado Forex es descentralizado, lo que significa que no hay una ubicación física central. En su lugar, opera a través de una red global de bancos, instituciones financieras y brokers.'
+                                ],
+                                list: [
+                                    'Mercado más líquido del mundo: Facilita entradas y salidas rápidas',
+                                    'Horario extendido: Opera 24/5, ideal para traders de diferentes zonas horarias',
+                                    'Apalancamiento disponible: Permite operar con más capital del que tienes',
+                                    'Accesible: Puedes comenzar con capital relativamente bajo'
+                                ]
+                            },
+                            {
+                                title: '2. Conceptos Básicos de Forex',
+                                paragraphs: [
+                                    'Antes de comenzar a operar, es esencial entender los conceptos fundamentales del mercado Forex.'
+                                ],
+                                list: [
+                                    'Par de divisas: Siempre operas con pares (ej: EUR/USD, USD/MXN)',
+                                    'Spread: Diferencia entre precio de compra y venta',
+                                    'Pip: Unidad de medida para cambios de precio (0.0001 para la mayoría de pares)',
+                                    'Lote: Tamaño estándar de una operación (100,000 unidades)',
+                                    'Apalancamiento: Capacidad de operar con más capital del que tienes',
+                                    'Margin: Capital requerido para abrir una posición apalancada'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusión',
+                            paragraphs: [
+                                'El mercado Forex ofrece oportunidades emocionantes para traders latinoamericanos, pero requiere educación, práctica y disciplina. Comienza con una cuenta demo, aprende los conceptos básicos, desarrolla una estrategia sólida y siempre gestiona tu riesgo adecuadamente.',
+                                'Recuerda que el éxito en Forex no se logra de la noche a la mañana. La paciencia, la educación continua y la disciplina son las claves para convertirse en un trader exitoso.'
+                            ]
+                        }
+                    }
+                },
+                en: {
+                    title: 'Complete Forex Trading Guide for Beginners',
+                    description: 'Learn the fundamentals of currency trading, from basic concepts to advanced strategies for Latin American traders.',
+                    category: 'Forex',
+                    content: {
+                        introduction: {
+                            title: 'Introduction to the Forex Market',
+                            paragraphs: [
+                                'The foreign exchange market, known as Forex, is the world\'s largest financial market, with a daily trading volume exceeding $6 trillion. For Latin American traders, Forex offers unique investment and trading opportunities 24 hours a day.',
+                                'This complete guide will take you from basic concepts to advanced strategies, helping you understand how the Forex market works and how you can start trading effectively.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. What is the Forex Market?',
+                                paragraphs: [
+                                    'Forex is the market where currencies are bought and sold. Unlike other financial markets, Forex operates 24 hours a day, five days a week, allowing traders from around the world to participate at any time.',
+                                    'The Forex market is decentralized, meaning there is no central physical location. Instead, it operates through a global network of banks, financial institutions, and brokers.'
+                                ],
+                                list: [
+                                    'World\'s most liquid market: Facilitates quick entries and exits',
+                                    'Extended hours: Operates 24/5, ideal for traders from different time zones',
+                                    'Leverage available: Allows trading with more capital than you have',
+                                    'Accessible: You can start with relatively low capital'
+                                ]
+                            },
+                            {
+                                title: '2. Basic Forex Concepts',
+                                paragraphs: [
+                                    'Before you start trading, it\'s essential to understand the fundamental concepts of the Forex market.'
+                                ],
+                                list: [
+                                    'Currency pair: You always trade in pairs (e.g., EUR/USD, USD/MXN)',
+                                    'Spread: Difference between buy and sell price',
+                                    'Pip: Unit of measurement for price changes (0.0001 for most pairs)',
+                                    'Lot: Standard size of a trade (100,000 units)',
+                                    'Leverage: Ability to trade with more capital than you have',
+                                    'Margin: Capital required to open a leveraged position'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusion',
+                            paragraphs: [
+                                'The Forex market offers exciting opportunities for Latin American traders, but requires education, practice, and discipline. Start with a demo account, learn the basics, develop a solid strategy, and always manage your risk properly.',
+                                'Remember that success in Forex is not achieved overnight. Patience, continuous education, and discipline are the keys to becoming a successful trader.'
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        'futuro-criptomonedas-latam': {
+            slug: 'futuro-criptomonedas-latam',
+            date: '10 Dic 2024',
+            imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop',
+            category: 'crypto',
+            translated: {
+                es: {
+                    title: 'El Futuro de las Criptomonedas en Latinoamérica',
+                    description: 'Análisis de las tendencias regulatorias y oportunidades de inversión en criptomonedas para traders latinoamericanos.',
+                    category: 'Crypto',
+                    content: {
+                        introduction: {
+                            title: 'El Futuro de las Criptomonedas en Latinoamérica',
+                            paragraphs: [
+                                'Las criptomonedas están transformando el panorama financiero en Latinoamérica, ofreciendo nuevas oportunidades de inversión y acceso a servicios financieros para millones de personas.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Estado Actual de las Criptomonedas',
+                                paragraphs: [
+                                    'Latinoamérica se ha convertido en una de las regiones con mayor adopción de criptomonedas a nivel mundial.'
+                                ],
+                                list: [
+                                    'El Salvador: Primer país en adoptar Bitcoin como moneda de curso legal',
+                                    'Argentina: Alto uso de criptomonedas como protección contra la inflación',
+                                    'Brasil: Regulación clara y creciente adopción institucional'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusión',
+                            paragraphs: [
+                                'Las criptomonedas ofrecen oportunidades significativas para traders latinoamericanos, pero es importante entender los riesgos y regulaciones locales.'
+                            ]
+                        }
+                    }
+                },
+                en: {
+                    title: 'The Future of Cryptocurrencies in Latin America',
+                    description: 'Analysis of regulatory trends and investment opportunities in cryptocurrencies for Latin American traders.',
+                    category: 'Crypto',
+                    content: {
+                        introduction: {
+                            title: 'The Future of Cryptocurrencies in Latin America',
+                            paragraphs: [
+                                'Cryptocurrencies are transforming the financial landscape in Latin America, offering new investment opportunities and access to financial services for millions of people.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Current State of Cryptocurrencies',
+                                paragraphs: [
+                                    'Latin America has become one of the regions with the highest cryptocurrency adoption worldwide.'
+                                ],
+                                list: [
+                                    'El Salvador: First country to adopt Bitcoin as legal tender',
+                                    'Argentina: High use of cryptocurrencies as protection against inflation',
+                                    'Brazil: Clear regulation and growing institutional adoption'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusion',
+                            paragraphs: [
+                                'Cryptocurrencies offer significant opportunities for Latin American traders, but it\'s important to understand local risks and regulations.'
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        'mejores-brokers-forex-latam': {
+            slug: 'mejores-brokers-forex-latam',
+            date: '18 Ene 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+            category: 'forex',
+            translated: {
+                es: {
+                    title: 'Mejores Brokers de Forex para Latinoamérica 2025',
+                    description: 'Descubre los mejores brokers de Forex disponibles para traders latinoamericanos con spreads competitivos y métodos de pago locales.',
+                    category: 'Forex',
+                    content: {
+                        introduction: {
+                            title: 'Mejores Brokers de Forex para Latinoamérica',
+                            paragraphs: [
+                                'El trading de Forex es una de las formas más populares de inversión en Latinoamérica. Con la creciente adopción de brokers internacionales, los traders latinoamericanos ahora tienen acceso a plataformas de clase mundial con spreads competitivos y métodos de pago locales.',
+                                'En este artículo, analizamos los mejores brokers de Forex disponibles para traders latinoamericanos, considerando factores como regulación, spreads, métodos de pago locales y soporte en español.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Factores Clave para Elegir un Broker de Forex',
+                                paragraphs: [
+                                    'Al elegir un broker de Forex en Latinoamérica, es importante considerar varios factores clave que afectarán tu experiencia de trading.'
+                                ],
+                                list: [
+                                    'Regulación: Busca brokers regulados por autoridades reconocidas como FCA, CySEC o ASIC',
+                                    'Spreads competitivos: Compara los spreads en los pares de divisas que más operas',
+                                    'Métodos de pago locales: Verifica que acepten métodos como SPEI, PSE, CBU/ALIAS o Webpay',
+                                    'Soporte en español: Asegúrate de que el broker ofrezca soporte al cliente en español',
+                                    'Plataformas disponibles: Considera si prefieres MT4, MT5 o plataformas propias',
+                                    'Depósito mínimo: Verifica el depósito mínimo requerido para abrir una cuenta'
+                                ]
+                            },
+                            {
+                                title: '2. Top Brokers de Forex para Latinoamérica',
+                                paragraphs: [
+                                    'A continuación, presentamos los mejores brokers de Forex disponibles para traders latinoamericanos.'
+                                ],
+                                list: [
+                                    'Libertex: Excelente para principiantes con spreads competitivos y soporte en español',
+                                    'XM Group: Más de 1000 instrumentos con educación gratuita y bonos de bienvenida',
+                                    'AvaTrade: Regulación múltiple con MT4 y MT5 disponibles',
+                                    'IG Markets: Broker premium con más de 17,000 instrumentos',
+                                    'eToro: Ideal para trading social y copiar estrategias de otros traders'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusión',
+                            paragraphs: [
+                                'Elegir el broker de Forex correcto es fundamental para tu éxito en trading. Considera factores como regulación, spreads, métodos de pago locales y soporte en español al tomar tu decisión.',
+                                'Recuerda siempre operar con brokers regulados y comenzar con una cuenta demo para familiarizarte con la plataforma antes de operar con dinero real.'
+                            ]
+                        }
+                    }
+                },
+                en: {
+                    title: 'Best Forex Brokers for Latin America 2025',
+                    description: 'Discover the best Forex brokers available for Latin American traders with competitive spreads and local payment methods.',
+                    category: 'Forex',
+                    content: {
+                        introduction: {
+                            title: 'Best Forex Brokers for Latin America',
+                            paragraphs: [
+                                'Forex trading is one of the most popular forms of investment in Latin America. With the growing adoption of international brokers, Latin American traders now have access to world-class platforms with competitive spreads and local payment methods.',
+                                'In this article, we analyze the best Forex brokers available for Latin American traders, considering factors such as regulation, spreads, local payment methods, and Spanish support.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Key Factors for Choosing a Forex Broker',
+                                paragraphs: [
+                                    'When choosing a Forex broker in Latin America, it\'s important to consider several key factors that will affect your trading experience.'
+                                ],
+                                list: [
+                                    'Regulation: Look for brokers regulated by recognized authorities such as FCA, CySEC or ASIC',
+                                    'Competitive spreads: Compare spreads on the currency pairs you trade most',
+                                    'Local payment methods: Verify they accept methods like SPEI, PSE, CBU/ALIAS or Webpay',
+                                    'Spanish support: Make sure the broker offers customer support in Spanish',
+                                    'Available platforms: Consider if you prefer MT4, MT5 or proprietary platforms',
+                                    'Minimum deposit: Check the minimum deposit required to open an account'
+                                ]
+                            },
+                            {
+                                title: '2. Top Forex Brokers for Latin America',
+                                paragraphs: [
+                                    'Below, we present the best Forex brokers available for Latin American traders.'
+                                ],
+                                list: [
+                                    'Libertex: Excellent for beginners with competitive spreads and Spanish support',
+                                    'XM Group: More than 1000 instruments with free education and welcome bonuses',
+                                    'AvaTrade: Multiple regulation with MT4 and MT5 available',
+                                    'IG Markets: Premium broker with more than 17,000 instruments',
+                                    'eToro: Ideal for social trading and copying strategies from other traders'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusion',
+                            paragraphs: [
+                                'Choosing the right Forex broker is fundamental to your trading success. Consider factors such as regulation, spreads, local payment methods, and Spanish support when making your decision.',
+                                'Always remember to trade with regulated brokers and start with a demo account to familiarize yourself with the platform before trading with real money.'
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        'como-empezar-trading-forex': {
+            slug: 'como-empezar-trading-forex',
+            date: '20 Ene 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Cómo Empezar en el Trading de Forex - Guía Completa',
+                    description: 'Guía paso a paso para principiantes que quieren comenzar en el trading de Forex desde cero.',
+                    category: 'Educación',
+                    content: {
+                        introduction: {
+                            title: 'Cómo Empezar en el Trading de Forex',
+                            paragraphs: [
+                                'El trading de Forex puede ser una actividad emocionante y potencialmente rentable, pero requiere educación, práctica y disciplina. Si eres nuevo en el mundo del trading, esta guía te ayudará a dar tus primeros pasos de manera segura y efectiva.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Aprende los Conceptos Básicos',
+                                paragraphs: [
+                                    'Antes de comenzar a operar, es esencial entender los conceptos fundamentales del mercado Forex.'
+                                ],
+                                list: [
+                                    'Qué es Forex: El mercado de divisas donde se compran y venden monedas',
+                                    'Pares de divisas: Siempre operas con pares como EUR/USD o USD/MXN',
+                                    'Spread: La diferencia entre el precio de compra y venta',
+                                    'Pip: La unidad de medida para cambios de precio',
+                                    'Apalancamiento: Permite operar con más capital del que tienes'
+                                ]
+                            },
+                            {
+                                title: '2. Abre una Cuenta Demo',
+                                paragraphs: [
+                                    'La mejor manera de aprender es practicando sin riesgo. Abre una cuenta demo con un broker confiable y practica durante al menos 2-3 meses antes de operar con dinero real.'
+                                ],
+                                list: [
+                                    'Practica con dinero virtual',
+                                    'Aprende a usar la plataforma',
+                                    'Desarrolla y prueba estrategias',
+                                    'Entiende cómo funcionan las órdenes',
+                                    'Aprende a gestionar el riesgo'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusión',
+                            paragraphs: [
+                                'Empezar en Forex requiere paciencia y educación. Comienza con una cuenta demo, aprende los conceptos básicos y desarrolla una estrategia sólida antes de operar con dinero real.',
+                                'Recuerda que el éxito en Forex no se logra de la noche a la mañana. La disciplina, la educación continua y la gestión de riesgo son las claves del éxito.'
+                            ]
+                        }
+                    }
+                },
+                en: {
+                    title: 'How to Start Forex Trading - Complete Guide',
+                    description: 'Step-by-step guide for beginners who want to start Forex trading from scratch.',
+                    category: 'Education',
+                    content: {
+                        introduction: {
+                            title: 'How to Start Forex Trading',
+                            paragraphs: [
+                                'Forex trading can be an exciting and potentially profitable activity, but requires education, practice, and discipline. If you\'re new to the world of trading, this guide will help you take your first steps safely and effectively.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Learn the Basics',
+                                paragraphs: [
+                                    'Before you start trading, it\'s essential to understand the fundamental concepts of the Forex market.'
+                                ],
+                                list: [
+                                    'What is Forex: The currency market where currencies are bought and sold',
+                                    'Currency pairs: You always trade in pairs like EUR/USD or USD/MXN',
+                                    'Spread: The difference between buy and sell price',
+                                    'Pip: The unit of measurement for price changes',
+                                    'Leverage: Allows trading with more capital than you have'
+                                ]
+                            },
+                            {
+                                title: '2. Open a Demo Account',
+                                paragraphs: [
+                                    'The best way to learn is by practicing without risk. Open a demo account with a reliable broker and practice for at least 2-3 months before trading with real money.'
+                                ],
+                                list: [
+                                    'Practice with virtual money',
+                                    'Learn to use the platform',
+                                    'Develop and test strategies',
+                                    'Understand how orders work',
+                                    'Learn to manage risk'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusion',
+                            paragraphs: [
+                                'Starting in Forex requires patience and education. Start with a demo account, learn the basics, and develop a solid strategy before trading with real money.',
+                                'Remember that success in Forex is not achieved overnight. Discipline, continuous education, and risk management are the keys to success.'
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        'estrategias-scalping-forex': {
+            slug: 'estrategias-scalping-forex',
+            date: '22 Ene 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'analysis',
+            translated: {
+                es: {
+                    title: 'Estrategias de Scalping en Forex - Guía Completa',
+                    description: 'Aprende las mejores estrategias de scalping para operar en el mercado Forex con entradas y salidas rápidas.',
+                    category: 'Análisis',
+                    content: {
+                        introduction: {
+                            title: 'Estrategias de Scalping en Forex',
+                            paragraphs: [
+                                'El scalping es una estrategia de trading de muy corto plazo que busca obtener pequeñas ganancias frecuentes. Es una técnica avanzada que requiere disciplina, rapidez y un broker con spreads bajos.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. ¿Qué es el Scalping?',
+                                paragraphs: [
+                                    'El scalping consiste en abrir y cerrar posiciones en minutos o incluso segundos, buscando obtener pequeñas ganancias de 5-20 pips por operación.'
+                                ],
+                                list: [
+                                    'Operaciones muy cortas: De segundos a minutos',
+                                    'Muchas operaciones: Puedes hacer decenas de operaciones al día',
+                                    'Ganancias pequeñas: Buscas 5-20 pips por operación',
+                                    'Requiere spreads bajos: Necesitas un broker con spreads muy competitivos',
+                                    'Alta frecuencia: Muchas operaciones en poco tiempo'
+                                ]
+                            },
+                            {
+                                title: '2. Mejores Brokers para Scalping',
+                                paragraphs: [
+                                    'Para scalping necesitas un broker con spreads muy bajos y ejecución rápida.'
+                                ],
+                                list: [
+                                    'IC Markets: Spreads desde 0.0 pips',
+                                    'XM Group: Spreads competitivos y ejecución rápida',
+                                    'AvaTrade: Buena ejecución con MT4/MT5',
+                                    'IG Markets: Spreads bajos para operaciones frecuentes'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusión',
+                            paragraphs: [
+                                'El scalping puede ser rentable pero requiere mucha práctica y disciplina. Asegúrate de usar un broker con spreads bajos y ejecución rápida.',
+                                'Practica primero en cuenta demo antes de intentar scalping con dinero real.'
+                            ]
+                        }
+                    }
+                },
+                en: {
+                    title: 'Forex Scalping Strategies - Complete Guide',
+                    description: 'Learn the best scalping strategies to trade in the Forex market with quick entries and exits.',
+                    category: 'Analysis',
+                    content: {
+                        introduction: {
+                            title: 'Forex Scalping Strategies',
+                            paragraphs: [
+                                'Scalping is a very short-term trading strategy that seeks to obtain frequent small profits. It is an advanced technique that requires discipline, speed, and a broker with low spreads.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. What is Scalping?',
+                                paragraphs: [
+                                    'Scalping involves opening and closing positions in minutes or even seconds, seeking to obtain small profits of 5-20 pips per trade.'
+                                ],
+                                list: [
+                                    'Very short trades: From seconds to minutes',
+                                    'Many trades: You can make dozens of trades per day',
+                                    'Small profits: You seek 5-20 pips per trade',
+                                    'Requires low spreads: You need a broker with very competitive spreads',
+                                    'High frequency: Many trades in a short time'
+                                ]
+                            },
+                            {
+                                title: '2. Best Brokers for Scalping',
+                                paragraphs: [
+                                    'For scalping you need a broker with very low spreads and fast execution.'
+                                ],
+                                list: [
+                                    'IC Markets: Spreads from 0.0 pips',
+                                    'XM Group: Competitive spreads and fast execution',
+                                    'AvaTrade: Good execution with MT4/MT5',
+                                    'IG Markets: Low spreads for frequent trades'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusion',
+                            paragraphs: [
+                                'Scalping can be profitable but requires a lot of practice and discipline. Make sure to use a broker with low spreads and fast execution.',
+                                'Practice first on a demo account before attempting scalping with real money.'
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        'analisis-tecnico-forex': {
+            slug: 'analisis-tecnico-forex',
+            date: '25 Ene 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'analysis',
+            translated: {
+                es: {
+                    title: 'Análisis Técnico en Forex - Indicadores y Estrategias',
+                    description: 'Aprende a usar el análisis técnico en Forex con los mejores indicadores y estrategias para traders latinoamericanos.',
+                    category: 'Análisis',
+                    content: {
+                        introduction: {
+                            title: 'Análisis Técnico en Forex',
+                            paragraphs: [
+                                'El análisis técnico es una herramienta fundamental para los traders de Forex. Permite analizar los movimientos de precios históricos para predecir futuros movimientos del mercado.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Indicadores Técnicos Principales',
+                                paragraphs: [
+                                    'Los indicadores técnicos ayudan a identificar tendencias, momentum y niveles de soporte y resistencia.'
+                                ],
+                                list: [
+                                    'RSI (Relative Strength Index): Identifica condiciones de sobrecompra y sobreventa',
+                                    'MACD: Muestra cambios en la fuerza, dirección y momentum de una tendencia',
+                                    'Bollinger Bands: Identifica volatilidad y niveles de soporte/resistencia',
+                                    'Moving Averages: Identifican tendencias y niveles de entrada/salida',
+                                    'Fibonacci Retracements: Identifican niveles de soporte y resistencia'
+                                ]
+                            },
+                            {
+                                title: '2. Estrategias de Análisis Técnico',
+                                paragraphs: [
+                                    'Combina diferentes indicadores para crear estrategias efectivas.'
+                                ],
+                                list: [
+                                    'Trading de tendencia: Usa moving averages para identificar tendencias',
+                                    'Trading de rango: Usa Bollinger Bands para identificar rangos',
+                                    'Breakout trading: Identifica rupturas de niveles clave',
+                                    'Momentum trading: Usa RSI y MACD para identificar momentum'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusión',
+                            paragraphs: [
+                                'El análisis técnico es esencial para el éxito en Forex. Aprende a usar los indicadores principales y desarrolla estrategias que funcionen para ti.',
+                                'Practica en cuenta demo antes de aplicar análisis técnico con dinero real.'
+                            ]
+                        }
+                    }
+                },
+                en: {
+                    title: 'Technical Analysis in Forex - Indicators and Strategies',
+                    description: 'Learn to use technical analysis in Forex with the best indicators and strategies for Latin American traders.',
+                    category: 'Analysis',
+                    content: {
+                        introduction: {
+                            title: 'Technical Analysis in Forex',
+                            paragraphs: [
+                                'Technical analysis is a fundamental tool for Forex traders. It allows analyzing historical price movements to predict future market movements.'
+                            ]
+                        },
+                        sections: [
+                            {
+                                title: '1. Main Technical Indicators',
+                                paragraphs: [
+                                    'Technical indicators help identify trends, momentum, and support and resistance levels.'
+                                ],
+                                list: [
+                                    'RSI (Relative Strength Index): Identifies overbought and oversold conditions',
+                                    'MACD: Shows changes in the strength, direction and momentum of a trend',
+                                    'Bollinger Bands: Identifies volatility and support/resistance levels',
+                                    'Moving Averages: Identify trends and entry/exit levels',
+                                    'Fibonacci Retracements: Identify support and resistance levels'
+                                ]
+                            },
+                            {
+                                title: '2. Technical Analysis Strategies',
+                                paragraphs: [
+                                    'Combine different indicators to create effective strategies.'
+                                ],
+                                list: [
+                                    'Trend trading: Use moving averages to identify trends',
+                                    'Range trading: Use Bollinger Bands to identify ranges',
+                                    'Breakout trading: Identify breakouts of key levels',
+                                    'Momentum trading: Use RSI and MACD to identify momentum'
+                                ]
+                            }
+                        ],
+                        conclusion: {
+                            title: 'Conclusion',
+                            paragraphs: [
+                                'Technical analysis is essential for success in Forex. Learn to use the main indicators and develop strategies that work for you.',
+                                'Practice on a demo account before applying technical analysis with real money.'
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        'gestion-riesgo-forex': {
+            slug: 'gestion-riesgo-forex',
+            date: '28 Ene 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Gestión de Riesgo en Forex - Guía Completa',
+                    description: 'Aprende a gestionar el riesgo en Forex para proteger tu capital y maximizar tus ganancias a largo plazo.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Gestión de Riesgo en Forex', paragraphs: ['La gestión de riesgo es fundamental para el éxito en Forex. Aprende a proteger tu capital mientras maximizas tus ganancias.'] },
+                        sections: [{ title: '1. Regla del 1-2%', paragraphs: ['Nunca arriesgues más del 1-2% de tu capital por operación.'], list: ['Calcula el tamaño de posición correcto', 'Usa stop loss en todas las operaciones', 'Mantén un diario de trading'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['La gestión de riesgo adecuada es la clave del éxito a largo plazo en Forex.'] }
+                    }
+                },
+                en: {
+                    title: 'Risk Management in Forex - Complete Guide',
+                    description: 'Learn to manage risk in Forex to protect your capital and maximize your long-term profits.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Risk Management in Forex', paragraphs: ['Risk management is fundamental for success in Forex. Learn to protect your capital while maximizing your profits.'] },
+                        sections: [{ title: '1. The 1-2% Rule', paragraphs: ['Never risk more than 1-2% of your capital per trade.'], list: ['Calculate the correct position size', 'Use stop loss on all trades', 'Keep a trading journal'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Proper risk management is the key to long-term success in Forex.'] }
+                    }
+                }
+            }
+        },
+        'mejores-pares-divisas-operar': {
+            slug: 'mejores-pares-divisas-operar',
+            date: '30 Ene 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+            category: 'forex',
+            translated: {
+                es: {
+                    title: 'Mejores Pares de Divisas para Operar en Latinoamérica',
+                    description: 'Descubre los mejores pares de divisas para traders latinoamericanos, incluyendo USD/MXN, USD/BRL y más.',
+                    category: 'Forex',
+                    content: {
+                        introduction: { title: 'Mejores Pares de Divisas', paragraphs: ['Para traders latinoamericanos, algunos pares de divisas son más relevantes que otros.'] },
+                        sections: [{ title: '1. Pares Principales', paragraphs: ['Los pares principales como EUR/USD, GBP/USD son los más líquidos.'], list: ['EUR/USD: Más líquido del mundo', 'GBP/USD: Alta volatilidad', 'USD/JPY: Popular en Asia'] }, { title: '2. Pares Exóticos para LATAM', paragraphs: ['Pares como USD/MXN, USD/BRL son importantes para traders latinoamericanos.'], list: ['USD/MXN: Popular en México', 'USD/BRL: Importante en Brasil', 'USD/ARS: Relevante en Argentina'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Elige pares que conozcas bien y que tengan buena liquidez.'] }
+                    }
+                },
+                en: {
+                    title: 'Best Currency Pairs to Trade in Latin America',
+                    description: 'Discover the best currency pairs for Latin American traders, including USD/MXN, USD/BRL and more.',
+                    category: 'Forex',
+                    content: {
+                        introduction: { title: 'Best Currency Pairs', paragraphs: ['For Latin American traders, some currency pairs are more relevant than others.'] },
+                        sections: [{ title: '1. Major Pairs', paragraphs: ['Major pairs like EUR/USD, GBP/USD are the most liquid.'], list: ['EUR/USD: Most liquid in the world', 'GBP/USD: High volatility', 'USD/JPY: Popular in Asia'] }, { title: '2. Exotic Pairs for LATAM', paragraphs: ['Pairs like USD/MXN, USD/BRL are important for Latin American traders.'], list: ['USD/MXN: Popular in Mexico', 'USD/BRL: Important in Brazil', 'USD/ARS: Relevant in Argentina'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Choose pairs you know well and that have good liquidity.'] }
+                    }
+                }
+            }
+        },
+        'bonos-brokers-forex': {
+            slug: 'bonos-brokers-forex',
+            date: '1 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'brokers',
+            translated: {
+                es: {
+                    title: 'Bonos de Brokers de Forex - Todo lo que Necesitas Saber',
+                    description: 'Guía completa sobre bonos de brokers de Forex: tipos, condiciones y cómo aprovecharlos correctamente.',
+                    category: 'Brokers',
+                    content: {
+                        introduction: { title: 'Bonos de Brokers', paragraphs: ['Los bonos pueden ser útiles pero es importante entender las condiciones.'] },
+                        sections: [{ title: '1. Tipos de Bonos', paragraphs: ['Existen diferentes tipos de bonos disponibles.'], list: ['Bono de bienvenida', 'Bono de depósito', 'Bono sin depósito', 'Bono de recarga'] }, { title: '2. Condiciones Importantes', paragraphs: ['Lee siempre los términos y condiciones.'], list: ['Requisitos de volumen', 'Tiempo límite', 'Restricciones de retiro'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Los bonos pueden ser útiles pero no deben ser el factor principal al elegir un broker.'] }
+                    }
+                },
+                en: {
+                    title: 'Forex Broker Bonuses - Everything You Need to Know',
+                    description: 'Complete guide on Forex broker bonuses: types, conditions and how to take advantage of them correctly.',
+                    category: 'Brokers',
+                    content: {
+                        introduction: { title: 'Broker Bonuses', paragraphs: ['Bonuses can be useful but it\'s important to understand the conditions.'] },
+                        sections: [{ title: '1. Types of Bonuses', paragraphs: ['There are different types of bonuses available.'], list: ['Welcome bonus', 'Deposit bonus', 'No deposit bonus', 'Reload bonus'] }, { title: '2. Important Conditions', paragraphs: ['Always read the terms and conditions.'], list: ['Volume requirements', 'Time limit', 'Withdrawal restrictions'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Bonuses can be useful but should not be the main factor when choosing a broker.'] }
+                    }
+                }
+            }
+        },
+        'cuenta-demo-vs-real': {
+            slug: 'cuenta-demo-vs-real',
+            date: '3 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Cuenta Demo vs Cuenta Real - Diferencias y Cuándo Cambiar',
+                    description: 'Aprende las diferencias entre cuenta demo y real, y cuándo es el momento adecuado para hacer la transición.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Cuenta Demo vs Real', paragraphs: ['Entender las diferencias es crucial antes de operar con dinero real.'] },
+                        sections: [{ title: '1. Diferencias Clave', paragraphs: ['Las cuentas demo y real tienen diferencias importantes.'], list: ['Dinero virtual vs real', 'Condiciones de mercado pueden variar', 'Presión psicológica diferente'] }, { title: '2. Cuándo Cambiar', paragraphs: ['Cambia cuando estés listo.'], list: ['Has practicado al menos 2-3 meses', 'Tienes una estrategia consistente', 'Entiendes la gestión de riesgo'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Practica primero en demo, luego cambia a real cuando estés preparado.'] }
+                    }
+                },
+                en: {
+                    title: 'Demo Account vs Real Account - Differences and When to Switch',
+                    description: 'Learn the differences between demo and real accounts, and when is the right time to make the transition.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Demo vs Real Account', paragraphs: ['Understanding the differences is crucial before trading with real money.'] },
+                        sections: [{ title: '1. Key Differences', paragraphs: ['Demo and real accounts have important differences.'], list: ['Virtual vs real money', 'Market conditions may vary', 'Different psychological pressure'] }, { title: '2. When to Switch', paragraphs: ['Switch when you\'re ready.'], list: ['You\'ve practiced for at least 2-3 months', 'You have a consistent strategy', 'You understand risk management'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Practice first on demo, then switch to real when you\'re prepared.'] }
+                    }
+                }
+            }
+        },
+        'apalancamiento-forex-guia': {
+            slug: 'apalancamiento-forex-guia',
+            date: '5 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Apalancamiento en Forex - Guía Completa para Principiantes',
+                    description: 'Todo lo que necesitas saber sobre apalancamiento en Forex: cómo funciona, riesgos y cómo usarlo correctamente.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Apalancamiento en Forex', paragraphs: ['El apalancamiento puede aumentar tus ganancias pero también tus pérdidas.'] },
+                        sections: [{ title: '1. ¿Qué es el Apalancamiento?', paragraphs: ['El apalancamiento te permite operar con más capital del que tienes.'], list: ['1:100 significa que puedes operar 100 veces tu capital', 'Aumenta ganancias pero también pérdidas', 'Requiere gestión de riesgo cuidadosa'] }, { title: '2. Cómo Usarlo Correctamente', paragraphs: ['Usa apalancamiento con precaución.'], list: ['No uses el máximo apalancamiento', 'Gestiona tu riesgo adecuadamente', 'Entiende los riesgos antes de usar'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['El apalancamiento es una herramienta poderosa pero peligrosa si no se usa correctamente.'] }
+                    }
+                },
+                en: {
+                    title: 'Leverage in Forex - Complete Guide for Beginners',
+                    description: 'Everything you need to know about leverage in Forex: how it works, risks and how to use it correctly.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Leverage in Forex', paragraphs: ['Leverage can increase your profits but also your losses.'] },
+                        sections: [{ title: '1. What is Leverage?', paragraphs: ['Leverage allows you to trade with more capital than you have.'], list: ['1:100 means you can trade 100 times your capital', 'Increases profits but also losses', 'Requires careful risk management'] }, { title: '2. How to Use It Correctly', paragraphs: ['Use leverage with caution.'], list: ['Don\'t use maximum leverage', 'Manage your risk properly', 'Understand the risks before using'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Leverage is a powerful but dangerous tool if not used correctly.'] }
+                    }
+                }
+            }
+        },
+        'horarios-mejores-operar-forex': {
+            slug: 'horarios-mejores-operar-forex',
+            date: '7 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Mejores Horarios para Operar en Forex',
+                    description: 'Descubre los mejores horarios para operar en Forex según tu zona horaria y los mercados más activos.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Mejores Horarios para Operar', paragraphs: ['El momento en que operas puede afectar significativamente tus resultados.'] },
+                        sections: [{ title: '1. Sesiones de Trading', paragraphs: ['Forex tiene diferentes sesiones de trading.'], list: ['Sesión asiática: Baja volatilidad', 'Sesión europea: Alta volatilidad', 'Sesión americana: Mayor volumen'] }, { title: '2. Mejores Horarios', paragraphs: ['Los mejores horarios son cuando hay mayor liquidez.'], list: ['Superposición Londres-Nueva York', 'Apertura de sesión europea', 'Apertura de sesión americana'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Opera durante las horas de mayor liquidez para mejores resultados.'] }
+                    }
+                },
+                en: {
+                    title: 'Best Times to Trade Forex',
+                    description: 'Discover the best times to trade Forex according to your time zone and the most active markets.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Best Times to Trade', paragraphs: ['The time you trade can significantly affect your results.'] },
+                        sections: [{ title: '1. Trading Sessions', paragraphs: ['Forex has different trading sessions.'], list: ['Asian session: Low volatility', 'European session: High volatility', 'American session: Higher volume'] }, { title: '2. Best Times', paragraphs: ['The best times are when there is higher liquidity.'], list: ['London-New York overlap', 'European session opening', 'American session opening'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Trade during hours of higher liquidity for better results.'] }
+                    }
+                }
+            }
+        },
+        'spreads-forex-explicacion': {
+            slug: 'spreads-forex-explicacion',
+            date: '10 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Spreads en Forex - Explicación Completa',
+                    description: 'Aprende qué son los spreads en Forex, cómo se calculan y cómo afectan tus ganancias.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Spreads en Forex', paragraphs: ['Los spreads son el costo de operar en Forex.'] },
+                        sections: [{ title: '1. ¿Qué son los Spreads?', paragraphs: ['El spread es la diferencia entre precio de compra y venta.'], list: ['Se mide en pips', 'Es el costo de la operación', 'Varía según el broker y el par'] }, { title: '2. Cómo Afectan tus Ganancias', paragraphs: ['Los spreads reducen tus ganancias.'], list: ['Spreads bajos = más ganancias', 'Spreads altos = menos ganancias', 'Compara spreads entre brokers'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Elige brokers con spreads competitivos para maximizar tus ganancias.'] }
+                    }
+                },
+                en: {
+                    title: 'Forex Spreads - Complete Explanation',
+                    description: 'Learn what Forex spreads are, how they are calculated and how they affect your profits.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Forex Spreads', paragraphs: ['Spreads are the cost of trading in Forex.'] },
+                        sections: [{ title: '1. What are Spreads?', paragraphs: ['The spread is the difference between buy and sell price.'], list: ['Measured in pips', 'It\'s the cost of the trade', 'Varies by broker and pair'] }, { title: '2. How They Affect Your Profits', paragraphs: ['Spreads reduce your profits.'], list: ['Low spreads = more profits', 'High spreads = less profits', 'Compare spreads between brokers'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Choose brokers with competitive spreads to maximize your profits.'] }
+                    }
+                }
+            }
+        },
+        'stop-loss-take-profit': {
+            slug: 'stop-loss-take-profit',
+            date: '12 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Stop Loss y Take Profit - Cómo Usarlos Correctamente',
+                    description: 'Guía completa sobre cómo usar stop loss y take profit para proteger tus ganancias y limitar pérdidas.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Stop Loss y Take Profit', paragraphs: ['Estas herramientas son esenciales para gestionar el riesgo.'] },
+                        sections: [{ title: '1. Stop Loss', paragraphs: ['El stop loss limita tus pérdidas.'], list: ['Siempre usa stop loss', 'Colócalo en niveles lógicos', 'No lo muevas por emociones'] }, { title: '2. Take Profit', paragraphs: ['El take profit asegura tus ganancias.'], list: ['Define tu objetivo antes de entrar', 'Usa ratios riesgo/recompensa', 'No cierres antes de tiempo'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Usa siempre stop loss y take profit para proteger tu capital.'] }
+                    }
+                },
+                en: {
+                    title: 'Stop Loss and Take Profit - How to Use Them Correctly',
+                    description: 'Complete guide on how to use stop loss and take profit to protect your profits and limit losses.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Stop Loss and Take Profit', paragraphs: ['These tools are essential for risk management.'] },
+                        sections: [{ title: '1. Stop Loss', paragraphs: ['Stop loss limits your losses.'], list: ['Always use stop loss', 'Place it at logical levels', 'Don\'t move it due to emotions'] }, { title: '2. Take Profit', paragraphs: ['Take profit secures your profits.'], list: ['Define your target before entering', 'Use risk/reward ratios', 'Don\'t close early'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Always use stop loss and take profit to protect your capital.'] }
+                    }
+                }
+            }
+        },
+        'psicologia-trading-exito': {
+            slug: 'psicologia-trading-exito',
+            date: '15 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'psychology',
+            translated: {
+                es: {
+                    title: 'Psicología del Trading - Claves para el Éxito',
+                    description: 'Aprende a controlar tus emociones y desarrollar la mentalidad correcta para tener éxito en el trading.',
+                    category: 'Psicología',
+                    content: {
+                        introduction: { title: 'Psicología del Trading', paragraphs: ['La psicología es tan importante como el análisis técnico.'] },
+                        sections: [{ title: '1. Control Emocional', paragraphs: ['Controla tus emociones al operar.'], list: ['No operes por miedo o codicia', 'Mantén la disciplina', 'Sigue tu plan de trading'] }, { title: '2. Mentalidad Correcta', paragraphs: ['Desarrolla la mentalidad de un trader exitoso.'], list: ['Acepta las pérdidas', 'Aprende de los errores', 'Mantén la paciencia'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['La psicología correcta es fundamental para el éxito a largo plazo.'] }
+                    }
+                },
+                en: {
+                    title: 'Trading Psychology - Keys to Success',
+                    description: 'Learn to control your emotions and develop the right mindset to succeed in trading.',
+                    category: 'Psychology',
+                    content: {
+                        introduction: { title: 'Trading Psychology', paragraphs: ['Psychology is as important as technical analysis.'] },
+                        sections: [{ title: '1. Emotional Control', paragraphs: ['Control your emotions when trading.'], list: ['Don\'t trade out of fear or greed', 'Maintain discipline', 'Follow your trading plan'] }, { title: '2. Right Mindset', paragraphs: ['Develop the mindset of a successful trader.'], list: ['Accept losses', 'Learn from mistakes', 'Maintain patience'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['The right psychology is fundamental for long-term success.'] }
+                    }
+                }
+            }
+        },
+        'errores-comunes-traders': {
+            slug: 'errores-comunes-traders',
+            date: '18 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Errores Comunes de Traders Principiantes',
+                    description: 'Descubre los errores más comunes que cometen los traders principiantes y cómo evitarlos.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Errores Comunes', paragraphs: ['Conocer los errores comunes te ayuda a evitarlos.'] },
+                        sections: [{ title: '1. Errores Principales', paragraphs: ['Los principiantes cometen varios errores comunes.'], list: ['Operar sin plan', 'No usar stop loss', 'Operar con demasiado apalancamiento', 'No gestionar el riesgo'] }, { title: '2. Cómo Evitarlos', paragraphs: ['Sigue estas recomendaciones.'], list: ['Desarrolla un plan de trading', 'Siempre usa stop loss', 'Gestiona tu riesgo', 'Practica en demo primero'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Evita estos errores comunes para mejorar tus resultados.'] }
+                    }
+                },
+                en: {
+                    title: 'Common Mistakes of Beginner Traders',
+                    description: 'Discover the most common mistakes made by beginner traders and how to avoid them.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Common Mistakes', paragraphs: ['Knowing common mistakes helps you avoid them.'] },
+                        sections: [{ title: '1. Main Mistakes', paragraphs: ['Beginners make several common mistakes.'], list: ['Trading without a plan', 'Not using stop loss', 'Trading with too much leverage', 'Not managing risk'] }, { title: '2. How to Avoid Them', paragraphs: ['Follow these recommendations.'], list: ['Develop a trading plan', 'Always use stop loss', 'Manage your risk', 'Practice on demo first'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Avoid these common mistakes to improve your results.'] }
+                    }
+                }
+            }
+        },
+        'trading-forex-movil': {
+            slug: 'trading-forex-movil',
+            date: '20 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop',
+            category: 'platforms',
+            translated: {
+                es: {
+                    title: 'Trading de Forex desde el Móvil - Guía Completa',
+                    description: 'Aprende a operar Forex desde tu móvil con las mejores aplicaciones y estrategias para trading móvil.',
+                    category: 'Plataformas',
+                    content: {
+                        introduction: { title: 'Trading Móvil', paragraphs: ['El trading móvil te permite operar desde cualquier lugar.'] },
+                        sections: [{ title: '1. Ventajas del Trading Móvil', paragraphs: ['El trading móvil tiene muchas ventajas.'], list: ['Opera desde cualquier lugar', 'Notificaciones en tiempo real', 'Acceso rápido al mercado'] }, { title: '2. Mejores Apps', paragraphs: ['Elige apps de brokers confiables.'], list: ['MT4 Mobile', 'MT5 Mobile', 'Apps propias de brokers'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['El trading móvil es conveniente pero requiere conexión estable.'] }
+                    }
+                },
+                en: {
+                    title: 'Forex Trading from Mobile - Complete Guide',
+                    description: 'Learn to trade Forex from your mobile with the best apps and strategies for mobile trading.',
+                    category: 'Platforms',
+                    content: {
+                        introduction: { title: 'Mobile Trading', paragraphs: ['Mobile trading allows you to trade from anywhere.'] },
+                        sections: [{ title: '1. Advantages of Mobile Trading', paragraphs: ['Mobile trading has many advantages.'], list: ['Trade from anywhere', 'Real-time notifications', 'Quick market access'] }, { title: '2. Best Apps', paragraphs: ['Choose apps from reliable brokers.'], list: ['MT4 Mobile', 'MT5 Mobile', 'Broker proprietary apps'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Mobile trading is convenient but requires a stable connection.'] }
+                    }
+                }
+            }
+        },
+        'copy-trading-guia': {
+            slug: 'copy-trading-guia',
+            date: '22 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'education',
+            translated: {
+                es: {
+                    title: 'Copy Trading - Guía Completa para Principiantes',
+                    description: 'Todo lo que necesitas saber sobre copy trading: cómo funciona, ventajas, desventajas y mejores brokers.',
+                    category: 'Educación',
+                    content: {
+                        introduction: { title: 'Copy Trading', paragraphs: ['El copy trading permite copiar las operaciones de traders exitosos.'] },
+                        sections: [{ title: '1. ¿Qué es Copy Trading?', paragraphs: ['El copy trading es una forma de trading social.'], list: ['Copias operaciones de otros traders', 'Aprendes mientras ganas', 'Requiere selección cuidadosa'] }, { title: '2. Ventajas y Desventajas', paragraphs: ['El copy trading tiene pros y contras.'], list: ['Ventajas: Aprendes de expertos, diversificas', 'Desventajas: Dependes de otros, comisiones'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['El copy trading puede ser útil pero investiga bien antes de copiar.'] }
+                    }
+                },
+                en: {
+                    title: 'Copy Trading - Complete Guide for Beginners',
+                    description: 'Everything you need to know about copy trading: how it works, advantages, disadvantages and best brokers.',
+                    category: 'Education',
+                    content: {
+                        introduction: { title: 'Copy Trading', paragraphs: ['Copy trading allows you to copy trades from successful traders.'] },
+                        sections: [{ title: '1. What is Copy Trading?', paragraphs: ['Copy trading is a form of social trading.'], list: ['You copy trades from other traders', 'You learn while earning', 'Requires careful selection'] }, { title: '2. Advantages and Disadvantages', paragraphs: ['Copy trading has pros and cons.'], list: ['Advantages: Learn from experts, diversify', 'Disadvantages: Depend on others, commissions'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Copy trading can be useful but research well before copying.'] }
+                    }
+                }
+            }
+        },
+        'impuestos-trading-latam': {
+            slug: 'impuestos-trading-latam',
+            date: '25 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'regulation',
+            translated: {
+                es: {
+                    title: 'Impuestos en Trading para Latinoamérica',
+                    description: 'Guía completa sobre impuestos en trading para diferentes países de Latinoamérica.',
+                    category: 'Regulación',
+                    content: {
+                        introduction: { title: 'Impuestos en Trading', paragraphs: ['Los impuestos varían según el país.'] },
+                        sections: [{ title: '1. Por País', paragraphs: ['Cada país tiene sus propias reglas.'], list: ['México: Ganancias como ingresos', 'Argentina: Tratamiento especial', 'Brasil: Regulaciones específicas'] }, { title: '2. Consejos', paragraphs: ['Sigue estos consejos.'], list: ['Consulta un contador', 'Mantén registros', 'Declara a tiempo'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Consulta siempre con un profesional fiscal en tu país.'] }
+                    }
+                },
+                en: {
+                    title: 'Trading Taxes for Latin America',
+                    description: 'Complete guide on trading taxes for different Latin American countries.',
+                    category: 'Regulation',
+                    content: {
+                        introduction: { title: 'Trading Taxes', paragraphs: ['Taxes vary by country.'] },
+                        sections: [{ title: '1. By Country', paragraphs: ['Each country has its own rules.'], list: ['Mexico: Profits as income', 'Argentina: Special treatment', 'Brazil: Specific regulations'] }, { title: '2. Tips', paragraphs: ['Follow these tips.'], list: ['Consult an accountant', 'Keep records', 'File on time'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Always consult with a tax professional in your country.'] }
+                    }
+                }
+            }
+        },
+        'brokers-regulados-latam': {
+            slug: 'brokers-regulados-latam',
+            date: '28 Feb 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&h=600&fit=crop',
+            category: 'regulation',
+            translated: {
+                es: {
+                    title: 'Brokers Regulados en Latinoamérica - Lista Completa',
+                    description: 'Descubre los brokers más seguros y regulados disponibles para traders latinoamericanos.',
+                    category: 'Regulación',
+                    content: {
+                        introduction: { title: 'Brokers Regulados', paragraphs: ['La regulación es fundamental para tu seguridad.'] },
+                        sections: [{ title: '1. Reguladores Principales', paragraphs: ['Busca brokers regulados por autoridades reconocidas.'], list: ['FCA: Reino Unido', 'CySEC: Chipre', 'ASIC: Australia'] }, { title: '2. Cómo Verificar', paragraphs: ['Verifica siempre la regulación.'], list: ['Consulta el sitio del regulador', 'Verifica el número de licencia', 'Lee los términos y condiciones'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Siempre opera con brokers regulados para tu seguridad.'] }
+                    }
+                },
+                en: {
+                    title: 'Regulated Brokers in Latin America - Complete List',
+                    description: 'Discover the safest and most regulated brokers available for Latin American traders.',
+                    category: 'Regulation',
+                    content: {
+                        introduction: { title: 'Regulated Brokers', paragraphs: ['Regulation is fundamental for your safety.'] },
+                        sections: [{ title: '1. Main Regulators', paragraphs: ['Look for brokers regulated by recognized authorities.'], list: ['FCA: United Kingdom', 'CySEC: Cyprus', 'ASIC: Australia'] }, { title: '2. How to Verify', paragraphs: ['Always verify regulation.'], list: ['Check the regulator\'s website', 'Verify the license number', 'Read terms and conditions'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Always trade with regulated brokers for your safety.'] }
+                    }
+                }
+            }
+        },
+        'metodos-pago-brokers-latam': {
+            slug: 'metodos-pago-brokers-latam',
+            date: '2 Mar 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'brokers',
+            translated: {
+                es: {
+                    title: 'Métodos de Pago en Brokers para Latinoamérica',
+                    description: 'Guía completa sobre métodos de pago locales disponibles en brokers para traders latinoamericanos.',
+                    category: 'Brokers',
+                    content: {
+                        introduction: { title: 'Métodos de Pago', paragraphs: ['Los métodos de pago locales facilitan los depósitos y retiros.'] },
+                        sections: [{ title: '1. Métodos por País', paragraphs: ['Cada país tiene sus métodos preferidos.'], list: ['México: SPEI', 'Colombia: PSE', 'Argentina: CBU/ALIAS', 'Chile: Webpay'] }, { title: '2. Ventajas', paragraphs: ['Los métodos locales tienen ventajas.'], list: ['Transferencias rápidas', 'Sin comisiones altas', 'Fáciles de usar'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Elige brokers que acepten métodos de pago locales.'] }
+                    }
+                },
+                en: {
+                    title: 'Payment Methods in Brokers for Latin America',
+                    description: 'Complete guide on local payment methods available in brokers for Latin American traders.',
+                    category: 'Brokers',
+                    content: {
+                        introduction: { title: 'Payment Methods', paragraphs: ['Local payment methods facilitate deposits and withdrawals.'] },
+                        sections: [{ title: '1. Methods by Country', paragraphs: ['Each country has its preferred methods.'], list: ['Mexico: SPEI', 'Colombia: PSE', 'Argentina: CBU/ALIAS', 'Chile: Webpay'] }, { title: '2. Advantages', paragraphs: ['Local methods have advantages.'], list: ['Fast transfers', 'No high fees', 'Easy to use'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Choose brokers that accept local payment methods.'] }
+                    }
+                }
+            }
+        },
+        'mejores-brokers-crypto-latam': {
+            slug: 'mejores-brokers-crypto-latam',
+            date: '5 Mar 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&h=600&fit=crop',
+            category: 'crypto',
+            translated: {
+                es: {
+                    title: 'Mejores Brokers de Criptomonedas para Latinoamérica',
+                    description: 'Descubre los mejores brokers para trading de criptomonedas disponibles para traders latinoamericanos.',
+                    category: 'Crypto',
+                    content: {
+                        introduction: { title: 'Brokers de Criptomonedas', paragraphs: ['El trading de criptomonedas está creciendo en Latinoamérica.'] },
+                        sections: [{ title: '1. Mejores Brokers', paragraphs: ['Elige brokers confiables para crypto.'], list: ['Libertex: Excelente para crypto', 'eToro: Trading social de crypto', 'Plus500: CFDs de criptomonedas'] }, { title: '2. Factores a Considerar', paragraphs: ['Considera estos factores.'], list: ['Seguridad', 'Variedad de criptos', 'Métodos de pago locales'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Elige brokers seguros y regulados para trading de crypto.'] }
+                    }
+                },
+                en: {
+                    title: 'Best Cryptocurrency Brokers for Latin America',
+                    description: 'Discover the best brokers for cryptocurrency trading available for Latin American traders.',
+                    category: 'Crypto',
+                    content: {
+                        introduction: { title: 'Cryptocurrency Brokers', paragraphs: ['Cryptocurrency trading is growing in Latin America.'] },
+                        sections: [{ title: '1. Best Brokers', paragraphs: ['Choose reliable brokers for crypto.'], list: ['Libertex: Excellent for crypto', 'eToro: Social crypto trading', 'Plus500: Crypto CFDs'] }, { title: '2. Factors to Consider', paragraphs: ['Consider these factors.'], list: ['Security', 'Variety of cryptos', 'Local payment methods'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Choose safe and regulated brokers for crypto trading.'] }
+                    }
+                }
+            }
+        },
+        'trading-acciones-latam': {
+            slug: 'trading-acciones-latam',
+            date: '8 Mar 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'stocks',
+            translated: {
+                es: {
+                    title: 'Trading de Acciones en Latinoamérica - Guía Completa',
+                    description: 'Aprende a operar acciones en mercados latinoamericanos e internacionales con los mejores brokers.',
+                    category: 'Acciones',
+                    content: {
+                        introduction: { title: 'Trading de Acciones', paragraphs: ['El trading de acciones ofrece acceso a mercados globales.'] },
+                        sections: [{ title: '1. Mercados Disponibles', paragraphs: ['Puedes operar en múltiples mercados.'], list: ['Mercados latinoamericanos', 'Mercados estadounidenses', 'Mercados europeos'] }, { title: '2. Mejores Brokers', paragraphs: ['Elige brokers con acceso a acciones.'], list: ['IG Markets: Más de 17,000 acciones', 'eToro: Trading social de acciones', 'Libertex: Acciones y CFDs'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['El trading de acciones requiere investigación y análisis.'] }
+                    }
+                },
+                en: {
+                    title: 'Stock Trading in Latin America - Complete Guide',
+                    description: 'Learn to trade stocks in Latin American and international markets with the best brokers.',
+                    category: 'Stocks',
+                    content: {
+                        introduction: { title: 'Stock Trading', paragraphs: ['Stock trading offers access to global markets.'] },
+                        sections: [{ title: '1. Available Markets', paragraphs: ['You can trade in multiple markets.'], list: ['Latin American markets', 'US markets', 'European markets'] }, { title: '2. Best Brokers', paragraphs: ['Choose brokers with stock access.'], list: ['IG Markets: More than 17,000 stocks', 'eToro: Social stock trading', 'Libertex: Stocks and CFDs'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Stock trading requires research and analysis.'] }
+                    }
+                }
+            }
+        },
+        'cfd-trading-guia': {
+            slug: 'cfd-trading-guia',
+            date: '10 Mar 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'cfds',
+            translated: {
+                es: {
+                    title: 'Trading de CFDs - Guía Completa para Principiantes',
+                    description: 'Todo lo que necesitas saber sobre trading de CFDs: qué son, cómo funcionan y mejores brokers.',
+                    category: 'CFDs',
+                    content: {
+                        introduction: { title: 'Trading de CFDs', paragraphs: ['Los CFDs permiten operar sin poseer el activo subyacente.'] },
+                        sections: [{ title: '1. ¿Qué son los CFDs?', paragraphs: ['Los CFDs son contratos por diferencia.'], list: ['No posees el activo', 'Operas sobre el precio', 'Apalancamiento disponible'] }, { title: '2. Ventajas y Desventajas', paragraphs: ['Los CFDs tienen pros y contras.'], list: ['Ventajas: Apalancamiento, acceso fácil', 'Desventajas: Riesgo alto, comisiones'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Los CFDs pueden ser útiles pero requieren gestión de riesgo.'] }
+                    }
+                },
+                en: {
+                    title: 'CFD Trading - Complete Guide for Beginners',
+                    description: 'Everything you need to know about CFD trading: what they are, how they work and best brokers.',
+                    category: 'CFDs',
+                    content: {
+                        introduction: { title: 'CFD Trading', paragraphs: ['CFDs allow trading without owning the underlying asset.'] },
+                        sections: [{ title: '1. What are CFDs?', paragraphs: ['CFDs are contracts for difference.'], list: ['You don\'t own the asset', 'You trade on price', 'Leverage available'] }, { title: '2. Advantages and Disadvantages', paragraphs: ['CFDs have pros and cons.'], list: ['Advantages: Leverage, easy access', 'Disadvantages: High risk, commissions'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['CFDs can be useful but require risk management.'] }
+                    }
+                }
+            }
+        },
+        'commodities-trading-guia': {
+            slug: 'commodities-trading-guia',
+            date: '12 Mar 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop',
+            category: 'commodities',
+            translated: {
+                es: {
+                    title: 'Trading de Commodities - Guía Completa',
+                    description: 'Aprende a operar commodities como oro, petróleo y más con los mejores brokers para Latinoamérica.',
+                    category: 'Commodities',
+                    content: {
+                        introduction: { title: 'Trading de Commodities', paragraphs: ['Los commodities son materias primas como oro, petróleo y más.'] },
+                        sections: [{ title: '1. Principales Commodities', paragraphs: ['Los commodities más populares.'], list: ['Oro: Refugio seguro', 'Petróleo: Alta volatilidad', 'Plata: Similar al oro'] }, { title: '2. Mejores Brokers', paragraphs: ['Elige brokers con acceso a commodities.'], list: ['IG Markets: Amplia variedad', 'XM Group: Commodities populares', 'AvaTrade: Oro y petróleo'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['Los commodities pueden diversificar tu cartera.'] }
+                    }
+                },
+                en: {
+                    title: 'Commodities Trading - Complete Guide',
+                    description: 'Learn to trade commodities like gold, oil and more with the best brokers for Latin America.',
+                    category: 'Commodities',
+                    content: {
+                        introduction: { title: 'Commodities Trading', paragraphs: ['Commodities are raw materials like gold, oil and more.'] },
+                        sections: [{ title: '1. Main Commodities', paragraphs: ['The most popular commodities.'], list: ['Gold: Safe haven', 'Oil: High volatility', 'Silver: Similar to gold'] }, { title: '2. Best Brokers', paragraphs: ['Choose brokers with commodity access.'], list: ['IG Markets: Wide variety', 'XM Group: Popular commodities', 'AvaTrade: Gold and oil'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Commodities can diversify your portfolio.'] }
+                    }
+                }
+            }
+        },
+        'estrategias-day-trading': {
+            slug: 'estrategias-day-trading',
+            date: '15 Mar 2025',
+            imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop',
+            category: 'analysis',
+            translated: {
+                es: {
+                    title: 'Estrategias de Day Trading - Guía Completa',
+                    description: 'Descubre las mejores estrategias de day trading para operar en el mercado Forex y otros mercados.',
+                    category: 'Análisis',
+                    content: {
+                        introduction: { title: 'Estrategias de Day Trading', paragraphs: ['El day trading requiere estrategias específicas.'] },
+                        sections: [{ title: '1. Estrategias Principales', paragraphs: ['Las estrategias más populares.'], list: ['Breakout trading', 'Momentum trading', 'Range trading'] }, { title: '2. Consejos', paragraphs: ['Sigue estos consejos.'], list: ['Usa stop loss', 'Gestiona el riesgo', 'Mantén la disciplina'] }],
+                        conclusion: { title: 'Conclusión', paragraphs: ['El day trading requiere práctica y disciplina.'] }
+                    }
+                },
+                en: {
+                    title: 'Day Trading Strategies - Complete Guide',
+                    description: 'Discover the best day trading strategies to trade in the Forex market and other markets.',
+                    category: 'Analysis',
+                    content: {
+                        introduction: { title: 'Day Trading Strategies', paragraphs: ['Day trading requires specific strategies.'] },
+                        sections: [{ title: '1. Main Strategies', paragraphs: ['The most popular strategies.'], list: ['Breakout trading', 'Momentum trading', 'Range trading'] }, { title: '2. Tips', paragraphs: ['Follow these tips.'], list: ['Use stop loss', 'Manage risk', 'Maintain discipline'] }],
+                        conclusion: { title: 'Conclusion', paragraphs: ['Day trading requires practice and discipline.'] }
+                    }
+                }
+            }
+        }
+        // Note: Additional blog posts will be loaded from the existing languages.es.blog.posts structure
+        // via the fallback mechanism in blog-post.js and blog-list.js
     }
 };
 

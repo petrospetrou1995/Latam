@@ -118,22 +118,29 @@
         
         try {
             isLoading = true;
-            console.log('Loading reviews for language:', currentLanguage, 'page:', currentPage);
+            console.log('🔄 Loading reviews for language:', currentLanguage, 'page:', currentPage, 'reset:', reset);
             
             // Use static data loader or JSON file
             let data;
-            if (window.loadReviews) {
+            if (typeof window.loadReviews === 'function') {
                 try {
+                    console.log('📞 Calling window.loadReviews with page:', currentPage, 'limit:', reviewsPerPage);
                     data = await window.loadReviews({ 
                         limit: reviewsPerPage,
                         page: currentPage 
                     });
+                    console.log('✅ Received data from window.loadReviews:', {
+                        reviewsCount: data?.reviews?.length || 0,
+                        total: data?.total || 0,
+                        totalPages: data?.totalPages || 0,
+                        currentPage: data?.currentPage || 0
+                    });
                     // Validate data structure
                     if (!data || !Array.isArray(data.reviews)) {
-                        throw new Error('Invalid data structure received');
+                        throw new Error('Invalid data structure received: ' + JSON.stringify(data));
                     }
                 } catch (loadError) {
-                    console.error('Error calling window.loadReviews:', loadError);
+                    console.error('❌ Error calling window.loadReviews:', loadError);
                     throw loadError;
                 }
             } else {
@@ -189,8 +196,18 @@
             
             if (reset) {
                 reviews = newReviews;
+                displayedCount = 0;
             } else {
-                reviews = reviews.concat(newReviews);
+                // Only append new reviews that aren't already in the array
+                newReviews.forEach(newReview => {
+                    const exists = reviews.some(r => r._id === newReview._id || 
+                        (r.id && r.id === newReview.id) ||
+                        (r.user && r.user.name === newReview.user?.name && 
+                         r.title === newReview.title));
+                    if (!exists) {
+                        reviews.push(newReview);
+                    }
+                });
             }
             
             console.log('Total reviews in array:', reviews.length);
@@ -232,20 +249,20 @@
     
     // Load more reviews
     function loadMoreReviews() {
-        console.log('loadMoreReviews called. currentPage:', currentPage, 'totalPages:', totalPages, 'isLoading:', isLoading);
+        console.log('🔽 loadMoreReviews called. currentPage:', currentPage, 'totalPages:', totalPages, 'isLoading:', isLoading, 'displayedCount:', displayedCount);
         
         if (currentPage >= totalPages) {
-            console.log('Cannot load more - already on last page');
+            console.log('⚠️ Cannot load more - already on last page');
             updateLoadMoreButton();
             return;
         }
         
         if (isLoading) {
-            console.log('Cannot load more - already loading');
+            console.log('⚠️ Cannot load more - already loading');
             return;
         }
         
-        console.log('Loading more reviews. Current page:', currentPage, 'Next page:', currentPage + 1);
+        console.log('📥 Loading more reviews. Current page:', currentPage, 'Next page:', currentPage + 1);
         currentPage++;
         loadReviews(false);
     }
@@ -283,19 +300,32 @@
         }
         
         if (reset) {
-        reviewsContainer.innerHTML = '';
+            reviewsContainer.innerHTML = '';
             displayedCount = 0;
         }
         
-        // Calculate which reviews to display
+        // Calculate which reviews to display - only show reviews that haven't been displayed yet
         const reviewsToDisplay = reviews.slice(displayedCount);
         
         console.log(`Displaying ${reviewsToDisplay.length} new reviews. Already displayed: ${displayedCount}, Total in array: ${reviews.length}`);
         
+        if (reviewsToDisplay.length === 0) {
+            console.log('No new reviews to display');
+            return;
+        }
+        
         reviewsToDisplay.forEach(review => {
-            const reviewElement = createReviewElement(review);
-            reviewsContainer.appendChild(reviewElement);
-            displayedCount++;
+            // Check if review is already displayed to prevent duplicates
+            const reviewId = review._id || review.id || `${review.user?.name}-${review.title}`;
+            const existingReview = reviewsContainer.querySelector(`[data-review-id="${reviewId}"]`);
+            
+            if (!existingReview) {
+                const reviewElement = createReviewElement(review);
+                reviewsContainer.appendChild(reviewElement);
+                displayedCount++;
+            } else {
+                console.log('Review already displayed, skipping:', reviewId);
+            }
         });
         
         console.log(`Now displayed ${displayedCount} reviews total.`);
@@ -305,6 +335,10 @@
     function createReviewElement(review) {
         const reviewDiv = document.createElement('div');
         reviewDiv.className = 'review-card';
+        
+        // Add data attribute for duplicate detection
+        const reviewId = review._id || review.id || `${review.user?.name}-${review.title}`;
+        reviewDiv.setAttribute('data-review-id', reviewId);
         
         // Reviews are already translated by static-brokers.js
         const title = review.title;
