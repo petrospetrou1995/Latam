@@ -217,7 +217,7 @@
                 <div class="chatbot-header">
                     <div class="chatbot-title">
                         <i class="fas fa-robot"></i>
-                        <span data-translate="faqBot.title">Asistente de Preguntas</span>
+                        <span data-translate="faqBot.title">BrokerAssistBot</span>
                     </div>
                     <button class="chatbot-close" id="chatbotClose">
                         <i class="fas fa-times"></i>
