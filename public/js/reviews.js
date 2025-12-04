@@ -119,13 +119,68 @@
         try {
             isLoading = true;
             console.log('Loading reviews for language:', currentLanguage, 'page:', currentPage);
-            const response = await fetch(`/api/reviews?lang=${currentLanguage}&limit=${reviewsPerPage}&page=${currentPage}`);
             
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // Use static data loader or JSON file
+            let data;
+            if (window.loadReviews) {
+                try {
+                    data = await window.loadReviews({ 
+                        limit: reviewsPerPage,
+                        page: currentPage 
+                    });
+                    // Validate data structure
+                    if (!data || !Array.isArray(data.reviews)) {
+                        throw new Error('Invalid data structure received');
+                    }
+                } catch (loadError) {
+                    console.error('Error calling window.loadReviews:', loadError);
+                    throw loadError;
+                }
+            } else {
+                // Fallback to direct JSON fetch
+                console.warn('window.loadReviews not available, using direct fetch');
+                const paths = [
+                    '/public/data/reviews.json',
+                    './public/data/reviews.json',
+                    'public/data/reviews.json',
+                    '/data/reviews.json',
+                    './data/reviews.json'
+                ];
+                
+                let reviews = [];
+                for (const path of paths) {
+                    try {
+                        const response = await fetch(path);
+                        if (!response.ok) continue;
+                        
+                        const text = await response.text();
+                        if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+                            continue;
+                        }
+                        
+                        const jsonData = JSON.parse(text);
+                        if (jsonData && Array.isArray(jsonData.reviews)) {
+                            reviews = jsonData.reviews;
+                            break;
+                        } else if (Array.isArray(jsonData)) {
+                            reviews = jsonData;
+                            break;
+                        }
+                    } catch (e) {
+                        continue;
+                    }
+                }
+                
+                const start = (currentPage - 1) * reviewsPerPage;
+                const end = start + reviewsPerPage;
+                data = {
+                    reviews: reviews.slice(start, end),
+                    total: reviews.length,
+                    totalPages: Math.ceil(reviews.length / reviewsPerPage),
+                    currentPage: currentPage
+                };
             }
             
-            const data = await response.json();
             console.log('Reviews loaded successfully:', data);
             console.log('Received reviews:', data.reviews?.length || 0);
             totalPages = data.totalPages || 1;
@@ -251,11 +306,11 @@
         const reviewDiv = document.createElement('div');
         reviewDiv.className = 'review-card';
         
-        // Use translated content if available, otherwise use original
-        const title = review.translated?.title || review.title;
-        const content = review.translated?.content || review.content;
-        const pros = review.translated?.pros || review.pros;
-        const cons = review.translated?.cons || review.cons;
+        // Reviews are already translated by static-brokers.js
+        const title = review.title;
+        const content = review.content;
+        const pros = review.pros || [];
+        const cons = review.cons || [];
         
         reviewDiv.innerHTML = `
             <div class="review-header">
@@ -353,17 +408,27 @@
     // Toggle helpful rating
     async function toggleHelpful(reviewId) {
         try {
-            const response = await fetch(`/api/reviews/${reviewId}/helpful`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ helpful: true })
-            });
+            // For static site, use localStorage instead of API
+            const storageKey = `review_${reviewId}_helpful`;
+            const currentCount = parseInt(localStorage.getItem(storageKey) || '0') + 1;
+            localStorage.setItem(storageKey, currentCount.toString());
             
-            if (response.ok) {
-                // Reload reviews to get updated counts
-                loadReviews();
+            // Update UI immediately
+            const button = document.querySelector(`[data-review-id="${reviewId}"][data-action="helpful"]`);
+            if (button) {
+                const span = button.querySelector('span');
+                if (span) {
+                    const baseCount = parseInt(span.textContent) || 0;
+                    span.textContent = baseCount + currentCount;
+                }
+            }
+            
+            // Visual feedback
+            if (button) {
+                button.style.opacity = '0.7';
+                setTimeout(() => {
+                    button.style.opacity = '1';
+                }, 200);
             }
         } catch (error) {
             console.error('Error rating review:', error);
@@ -373,17 +438,27 @@
     // Toggle not helpful rating
     async function toggleNotHelpful(reviewId) {
         try {
-            const response = await fetch(`/api/reviews/${reviewId}/helpful`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ helpful: false })
-            });
+            // For static site, use localStorage instead of API
+            const storageKey = `review_${reviewId}_notHelpful`;
+            const currentCount = parseInt(localStorage.getItem(storageKey) || '0') + 1;
+            localStorage.setItem(storageKey, currentCount.toString());
             
-            if (response.ok) {
-                // Reload reviews to get updated counts
-                loadReviews();
+            // Update UI immediately
+            const button = document.querySelector(`[data-review-id="${reviewId}"][data-action="not-helpful"]`);
+            if (button) {
+                const span = button.querySelector('span');
+                if (span) {
+                    const baseCount = parseInt(span.textContent) || 0;
+                    span.textContent = baseCount + currentCount;
+                }
+            }
+            
+            // Visual feedback
+            if (button) {
+                button.style.opacity = '0.7';
+                setTimeout(() => {
+                    button.style.opacity = '1';
+                }, 200);
             }
         } catch (error) {
             console.error('Error rating review:', error);

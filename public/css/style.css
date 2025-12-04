@@ -1033,6 +1033,11 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        position: relative;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1040,10 +1045,13 @@ section {
         flex-direction: column;
         background-color: white;
         width: 100%;
-        text-align: center;
+        text-align: left;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 20px 0;
+        z-index: 999;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -1052,6 +1060,11 @@ section {
 
     .nav-toggle {
         display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
     }
 
     .nav-toggle.active .bar:nth-child(2) {
@@ -1064,6 +1077,73 @@ section {
 
     .nav-toggle.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu li {
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .nav-dropdown .dropdown-toggle {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .nav-dropdown .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item {
+        padding: 12px 40px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .language-selector {
+        width: 100%;
+        margin-top: 0;
+        padding: 15px 20px;
+        border-top: 1px solid #e9ecef;
+    }
+
+    .language-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .language-dropdown {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background: #f8f9fa;
+        margin-top: 10px;
+    }
+
+    .language-selector.active .language-dropdown {
+        display: block;
     }
 
     .hero-container {
@@ -1104,8 +1184,118 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .language-selector {
-        margin-top: 10px;
+    /* Mobile table scrolling */
+    .comparison-table,
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison-table thead,
+    table thead {
+        display: table-header-group;
+    }
+
+    .comparison-table tbody,
+    table tbody {
+        display: table-row-group;
+    }
+
+    .comparison-table th,
+    .comparison-table td,
+    table th,
+    table td {
+        min-width: 120px;
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    /* Mobile breadcrumb */
+    .breadcrumb-nav {
+        padding: 10px 0;
+    }
+
+    .breadcrumb-list {
+        font-size: 12px;
+    }
+
+    /* Mobile hero sections */
+    .category-hero {
+        padding: 80px 0 50px;
+    }
+
+    .category-hero h1 {
+        font-size: 2rem;
+    }
+
+    .category-hero p {
+        font-size: 1rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    /* Mobile content sections */
+    .content-section {
+        padding: 40px 0;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+    }
+
+    /* Mobile grid adjustments */
+    .content-grid,
+    .pairs-grid,
+    .markets-grid,
+    .strategies-grid,
+    .brokers-grid,
+    .analysis-grid,
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Mobile cards */
+    .content-card,
+    .strategy-card,
+    .broker-card,
+    .analysis-card,
+    .tip-card {
+        padding: 25px 20px;
+    }
+
+    /* Mobile buttons */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Mobile forms */
+    .contact-form {
+        padding: 20px;
+    }
+
+    /* Mobile footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
     }
 }
 
@@ -1115,22 +1305,48 @@ section {
     }
 
     .hero {
-        padding: 100px 0 60px;
+        padding: 80px 0 40px;
     }
 
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+
+    .category-hero h1 {
+        font-size: 1.8rem;
     }
 
     .btn {
-        padding: 12px 24px;
+        padding: 12px 20px;
         font-size: 0.9rem;
+        width: 100%;
     }
 
     .broker-card,
     .review-card,
     .contact-form {
         padding: 20px;
+    }
+
+    .comparison-table th,
+    .comparison-table td,
+    table th,
+    table td {
+        padding: 8px 6px;
+        font-size: 12px;
+        min-width: 100px;
+    }
+
+    .breadcrumb-list {
+        font-size: 11px;
+    }
+
+    .nav-logo h2 {
+        font-size: 1.2rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.8rem;
     }
 }
 
@@ -1451,6 +1667,11 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-wrap: wrap;
+        position: relative;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1458,10 +1679,13 @@ section {
         flex-direction: column;
         background-color: #fff;
         width: 100%;
-        text-align: center;
+        text-align: left;
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 20px 0;
+        z-index: 999;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
     }
 
     .nav-menu.active {
@@ -1469,31 +1693,107 @@ section {
     }
 
     .nav-menu li {
-        margin: 15px 0;
-    }
-
-    .nav-toggle {
-        display: block;
-    }
-
-    /* Mobile dropdown styles */
-    .nav-dropdown .dropdown-menu {
-        position: static;
-        display: block;
-        box-shadow: none;
-        border: none;
-        background: #f8f9fa;
-        margin: 10px 0;
-        border-radius: 0;
-    }
-
-    .nav-dropdown .dropdown-item {
-        padding: 10px 30px;
+        margin: 0;
+        width: 100%;
         border-bottom: 1px solid #e9ecef;
     }
 
-    .nav-dropdown .dropdown-item:hover {
-        padding-left: 35px;
+    .nav-link {
+        padding: 15px 20px;
+        display: block;
+        width: 100%;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .nav-dropdown .dropdown-toggle {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .nav-dropdown .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        background: #f8f9fa;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .nav-dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .nav-dropdown .dropdown-item {
+        padding: 12px 40px;
+        border-bottom: 1px solid #e9ecef;
+    }
+
+    .nav-toggle {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+
+    .language-selector {
+        width: 100%;
+        margin-top: 0;
+        padding: 15px 20px;
+        border-top: 1px solid #e9ecef;
+    }
+
+    .language-btn {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .language-dropdown {
+        position: static;
+        display: none;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        background: #f8f9fa;
+        margin-top: 10px;
+    }
+
+    .language-selector.active .language-dropdown {
+        display: block;
+    }
+
+    /* Mobile table scrolling */
+    .comparison-table,
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison-table thead,
+    table thead {
+        display: table-header-group;
+    }
+
+    .comparison-table tbody,
+    table tbody {
+        display: table-row-group;
+    }
+
+    .comparison-table th,
+    .comparison-table td,
+    table th,
+    table td {
+        min-width: 120px;
+        padding: 10px 8px;
+        font-size: 14px;
     }
 
     .hero h1 {

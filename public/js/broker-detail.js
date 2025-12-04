@@ -10,7 +10,11 @@
     // Initialize page
     document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
-        const brokerSlug = window.location.pathname.split('/broker/')[1];
+        // Handle both /broker/slug.html and /broker/slug formats
+        let brokerSlug = window.location.pathname.split('/broker/')[1];
+        if (brokerSlug) {
+            brokerSlug = brokerSlug.replace('.html', '');
+        }
         
         // Initialize global language switcher
         if (typeof window.initializeLanguageSwitcher === 'function') {
@@ -51,12 +55,27 @@
     // Load broker details
     async function loadBrokerDetails(slug) {
         try {
-            const response = await fetch(`/api/brokers/slug/${slug}`);
-            if (!response.ok) {
-                throw new Error('Broker not found');
+            // Use static data loader or JSON file
+            let data;
+            if (window.loadBrokerBySlug) {
+                data = await window.loadBrokerBySlug(slug);
+                if (!data || !data.broker) {
+                    throw new Error('Broker not found');
+                }
+                currentBroker = data.broker;
+            } else {
+                // Fallback to direct JSON fetch
+                const brokersResponse = await fetch('/public/data/brokers.json');
+                const brokersData = await brokersResponse.json();
+                const broker = brokersData.brokers.find(b => b.slug === slug);
+                
+                if (!broker) {
+                    throw new Error('Broker not found');
+                }
+                
+                currentBroker = broker;
             }
             
-            currentBroker = await response.json();
             displayBrokerDetails();
             loadBrokerReviews();
         } catch (error) {
@@ -316,12 +335,74 @@
 
         try {
             console.log('Loading broker reviews. Page:', currentPage);
-            const response = await fetch(`/api/reviews/broker/${currentBroker._id}?page=${currentPage}&limit=${reviewsPerPage}`);
-            if (!response.ok) {
-                throw new Error('Failed to load reviews');
+            
+            // Use static data loader or JSON file
+            let data;
+            if (window.loadReviews) {
+                data = await window.loadReviews({ 
+                    broker: currentBroker._id || currentBroker.slug,
+                    page: currentPage,
+                    limit: reviewsPerPage 
+                });
+            } else {
+                // Fallback to direct JSON fetch with multiple path attempts
+                const paths = [
+                    '/public/data/reviews.json',
+                    './public/data/reviews.json',
+                    'public/data/reviews.json',
+                    '/data/reviews.json',
+                    './data/reviews.json'
+                ];
+                
+                let allReviews = [];
+                for (const path of paths) {
+                    try {
+                        const response = await fetch(path);
+                        if (!response.ok) continue;
+                        
+                        const text = await response.text();
+                        if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+                            continue;
+                        }
+                        
+                        const jsonData = JSON.parse(text);
+                        if (jsonData && Array.isArray(jsonData.reviews)) {
+                            allReviews = jsonData.reviews;
+                            break;
+                        } else if (Array.isArray(jsonData)) {
+                            allReviews = jsonData;
+                            break;
+                        }
+                    } catch (e) {
+                        continue;
+                    }
+                }
+                
+                const brokerReviews = allReviews.filter(r => {
+                    if (!r.broker) return false;
+                    const brokerId = r.broker._id || r.broker.id;
+                    const brokerSlug = r.broker.slug;
+                    return brokerId === (currentBroker._id || currentBroker.id) || 
+                           brokerSlug === currentBroker.slug;
+                });
+                
+                // Sort by date (newest first)
+                brokerReviews.sort((a, b) => {
+                    const dateA = new Date(a.createdAt || a.date || a.created_at || 0);
+                    const dateB = new Date(b.createdAt || b.date || b.created_at || 0);
+                    return dateB - dateA;
+                });
+                
+                const start = (currentPage - 1) * reviewsPerPage;
+                const end = start + reviewsPerPage;
+                data = {
+                    reviews: brokerReviews.slice(start, end),
+                    total: brokerReviews.length,
+                    totalPages: Math.ceil(brokerReviews.length / reviewsPerPage),
+                    currentPage: currentPage
+                };
             }
             
-            const data = await response.json();
             const newReviews = data.reviews || [];
             
             if (reset) {
@@ -426,23 +507,25 @@
                 const action = this.dataset.action;
                 
                 try {
-                    const response = await fetch(`/api/reviews/${reviewId}/${action}`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    });
+                    // For static site, use localStorage to track ratings
+                    const storageKey = `review_${reviewId}_${action}`;
+                    const currentCount = parseInt(localStorage.getItem(storageKey) || '0') + 1;
+                    localStorage.setItem(storageKey, currentCount.toString());
                     
-                    if (response.ok) {
-                        // Update the count
-                        const countSpan = this.querySelector('span');
-                        const currentCount = parseInt(countSpan.textContent);
-                        countSpan.textContent = currentCount + 1;
-                        
-                        // Disable the button
-                        this.disabled = true;
-                        this.style.opacity = '0.5';
-                    }
+                    // Update the count
+                    const countSpan = this.querySelector('span');
+                    const baseCount = parseInt(countSpan.textContent) || 0;
+                    const newCount = baseCount + currentCount;
+                    countSpan.textContent = newCount;
+                    
+                    // Visual feedback
+                    this.style.opacity = '0.7';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 200);
+                    
+                    // Disable the button after click
+                    this.disabled = true;
                 } catch (error) {
                     console.error('Error updating review:', error);
                 }
@@ -577,7 +660,11 @@
         }
         
         // Reload broker details to update translated content
-        const brokerSlug = window.location.pathname.split('/broker/')[1];
+        // Handle both /broker/slug.html and /broker/slug formats
+        let brokerSlug = window.location.pathname.split('/broker/')[1];
+        if (brokerSlug) {
+            brokerSlug = brokerSlug.replace('.html', '');
+        }
         if (brokerSlug) {
             loadBrokerDetails(brokerSlug);
         }

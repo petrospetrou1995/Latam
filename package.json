@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm install",
     "build:static": "node build-static.js",
-    "serve:static": "npx serve dist"
+    "serve:static": "npx serve dist -p 3000"
   },
   "dependencies": {
     "mongoose": "^7.5.0",

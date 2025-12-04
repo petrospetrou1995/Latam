@@ -153,11 +153,65 @@ function setupDropdowns() {
 // Load featured brokers
 async function loadFeaturedBrokers() {
     try {
-        const response = await fetch('/api/brokers/featured');
-        const data = await response.json();
+        // Try static data loader first, then fallback to JSON file
+        if (window.loadBrokers) {
+            const data = await window.loadBrokers({ featured: true });
+            if (data.brokers && data.brokers.length > 0) {
+                displayBrokers(data.brokers.slice(0, 6), 'brokersGrid');
+                return;
+            }
+        }
         
-        if (data.brokers) {
-            displayBrokers(data.brokers, 'brokersGrid');
+        // Fallback to direct JSON fetch
+        const paths = ['/public/data/brokers.json', './public/data/brokers.json', 'public/data/brokers.json'];
+        let brokers = [];
+        
+        for (const path of paths) {
+            try {
+                const response = await fetch(path);
+                if (!response.ok) {
+                    console.warn(`Path ${path} returned status ${response.status}`);
+                    continue;
+                }
+                
+                const contentType = response.headers.get('content-type');
+                if (!contentType || !contentType.includes('application/json')) {
+                    // Check if it's HTML (404 page) before parsing
+                    const text = await response.text();
+                    if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+                        console.warn('Received HTML instead of JSON for path:', path);
+                        continue;
+                    }
+                    // Try to parse anyway if it looks like JSON
+                    try {
+                        const jsonData = JSON.parse(text);
+                        if (jsonData && jsonData.brokers) {
+                            brokers = jsonData.brokers;
+                            break;
+                        }
+                    } catch (e) {
+                        continue;
+                    }
+                    continue;
+                }
+                
+                const jsonData = await response.json();
+                if (jsonData && jsonData.brokers) {
+                    brokers = jsonData.brokers;
+                    break;
+                }
+            } catch (e) {
+                console.warn(`Error loading from ${path}:`, e.message);
+                continue;
+            }
+        }
+        
+        const featuredBrokers = brokers.filter(b => b.isFeatured === true).slice(0, 6);
+        
+        if (featuredBrokers.length > 0) {
+            displayBrokers(featuredBrokers, 'brokersGrid');
+        } else {
+            displayBrokers(brokers.slice(0, 6), 'brokersGrid');
         }
     } catch (error) {
         console.error('Error loading featured brokers:', error);
@@ -168,11 +222,94 @@ async function loadFeaturedBrokers() {
 // Load recent reviews
 async function loadRecentReviews() {
     try {
-        const response = await fetch('/api/reviews?limit=6');
-        const data = await response.json();
+        // Wait a bit for static-brokers.js to load if it exists
+        let waitAttempts = 0;
+        while (typeof window.loadReviews !== 'function' && waitAttempts < 20) {
+            await new Promise(resolve => setTimeout(resolve, 100));
+            waitAttempts++;
+        }
         
-        if (data.reviews) {
-            displayReviews(data.reviews, 'reviewsGrid');
+        let reviews = [];
+        
+        // Try static data loader first
+        if (typeof window.loadReviews === 'function') {
+            try {
+                const data = await window.loadReviews({ limit: 6 });
+                if (data && data.reviews && Array.isArray(data.reviews) && data.reviews.length > 0) {
+                    reviews = data.reviews;
+                    console.log('Loaded reviews from static loader:', reviews.length);
+                }
+            } catch (err) {
+                console.warn('Static loader failed, trying direct fetch:', err);
+            }
+        }
+        
+        // Fallback to direct JSON fetch if no reviews loaded yet
+        if (reviews.length === 0) {
+            // Try different possible paths
+            const paths = [
+                '/public/data/reviews.json',
+                './public/data/reviews.json',
+                'public/data/reviews.json',
+                '/data/reviews.json',
+                './data/reviews.json'
+            ];
+            
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (!response.ok) {
+                        console.warn(`Path ${path} returned status ${response.status}`);
+                        continue;
+                    }
+                    
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        // Check if it's HTML (404 page) before parsing
+                        const text = await response.text();
+                        if (text.trim().startsWith('<!DOCTYPE') || text.trim().startsWith('<html')) {
+                            console.warn('Received HTML instead of JSON for path:', path);
+                            continue;
+                        }
+                        // Try to parse anyway if it looks like JSON
+                        try {
+                            const jsonData = JSON.parse(text);
+                            if (jsonData && jsonData.reviews && Array.isArray(jsonData.reviews)) {
+                                reviews = jsonData.reviews;
+                                console.log('Loaded reviews from JSON file:', path, reviews.length);
+                                break;
+                            }
+                        } catch (e) {
+                            continue;
+                        }
+                        continue;
+                    }
+                    
+                    const jsonData = await response.json();
+                    if (jsonData && jsonData.reviews && Array.isArray(jsonData.reviews)) {
+                        reviews = jsonData.reviews;
+                        console.log('Loaded reviews from JSON file:', path, reviews.length);
+                        break;
+                    }
+                } catch (e) {
+                    console.warn(`Error loading from ${path}:`, e.message);
+                    continue;
+                }
+            }
+        }
+        
+        // Sort by date (newest first) and limit to 6
+        if (reviews.length > 0) {
+            reviews.sort((a, b) => {
+                const dateA = new Date(a.createdAt || a.date || 0);
+                const dateB = new Date(b.createdAt || b.date || 0);
+                return dateB - dateA;
+            });
+            
+            displayReviews(reviews.slice(0, 6), 'reviewsGrid');
+        } else {
+            console.warn('No reviews found, showing placeholders');
+            displayReviewPlaceholders();
         }
     } catch (error) {
         console.error('Error loading recent reviews:', error);
@@ -208,7 +345,7 @@ function displayBrokers(brokers, containerId) {
                 ).join('')}
             </div>
             <div class="broker-actions">
-                <a href="/broker/${broker.slug}" class="btn btn-primary">
+                <a href="/broker/${broker.slug}.html" class="btn btn-primary">
                     <i class="fas fa-eye"></i>
                     ${getTranslation('brokers.details')}
                 </a>
@@ -224,41 +361,63 @@ function displayBrokers(brokers, containerId) {
 // Display reviews in grid
 function displayReviews(reviews, containerId) {
     const container = document.getElementById(containerId);
-    if (!container) return;
+    if (!container) {
+        console.warn('Container not found:', containerId);
+        return;
+    }
+    
+    if (!reviews || !Array.isArray(reviews) || reviews.length === 0) {
+        console.warn('No reviews to display');
+        displayReviewPlaceholders();
+        return;
+    }
 
-    container.innerHTML = reviews.map(review => `
+    container.innerHTML = reviews.map(review => {
+        // Handle different review data structures
+        const userName = review.user?.name || review.userName || 'Anonymous';
+        const userCountry = review.user?.country || review.userCountry || '';
+        const reviewTitle = review.title || 'Review';
+        const reviewContent = review.content || review.text || '';
+        const reviewRating = review.rating || 5;
+        const reviewId = review._id || review.id || Math.random().toString(36);
+        const helpfulCount = review.helpful || 0;
+        const notHelpfulCount = review.notHelpful || 0;
+        const reviewDate = review.createdAt || review.date || new Date().toISOString();
+        
+        return `
         <div class="review-card">
             <div class="review-header">
                 <div class="review-user">
                     <div class="user-avatar">
-                        ${review.user.name.charAt(0).toUpperCase()}
+                        ${userName.charAt(0).toUpperCase()}
                     </div>
                     <div class="user-info">
-                        <h4>${review.user.name}</h4>
-                        <p>${review.user.country}</p>
+                        <h4>${userName}</h4>
+                        ${userCountry ? `<p>${userCountry}</p>` : ''}
                     </div>
                 </div>
                 <div class="review-rating">
-                    ${generateStars(review.rating)}
+                    ${generateStars(reviewRating)}
                 </div>
             </div>
             <div class="review-content">
-                <h5>${review.title}</h5>
-                <p>${review.content.substring(0, 200)}...</p>
+                <h5>${reviewTitle}</h5>
+                <p>${reviewContent.length > 200 ? reviewContent.substring(0, 200) + '...' : reviewContent}</p>
             </div>
             <div class="review-actions">
-                <button class="helpful-btn" data-review-id="${review._id}" data-helpful="true">
+                <button class="helpful-btn" data-review-id="${reviewId}" data-helpful="true">
                     <i class="fas fa-thumbs-up"></i>
-                    ${review.helpful || 0}
+                    ${helpfulCount}
                 </button>
-                <button class="helpful-btn" data-review-id="${review._id}" data-helpful="false">
+                <button class="helpful-btn" data-review-id="${reviewId}" data-helpful="false">
                     <i class="fas fa-thumbs-down"></i>
-                    ${review.notHelpful || 0}
+                    ${notHelpfulCount}
                 </button>
-                <span class="review-date">${formatDate(review.createdAt)}</span>
+                <span class="review-date">${formatDate(reviewDate)}</span>
             </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 // Generate star rating HTML
@@ -296,68 +455,57 @@ function formatDate(dateString) {
 // Rate review helpfulness
 async function rateReview(reviewId, helpful) {
     try {
-        const response = await fetch(`/api/reviews/${reviewId}/helpful`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ helpful })
+        // For static site, use localStorage to track ratings
+        const storageKey = `review_${reviewId}_${helpful ? 'helpful' : 'notHelpful'}`;
+        const currentCount = parseInt(localStorage.getItem(storageKey) || '0') + 1;
+        localStorage.setItem(storageKey, currentCount.toString());
+        
+        // Update the UI with new counts
+        const buttons = document.querySelectorAll(`[data-review-id="${reviewId}"]`);
+        buttons.forEach(button => {
+            const isHelpfulBtn = button.getAttribute('data-helpful') === 'true';
+            if (isHelpfulBtn && helpful) {
+                button.innerHTML = `<i class="fas fa-thumbs-up"></i> ${currentCount}`;
+            } else if (!isHelpfulBtn && !helpful) {
+                button.innerHTML = `<i class="fas fa-thumbs-down"></i> ${currentCount}`;
+            }
         });
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            // Update the UI with new counts
-            const buttons = document.querySelectorAll(`[onclick*="${reviewId}"]`);
-            buttons.forEach(button => {
-                if (button.innerHTML.includes('thumbs-up')) {
-                    button.innerHTML = `<i class="fas fa-thumbs-up"></i> ${data.helpful}`;
-                } else if (button.innerHTML.includes('thumbs-down')) {
-                    button.innerHTML = `<i class="fas fa-thumbs-down"></i> ${data.notHelpful}`;
-                }
-            });
-        }
     } catch (error) {
         console.error('Error rating review:', error);
     }
 }
 
-// Setup contact form
+// Setup contact form (static site - uses mailto)
 function setupContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
 
-    contactForm.addEventListener('submit', async (e) => {
+    contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         const formData = new FormData(contactForm);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            subject: formData.get('subject'),
-            message: formData.get('message'),
-            country: 'Unknown' // You might want to detect this
-        };
-
-        try {
-            const response = await fetch('/api/contacts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                showNotification('Mensaje enviado correctamente. Te contactaremos pronto.', 'success');
-                contactForm.reset();
-            } else {
-                showNotification('Error al enviar el mensaje. Intenta nuevamente.', 'error');
-            }
-        } catch (error) {
-            console.error('Error sending contact form:', error);
-            showNotification('Error de conexión. Intenta nuevamente.', 'error');
-        }
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const subject = formData.get('subject');
+        const message = formData.get('message');
+        
+        // Create mailto link for static site
+        const mailtoSubject = encodeURIComponent(subject || 'Contact from LatamBrokerReviews');
+        const mailtoBody = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+        const mailtoLink = `mailto:info@latambrokerreviews.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
+        showNotification('Opening your email client. Please send the message to contact us.', 'success');
+        
+        // Reset form after a delay
+        setTimeout(() => {
+            contactForm.reset();
+        }, 1000);
     });
 }
 
@@ -451,15 +599,55 @@ function setupMobileMenu() {
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+            // Prevent body scroll when menu is open
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         });
         
+        // Handle dropdown toggles on mobile
+        const dropdownToggles = document.querySelectorAll('.nav-dropdown .dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = toggle.closest('.nav-dropdown');
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+        
+        // Handle language selector on mobile
+        const languageBtn = document.getElementById('languageBtn');
+        const languageSelector = languageBtn?.closest('.language-selector');
+        if (languageBtn && languageSelector && window.innerWidth <= 768) {
+            languageBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                languageSelector.classList.toggle('active');
+            });
+        }
+        
         // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
+                document.body.style.overflow = '';
             });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && navMenu.classList.contains('active')) {
+                if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
         });
     }
 }
@@ -572,11 +760,24 @@ function setupSearch() {
         if (query.length < 2) return;
         
         try {
-            const response = await fetch(`/api/brokers/search/${encodeURIComponent(query)}`);
-            const data = await response.json();
+            // Use static data for search
+            let brokers = [];
+            if (window.loadBrokers) {
+                const data = await window.loadBrokers();
+                brokers = data.brokers || [];
+            } else {
+                const response = await fetch('/public/data/brokers.json');
+                const jsonData = await response.json();
+                brokers = jsonData.brokers || [];
+            }
             
-            if (data.brokers) {
-                displayBrokers(data.brokers, 'brokersGrid');
+            // Filter brokers by query
+            const filtered = brokers.filter(broker => 
+                broker.name.toLowerCase().includes(query.toLowerCase())
+            );
+            
+            if (filtered.length > 0) {
+                displayBrokers(filtered, 'brokersGrid');
             }
         } catch (error) {
             console.error('Error searching brokers:', error);
@@ -597,11 +798,51 @@ async function loadBrokersForDropdown() {
         // Wait a bit to ensure DOM is fully ready
         await new Promise(resolve => setTimeout(resolve, 100));
         
-        const response = await fetch('/api/brokers?limit=50');
-        const data = await response.json();
+        // Try static data loader first
+        let brokers = [];
+        if (window.loadBrokers) {
+            try {
+                const data = await window.loadBrokers({ limit: 50 });
+                brokers = data.brokers || [];
+            } catch (e) {
+                console.warn('Static loader failed, trying direct fetch');
+            }
+        }
         
-        if (data.brokers && data.brokers.length > 0) {
-            populateBrokerDropdowns(data.brokers);
+        // Fallback to direct JSON fetch if needed
+        if (brokers.length === 0) {
+            const paths = [
+                '/public/data/brokers.json',
+                './public/data/brokers.json',
+                'public/data/brokers.json',
+                '/data/brokers.json',
+                './data/brokers.json'
+            ];
+            
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (!response.ok) continue;
+                    
+                    const contentType = response.headers.get('content-type');
+                    if (!contentType || !contentType.includes('application/json')) {
+                        console.warn('Response is not JSON for path:', path);
+                        continue;
+                    }
+                    
+                    const jsonData = await response.json();
+                    if (jsonData && jsonData.brokers) {
+                        brokers = jsonData.brokers;
+                        break;
+                    }
+                } catch (e) {
+                    continue;
+                }
+            }
+        }
+        
+        if (brokers.length > 0) {
+            populateBrokerDropdowns(brokers.slice(0, 50));
         } else {
             // Fallback if no brokers returned
             addFallbackBrokers();

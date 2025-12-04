@@ -57,6 +57,12 @@ async function buildStatic() {
     content = content.replace(/href="\/css\//g, 'href="/public/css/');
     content = content.replace(/href="\/images\//g, 'href="/public/images/');
     
+    // Fix broker detail page links to use .html extension
+    content = content.replace(/href="\/broker\/([^"]+)"/g, 'href="/broker/$1.html"');
+    
+    // Fix blog post links
+    content = content.replace(/href="\/blog\/([^"]+)"/g, 'href="/blog/$1.html"');
+    
     // Add static brokers loader if brokers.js is included
     if (content.includes('brokers.js') && !content.includes('static-brokers.js')) {
       content = content.replace(

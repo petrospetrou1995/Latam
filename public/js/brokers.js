@@ -41,12 +41,19 @@
         applyUrlFilters();
     }
     
-    // Load brokers from API
+    // Load brokers from static JSON or API
     async function loadBrokers() {
         try {
-            const response = await fetch('/api/brokers');
-            const data = await response.json();
-            brokers = data.brokers || [];
+            // Try static data loader first
+            if (window.loadBrokers) {
+                const data = await window.loadBrokers();
+                brokers = data.brokers || [];
+            } else {
+                // Fallback to direct JSON fetch
+                const response = await fetch('/public/data/brokers.json');
+                const jsonData = await response.json();
+                brokers = jsonData.brokers || [];
+            }
             filteredBrokers = [...brokers];
             displayBrokers();
         } catch (error) {
@@ -316,7 +323,7 @@
                         <i class="fas fa-balance-scale"></i>
                         ${getTranslation('brokers.view.compare')}
                     </button>
-                    <a href="/broker/${broker.slug}" class="btn-reviews">
+                    <a href="/broker/${broker.slug}.html" class="btn-reviews">
                         <i class="fas fa-star"></i>
                         ${getTranslation('brokers.reviews')}
                     </a>
