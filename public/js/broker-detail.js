@@ -29,16 +29,18 @@
         
         // Force apply translations after a delay
         setTimeout(() => {
+            const currentLang = localStorage.getItem('language') || 'en';
             console.log('Checking for applyTranslations function...');
             console.log('typeof applyTranslations:', typeof applyTranslations);
             console.log('typeof window.applyTranslations:', typeof window.applyTranslations);
+            console.log('Current language:', currentLang);
             
             if (typeof applyTranslations === 'function') {
                 console.log('Force applying translations...');
-                applyTranslations();
+                applyTranslations(currentLang);
             } else if (typeof window.applyTranslations === 'function') {
                 console.log('Force applying translations using window.applyTranslations...');
-                window.applyTranslations();
+                window.applyTranslations(currentLang);
             } else {
                 console.log('applyTranslations function not available');
                 console.log('Available window functions:', Object.keys(window).filter(key => key.includes('apply') || key.includes('translation')));
@@ -218,12 +220,13 @@
         
         // Apply translations after content is loaded
         setTimeout(() => {
+            const currentLang = localStorage.getItem('language') || 'en';
             if (typeof applyTranslations === 'function') {
                 console.log('Applying translations to broker detail page...');
-                applyTranslations();
+                applyTranslations(currentLang);
             } else if (typeof window.applyTranslations === 'function') {
                 console.log('Applying translations using window.applyTranslations...');
-                window.applyTranslations();
+                window.applyTranslations(currentLang);
             } else {
                 console.log('applyTranslations function not found');
             }

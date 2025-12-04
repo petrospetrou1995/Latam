@@ -91,6 +91,11 @@
     }
     
     function applyTranslations(lang) {
+        // If no language provided, get from localStorage or default to 'en'
+        if (!lang) {
+            lang = localStorage.getItem('language') || 'en';
+        }
+        
         console.log('Attempting to apply translations for:', lang);
         console.log('Languages object available:', typeof languages !== 'undefined');
         
