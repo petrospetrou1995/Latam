@@ -2487,16 +2487,11 @@ const languages = {
             },
             faqBot: {
                 title: 'Asistente de Preguntas',
-                welcome: '¡Hola! Soy tu asistente de preguntas frecuentes. ¿En qué puedo ayudarte sobre brokers y trading en Latinoamérica?',
-                placeholder: 'Escribe tu pregunta...',
+                welcome: '¡Hola! Soy tu asistente de preguntas frecuentes. Selecciona una pregunta para ver la respuesta:',
                 selectLanguage: 'Por favor, selecciona tu idioma preferido:',
-                languageSelected: 'Idioma configurado. ¿En qué puedo ayudarte?',
-                brokerInfo: 'Para elegir el mejor broker, considera factores como regulación, spreads y comisiones, métodos de pago locales, soporte en español/portugués, y reseñas de otros traders. Puedes explorar nuestras reseñas detalladas para comparar brokers.',
-                tradingInfo: 'El trading implica comprar y vender instrumentos financieros. Es importante educarte primero, usar cuentas demo para practicar, y gestionar el riesgo adecuadamente. Consulta nuestras guías educativas para aprender más.',
-                regulationInfo: 'Es crucial elegir brokers regulados por autoridades reconocidas como CySEC, FCA, ASIC o reguladores locales. Verifica siempre el número de licencia en el sitio oficial del regulador.',
-                depositInfo: 'Los brokers aceptan varios métodos de pago: tarjetas de crédito/débito, transferencias bancarias, y métodos locales como PagoEfectivo, AstroPay, o billeteras digitales. Algunos también aceptan criptomonedas.',
-                withdrawInfo: 'Los brokers generalmente permiten retiros usando los mismos métodos de depósito. Los tiempos de procesamiento varían (1-5 días hábiles típicamente). Verifica las políticas de retiro y posibles comisiones.',
-                defaultResponse: 'Lo siento, no encontré una respuesta específica para tu pregunta. Por favor, intenta reformular tu pregunta o explora nuestras preguntas frecuentes en la sección FAQ. También puedes buscar información específica sobre brokers en nuestras reseñas.'
+                languageSelected: 'Idioma configurado. Selecciona una pregunta:',
+                selectQuestion: 'Selecciona una pregunta:',
+                backToQuestions: 'Volver a las preguntas'
             }
         },
         

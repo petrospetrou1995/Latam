@@ -217,6 +217,105 @@
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
+/* FAQ Question Items */
+.faq-question-item {
+    margin-bottom: 10px;
+}
+
+.faq-question-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.faq-question-button:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.faq-question-number {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.faq-question-text {
+    flex: 1;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.faq-question-arrow {
+    color: #667eea;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-question-button:hover .faq-question-arrow {
+    transform: translateX(5px);
+}
+
+.faq-answer-header {
+    margin-bottom: 12px;
+}
+
+.faq-answer-content {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.chatbot-footer {
+    padding: 15px 20px;
+    background: white;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-back-to-questions {
+    width: 100%;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-back-to-questions:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-back-to-questions:active {
+    transform: translateY(0);
+}
+
 .chatbot-send {
     width: 44px;
     height: 44px;
