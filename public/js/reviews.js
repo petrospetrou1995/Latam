@@ -18,10 +18,23 @@
         displayedCount = 0;
         setupEventListeners();
         setupLoadMoreButtons();
-        // Add a small delay to ensure server is ready
-        setTimeout(() => {
-        loadReviews();
-        }, 500);
+        
+        // Wait for static-brokers.js to load window.loadReviews
+        const waitForLoader = async (attempts = 0) => {
+            if (typeof window.loadReviews === 'function') {
+                console.log('✅ window.loadReviews is available, loading reviews...');
+                await loadReviews();
+            } else if (attempts < 20) {
+                console.log(`⏳ Waiting for window.loadReviews... (attempt ${attempts + 1}/20)`);
+                setTimeout(() => waitForLoader(attempts + 1), 200);
+            } else {
+                console.error('❌ window.loadReviews not available after 20 attempts, using fallback');
+                await loadReviews();
+            }
+        };
+        
+        // Start loading after a short delay
+        setTimeout(() => waitForLoader(), 300);
     }
     
     // Setup load more buttons directly
