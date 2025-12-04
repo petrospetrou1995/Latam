@@ -2491,7 +2491,7 @@ const languages = {
                 welcomeAfterLang: '¡Perfecto! Ahora puedes seleccionar una pregunta para ver la respuesta:',
                 selectLanguage: 'Por favor, selecciona tu idioma preferido para las respuestas:',
                 languageSelected: 'Idioma configurado. Selecciona una pregunta:',
-                selectQuestion: 'Bienvenido al mejor asistente de IA, soy BrokerAssistBot. Por favor, elige una pregunta de la siguiente lista. Gracias por visitar nuestro sitio web.',
+                selectQuestion: 'Bienvenido al mejor asistente de IA, soy BrokerAssistBot. Por favor, elige una pregunta de la siguiente lista. Gracias por elegir nuestro sitio web.',
                 backToQuestions: 'Volver a las preguntas',
                 selectAnother: 'Seleccionar otra pregunta'
             }
@@ -4910,7 +4910,7 @@ const languages = {
                 welcomeAfterLang: 'Perfect! Now you can select a question to see the answer:',
                 selectLanguage: 'Please select your preferred language for the replies:',
                 languageSelected: 'Language set. Select a question:',
-                selectQuestion: 'Welcome to the best AI assistant, I am BrokerAssistBot. Please choose a question from the following list. Thank you for visiting our website.',
+                selectQuestion: 'Welcome to the best AI assistant, I am BrokerAssistBot. Please choose a question from the following list. Thank you for choosing our website.',
                 backToQuestions: 'Back to questions',
                 selectAnother: 'Select another question'
             }
