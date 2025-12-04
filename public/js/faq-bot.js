@@ -24,9 +24,9 @@
         Object.keys(faqData).forEach(key => {
             if (key.startsWith('q') && faqData[key].question && faqData[key].answer) {
                 questions.push({
-                    question: faqData[key].question.toLowerCase(),
-                    answer: faqData[key].answer,
-                    originalQuestion: faqData[key].question
+                    id: key,
+                    question: faqData[key].question,
+                    answer: faqData[key].answer
                 });
             }
         });
@@ -195,35 +195,14 @@
         localStorage.setItem('language', lang);
         languageSelected = true;
 
-        const messagesContainer = document.getElementById('chatbotMessages');
-        if (!messagesContainer) return;
-
-        // Update welcome message in selected language
-        const welcomeMessage = getTranslation('faqBot.welcome');
-        const languageSelectedMsg = getTranslation('faqBot.languageSelected');
-        
-        messagesContainer.innerHTML = `
-            <div class="chatbot-message bot-message">
-                <div class="message-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="message-content">
-                    <p>${welcomeMessage}</p>
-                </div>
-            </div>
-        `;
-
-        // Update placeholder
-        const input = document.getElementById('chatbotInput');
-        if (input) {
-            input.placeholder = getTranslation('faqBot.placeholder');
-        }
-
         // Update title
         const title = document.querySelector('.chatbot-title span');
         if (title) {
             title.textContent = getTranslation('faqBot.title');
         }
+
+        // Show FAQ questions list
+        showFAQQuestions();
 
         // Trigger language change event for other components
         window.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
@@ -261,82 +240,96 @@
         document.body.insertAdjacentHTML('beforeend', chatbotHTML);
     }
 
-    // Add message to chat
-    function addMessage(text, isBot = false) {
+    // Show FAQ questions list
+    function showFAQQuestions() {
         const messagesContainer = document.getElementById('chatbotMessages');
         if (!messagesContainer) return;
 
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `chatbot-message ${isBot ? 'bot-message' : 'user-message'}`;
-        
-        const avatar = isBot 
-            ? '<div class="message-avatar"><i class="fas fa-robot"></i></div>'
-            : '<div class="message-avatar user-avatar"><i class="fas fa-user"></i></div>';
-        
-        messageDiv.innerHTML = `
-            ${avatar}
-            <div class="message-content">
-                <p>${text}</p>
-            </div>
-        `;
+        const faqData = getFAQData();
+        const welcomeMessage = getTranslation('faqBot.welcome');
+        const selectQuestionText = getTranslation('faqBot.selectQuestion');
 
-        messagesContainer.appendChild(messageDiv);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-        // Update badge
-        if (!isBot) {
-            const badge = document.getElementById('chatbotBadge');
-            if (badge) {
-                const count = parseInt(badge.textContent) || 0;
-                badge.textContent = count + 1;
-            }
-        }
-    }
-
-    // Send message
-    function sendMessage() {
-        const input = document.getElementById('chatbotInput');
-        if (!input || !input.value.trim()) return;
-
-        // Check if language is selected
-        if (!chatBotLanguage) {
-            showLanguageSelection();
-            return;
-        }
-
-        const userQuestion = input.value.trim();
-        addMessage(userQuestion, false);
-        chatHistory.push({ role: 'user', content: userQuestion });
-        
-        input.value = '';
-        input.disabled = true;
-
-        // Show typing indicator
-        const messagesContainer = document.getElementById('chatbotMessages');
-        const typingIndicator = document.createElement('div');
-        typingIndicator.className = 'chatbot-message bot-message typing-indicator';
-        typingIndicator.innerHTML = `
-            <div class="message-avatar"><i class="fas fa-robot"></i></div>
-            <div class="message-content">
-                <div class="typing-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        let questionsHTML = `
+            <div class="chatbot-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>${welcomeMessage}</p>
+                    <p style="margin-top: 10px; font-weight: 600;">${selectQuestionText}</p>
                 </div>
             </div>
         `;
-        messagesContainer.appendChild(typingIndicator);
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-        // Generate response after delay
-        setTimeout(() => {
-            typingIndicator.remove();
-            const response = generateResponse(userQuestion);
-            addMessage(response, true);
-            chatHistory.push({ role: 'assistant', content: response });
-            input.disabled = false;
-            input.focus();
-        }, 1000 + Math.random() * 1000); // Simulate thinking time
+        faqData.forEach((faq, index) => {
+            questionsHTML += `
+                <div class="faq-question-item" data-faq-id="${faq.id}" style="margin-top: 10px; cursor: pointer;">
+                    <div class="faq-question-button">
+                        <div class="faq-question-number">${index + 1}</div>
+                        <div class="faq-question-text">${faq.question}</div>
+                        <div class="faq-question-arrow"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                </div>
+            `;
+        });
+
+        messagesContainer.innerHTML = questionsHTML;
+
+        // Add click handlers to FAQ questions
+        const questionItems = messagesContainer.querySelectorAll('.faq-question-item');
+        questionItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const faqId = this.getAttribute('data-faq-id');
+                showFAQAnswer(faqId);
+            });
+        });
+
+        // Hide back button
+        const footer = document.getElementById('chatbotFooter');
+        if (footer) {
+            footer.style.display = 'none';
+        }
+    }
+
+    // Show FAQ answer
+    function showFAQAnswer(faqId) {
+        const messagesContainer = document.getElementById('chatbotMessages');
+        if (!messagesContainer) return;
+
+        const faqData = getFAQData();
+        const faq = faqData.find(q => q.id === faqId);
+        
+        if (!faq) return;
+
+        const answerHTML = `
+            <div class="chatbot-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <div class="faq-answer-header">
+                        <h4 style="margin: 0 0 12px 0; color: #333; font-size: 1rem; font-weight: 600;">${faq.question}</h4>
+                    </div>
+                    <div class="faq-answer-content">
+                        <p style="margin: 0; line-height: 1.6; color: #555;">${faq.answer}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        messagesContainer.innerHTML = answerHTML;
+        messagesContainer.scrollTop = 0;
+
+        // Show back button
+        const footer = document.getElementById('chatbotFooter');
+        if (footer) {
+            footer.style.display = 'block';
+        }
+    }
+
+    // Back to questions handler
+    function backToQuestions() {
+        showFAQQuestions();
     }
 
     // Toggle chatbot
@@ -353,30 +346,8 @@
                 // Show language selection
                 showLanguageSelection();
             } else {
-                // Show welcome message if not already shown
-                const messagesContainer = document.getElementById('chatbotMessages');
-                if (messagesContainer && messagesContainer.children.length === 0) {
-                    const welcomeMessage = getTranslation('faqBot.welcome');
-                    messagesContainer.innerHTML = `
-                        <div class="chatbot-message bot-message">
-                            <div class="message-avatar">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="message-content">
-                                <p>${welcomeMessage}</p>
-                            </div>
-                        </div>
-                    `;
-                }
-                const input = document.getElementById('chatbotInput');
-                if (input) {
-                    input.disabled = false;
-                    setTimeout(() => input.focus(), 300);
-                }
-                const sendBtn = document.getElementById('chatbotSend');
-                if (sendBtn) {
-                    sendBtn.disabled = false;
-                }
+                // Show FAQ questions list
+                showFAQQuestions();
             }
         }
     }
@@ -394,8 +365,7 @@
         // Event listeners
         const toggle = document.getElementById('chatbotToggle');
         const close = document.getElementById('chatbotClose');
-        const send = document.getElementById('chatbotSend');
-        const input = document.getElementById('chatbotInput');
+        const backBtn = document.getElementById('backToQuestions');
 
         if (toggle) {
             toggle.addEventListener('click', toggleChatbot);
@@ -405,16 +375,8 @@
             close.addEventListener('click', toggleChatbot);
         }
 
-        if (send) {
-            send.addEventListener('click', sendMessage);
-        }
-
-        if (input) {
-            input.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter' && !input.disabled) {
-                    sendMessage();
-                }
-            });
+        if (backBtn) {
+            backBtn.addEventListener('click', backToQuestions);
         }
 
         // Listen for language changes (from main language switcher)
@@ -428,26 +390,8 @@
                 localStorage.setItem('chatbotLanguage', newLang);
                 
                 // Reload chatbot with new language
-                const messagesContainer = document.getElementById('chatbotMessages');
-                if (messagesContainer && languageSelected) {
-                    const welcomeMessage = getTranslation('faqBot.welcome');
-                    messagesContainer.innerHTML = `
-                        <div class="chatbot-message bot-message">
-                            <div class="message-avatar">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="message-content">
-                                <p>${welcomeMessage}</p>
-                            </div>
-                        </div>
-                    `;
-                }
-                
-                // Update placeholder
-                const input = document.getElementById('chatbotInput');
-                if (input) {
-                    const placeholder = getTranslation('faqBot.placeholder');
-                    input.placeholder = placeholder;
+                if (languageSelected && isOpen) {
+                    showFAQQuestions();
                 }
                 
                 // Update title
