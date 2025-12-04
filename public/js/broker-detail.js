@@ -356,11 +356,11 @@
             // Use static data loader or JSON file
             let data;
             if (window.loadReviews) {
-                // Load all reviews for this broker (no limit initially to show at least 20)
+                // Load ALL reviews for this broker (no pagination limit)
                 data = await window.loadReviews({ 
                     broker: currentBroker._id || currentBroker.slug,
-                    page: currentPage,
-                    limit: 100 // Load more reviews initially
+                    page: 1,
+                    limit: 1000 // Load all reviews (we have 30 per broker, so 1000 is safe)
                 });
             } else {
                 // Fallback to direct JSON fetch with multiple path attempts
@@ -441,13 +441,9 @@
     function updateLoadMoreButton(totalPages) {
         const loadMoreBtn = document.getElementById('loadMoreReviews');
         if (loadMoreBtn) {
-            if (currentPage >= totalPages) {
-                loadMoreBtn.style.display = 'none';
-                console.log('Hide load more button - all reviews loaded');
-            } else {
-                loadMoreBtn.style.display = 'block';
-                console.log('Show load more button');
-            }
+            // Hide load more button since we're showing all reviews at once
+            loadMoreBtn.style.display = 'none';
+            console.log('All reviews displayed - load more button hidden');
         }
     }
 
