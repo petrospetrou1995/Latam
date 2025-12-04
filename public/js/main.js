@@ -619,14 +619,24 @@ function setupMobileMenu() {
             });
         });
         
-        // Handle language selector on mobile
+        // Handle language selector on mobile - always set up, works on mobile
         const languageBtn = document.getElementById('languageBtn');
         const languageSelector = languageBtn?.closest('.language-selector');
-        if (languageBtn && languageSelector && window.innerWidth <= 768) {
+        if (languageBtn && languageSelector) {
+            // Add click handler for mobile menu
             languageBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                languageSelector.classList.toggle('active');
+                // On mobile, toggle the dropdown
+                if (window.innerWidth <= 768) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    languageSelector.classList.toggle('active');
+                }
             });
+            
+            // Ensure language selector is visible in mobile menu
+            if (window.innerWidth <= 768) {
+                languageSelector.style.display = 'block';
+            }
         }
         
         // Close menu when clicking on a link
@@ -872,8 +882,8 @@ function populateBrokerDropdowns(brokers) {
     }
     
     brokerDropdowns.forEach(dropdown => {
-        // Check if this is the brokers dropdown (has "Todos los Brokers" link)
-        const allBrokersLink = dropdown.querySelector('a[href="/brokers"]');
+        // Check if this is the brokers dropdown (has "Todos los Brokers" link - check both with and without .html)
+        const allBrokersLink = dropdown.querySelector('a[href="/brokers"]') || dropdown.querySelector('a[href="/brokers.html"]');
         if (allBrokersLink) {
             // Clear existing broker links and dividers (keep "Todos los Brokers")
             const existingBrokerLinks = dropdown.querySelectorAll('a[href^="/broker/"]');
@@ -892,7 +902,7 @@ function populateBrokerDropdowns(brokers) {
                 const sortedBrokers = [...brokers].sort((a, b) => a.name.localeCompare(b.name));
                 sortedBrokers.forEach(broker => {
                     const brokerLink = document.createElement('a');
-                    brokerLink.href = `/broker/${broker.slug}`;
+                    brokerLink.href = `/broker/${broker.slug}.html`;
                     brokerLink.className = 'dropdown-item broker-dropdown-item';
                     brokerLink.setAttribute('aria-label', `Ver detalles de ${broker.name}`);
                     
