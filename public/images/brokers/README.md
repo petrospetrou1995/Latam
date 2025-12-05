@@ -23,4 +23,3 @@ If no logo is found:
 
 
 
-
