@@ -461,13 +461,22 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.15;
     animation: fadeInUp 0.8s ease-out;
     opacity: 0;
     animation-fill-mode: forwards;
+    letter-spacing: -0.03em;
+    max-width: 900px;
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.25rem;
+        line-height: 1.25;
+    }
 }
 
 @keyframes fadeInUp {
@@ -482,13 +491,15 @@ body {
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    margin-bottom: 32px;
+    opacity: 0.95;
+    line-height: 1.7;
     animation: fadeInUp 1s ease-out 0.2s;
     animation-fill-mode: forwards;
     opacity: 0;
+    max-width: 700px;
+    font-weight: 400;
 }
 
 .hero-buttons {
