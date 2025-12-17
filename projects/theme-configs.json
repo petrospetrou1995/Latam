@@ -1,0 +1,205 @@
+{
+  "projects": {
+    "rankingbrokerslatam": {
+      "name": "RankingBrokersLatam.com",
+      "domain": "rankingbrokerslatam.com",
+      "title": "Ranking Brokers LATAM - Top 10 Brokers Ranking",
+      "description": "Monthly updated ranking of the best brokers in Latin America. Compare spreads, payment methods, and find the perfect broker for your country.",
+      "colors": {
+        "primary": "#FF6B35",
+        "secondary": "#004E89",
+        "accent": "#FFA726",
+        "background": "#FFFFFF",
+        "text": "#1A1A1A",
+        "card": "#F8F9FA",
+        "border": "#E0E0E0",
+        "success": "#4CAF50",
+        "warning": "#FF9800",
+        "danger": "#F44336"
+      },
+      "focus": "leaderboard",
+      "features": ["top10", "country-filter", "spread-comparison", "payment-methods", "copy-trading", "quick-compare"]
+    },
+    "inversionistadigital": {
+      "name": "InversionistaDigital.net",
+      "domain": "inversionistadigital.net",
+      "title": "Inversionista Digital - Digital Investing for LATAM",
+      "description": "Modern platform for digital investors. US stocks, crypto on-ramps, fractional shares, and ETF guides for Latin American investors.",
+      "colors": {
+        "primary": "#6366F1",
+        "secondary": "#8B5CF6",
+        "accent": "#EC4899",
+        "background": "#0F172A",
+        "text": "#F1F5F9",
+        "card": "#1E293B",
+        "border": "#334155",
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "danger": "#EF4444"
+      },
+      "focus": "modern-tech",
+      "features": ["us-stocks", "crypto-onramps", "fractional-shares", "etf-guides", "wallet-integration", "neobank"]
+    },
+    "zonatradinglatam": {
+      "name": "ZonaTradingLatam.com",
+      "domain": "zonatradinglatam.com",
+      "title": "Zona Trading LATAM - Active Trading Zone",
+      "description": "Fast-paced trading platform reviews. Day trading brokers, forex majors, platform comparisons, and mobile-first trading apps.",
+      "colors": {
+        "primary": "#00D4FF",
+        "secondary": "#0099CC",
+        "accent": "#FF3366",
+        "background": "#000000",
+        "text": "#FFFFFF",
+        "card": "#1A1A1A",
+        "border": "#333333",
+        "success": "#00FF88",
+        "warning": "#FFAA00",
+        "danger": "#FF0044"
+      },
+      "focus": "active-trading",
+      "features": ["day-trading", "forex-majors", "platform-reviews", "signals-bots", "mobile-first", "economic-calendar"]
+    },
+    "brokersconfiables": {
+      "name": "BrokersConfiables.com",
+      "domain": "brokersconfiables.com",
+      "title": "Brokers Confiables - Trusted Broker Reviews",
+      "description": "Authority on broker safety and reliability. Scam alerts, regulation checker, fund protection, and verified reviews from real users.",
+      "colors": {
+        "primary": "#2E7D32",
+        "secondary": "#1B5E20",
+        "accent": "#66BB6A",
+        "background": "#FFFFFF",
+        "text": "#212121",
+        "card": "#F5F5F5",
+        "border": "#BDBDBD",
+        "success": "#4CAF50",
+        "warning": "#FF9800",
+        "danger": "#D32F2F"
+      },
+      "focus": "safety-trust",
+      "features": ["scam-alerts", "regulation-checker", "fund-protection", "verified-reviews", "safety-check", "support-test"]
+    },
+    "rutadetrading": {
+      "name": "RutaDeTrading.com",
+      "domain": "rutadetrading.com",
+      "title": "Ruta de Trading - Your Trading Journey",
+      "description": "Step-by-step educational guides for traders. From first trade to advanced strategies. Capital matchmaker, demo accounts, and free academy.",
+      "colors": {
+        "primary": "#1976D2",
+        "secondary": "#0D47A1",
+        "accent": "#42A5F5",
+        "background": "#FAFAFA",
+        "text": "#263238",
+        "card": "#FFFFFF",
+        "border": "#E0E0E0",
+        "success": "#66BB6A",
+        "warning": "#FFA726",
+        "danger": "#EF5350"
+      },
+      "focus": "education",
+      "features": ["step-by-step", "capital-matchmaker", "demo-accounts", "academy", "micro-accounts", "glossary"]
+    },
+    "comparativaforex": {
+      "name": "ComparativaForex.com",
+      "domain": "comparativaforex.com",
+      "title": "Comparativa Forex - Forex Broker Comparison",
+      "description": "Niche-specific forex analysis. Live spread tables, high leverage brokers, swap-free accounts, ECN vs Market Maker, and local currency pairs.",
+      "colors": {
+        "primary": "#1565C0",
+        "secondary": "#0D47A1",
+        "accent": "#42A5F5",
+        "background": "#FFFFFF",
+        "text": "#212121",
+        "card": "#F5F5F5",
+        "border": "#BDBDBD",
+        "success": "#4CAF50",
+        "warning": "#FF9800",
+        "danger": "#D32F2F"
+      },
+      "focus": "forex-niche",
+      "features": ["live-spreads", "high-leverage", "swap-free", "ecn-vs-mm", "local-pairs", "vps-services"]
+    },
+    "plataformasdeinversion": {
+      "name": "PlataformasDeInversion.com",
+      "domain": "plataformasdeinversion.com",
+      "title": "Plataformas de Inversión - Investment Platforms",
+      "description": "Broad investment platform reviews. Multi-asset brokers, dividend investing, tax basics, robo-advisors, IPO access, and UX ratings.",
+      "colors": {
+        "primary": "#7B1FA2",
+        "secondary": "#4A148C",
+        "accent": "#BA68C8",
+        "background": "#FFFFFF",
+        "text": "#212121",
+        "card": "#F3E5F5",
+        "border": "#CE93D8",
+        "success": "#66BB6A",
+        "warning": "#FFA726",
+        "danger": "#EF5350"
+      },
+      "focus": "investment",
+      "features": ["multi-asset", "dividend-investing", "tax-basics", "robo-advisors", "ipo-access", "ux-rating"]
+    },
+    "guiadebrokerssudamerica": {
+      "name": "GuiadeBrokersSudamerica.com",
+      "domain": "guiadebrokerssudamerica.com",
+      "title": "Guía de Brokers Sudamérica - Southern Cone Guide",
+      "description": "Focused on Argentina, Uruguay, and Paraguay markets. Inflation hedging, P2P trading, wire transfers, and regional market updates.",
+      "colors": {
+        "primary": "#C62828",
+        "secondary": "#8E0000",
+        "accent": "#EF5350",
+        "background": "#FFFBF0",
+        "text": "#3E2723",
+        "card": "#FFF8E1",
+        "border": "#FFE082",
+        "success": "#558B2F",
+        "warning": "#F57C00",
+        "danger": "#C62828"
+      },
+      "focus": "southern-cone",
+      "features": ["argentina-uruguay-paraguay", "inflation-hedging", "p2p-trading", "wire-transfers", "event-calendar", "regional-news"]
+    },
+    "topbrokersmexicoymas": {
+      "name": "TopBrokersMexicoYMas.com",
+      "domain": "topbrokersmexicoymas.com",
+      "title": "Top Brokers México y Más - Mexico Focused",
+      "description": "Deep dive into Mexican broker market. SPEI deposits, CNBV regulation, US broker access, fiscal reporting, and peso trading strategies.",
+      "colors": {
+        "primary": "#006847",
+        "secondary": "#CE1126",
+        "accent": "#FFFFFF",
+        "background": "#FFFFFF",
+        "text": "#1A1A1A",
+        "card": "#F5F5F5",
+        "border": "#D0D0D0",
+        "success": "#006847",
+        "warning": "#FFA500",
+        "danger": "#CE1126"
+      },
+      "focus": "mexico",
+      "features": ["mexico-deep-dive", "spei-deposits", "cnbv-regulation", "us-broker-access", "fiscal-reporting", "peso-trading", "beginner-kits"]
+    },
+    "capitallatamreviews": {
+      "name": "CapitalLatamReviews.com",
+      "domain": "capitallatamreviews.com",
+      "title": "Capital LATAM Reviews - Institutional Broker Reviews",
+      "description": "Professional and institutional broker reviews. Pro accounts, DMA platforms, API trading, safety scorecards, managed accounts, and wealth management.",
+      "colors": {
+        "primary": "#1A237E",
+        "secondary": "#283593",
+        "accent": "#5C6BC0",
+        "background": "#FAFAFA",
+        "text": "#212121",
+        "card": "#FFFFFF",
+        "border": "#E0E0E0",
+        "success": "#2E7D32",
+        "warning": "#F57C00",
+        "danger": "#C62828"
+      },
+      "focus": "institutional",
+      "features": ["pro-accounts", "dma-platforms", "api-trading", "safety-scorecard", "managed-accounts", "wealth-management"]
+    }
+  }
+}
+
