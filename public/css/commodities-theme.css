@@ -2,7 +2,7 @@
 
 /* Enhanced Commodity Cards */
 .commodity-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     border-radius: 20px;
     padding: 30px;
     margin-bottom: 30px;
@@ -11,6 +11,7 @@
     position: relative;
     overflow: hidden;
     border: 2px solid transparent;
+    color: white;
 }
 
 .commodity-card::before {
@@ -28,7 +29,7 @@
 .commodity-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    border-color: #ffd700;
+    border-color: #3282b8;
 }
 
 .commodity-card.gold {
@@ -126,7 +127,7 @@
 
 /* Enhanced Category Cards */
 .category-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     border-radius: 20px;
     padding: 30px;
     text-align: center;
@@ -135,6 +136,7 @@
     overflow: hidden;
     border: 2px solid transparent;
     height: 100%;
+    color: white;
 }
 
 .category-card::before {
@@ -152,7 +154,7 @@
 .category-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    border-color: #ffd700;
+    border-color: #3282b8;
 }
 
 .category-card:nth-child(1) {
@@ -228,7 +230,7 @@
 
 /* Enhanced Strategy Cards */
 .strategy-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     border-radius: 20px;
     padding: 30px;
     text-align: center;
@@ -237,6 +239,7 @@
     overflow: hidden;
     border: 2px solid transparent;
     height: 100%;
+    color: white;
 }
 
 .strategy-card::before {
@@ -254,7 +257,7 @@
 .strategy-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    border-color: #ffd700;
+    border-color: #3282b8;
 }
 
 .strategy-card:nth-child(1) {
@@ -354,7 +357,7 @@
     font-weight: 800;
     text-align: center;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -363,7 +366,7 @@
 
 /* Enhanced Content Cards */
 .content-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     border-radius: 20px;
     padding: 30px;
     text-align: center;
@@ -372,6 +375,7 @@
     overflow: hidden;
     border: 2px solid transparent;
     height: 100%;
+    color: white;
 }
 
 .content-card::before {
@@ -389,7 +393,7 @@
 .content-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-    border-color: #ffd700;
+    border-color: #3282b8;
 }
 
 .content-card:nth-child(1) {
@@ -486,7 +490,7 @@
 .content-card:hover {
     box-shadow: 
         0 30px 60px rgba(0, 0, 0, 0.2),
-        0 0 0 1px rgba(255, 215, 0, 0.3),
+        0 0 0 1px rgba(50, 130, 184, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
