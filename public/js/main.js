@@ -152,8 +152,15 @@ function setupDropdowns() {
             dropdown.classList.toggle('show');
             
             // Ensure dropdown translations are applied when opened
-            if (dropdown.classList.contains('show') && window.ensureDropdownTranslations) {
-                window.ensureDropdownTranslations();
+            if (dropdown.classList.contains('show')) {
+                if (window.ensureDropdownTranslations) {
+                    window.ensureDropdownTranslations();
+                }
+                // Also apply translations to ensure all items are translated
+                const currentLang = localStorage.getItem('language') || 'en';
+                if (window.applyTranslations) {
+                    window.applyTranslations(currentLang);
+                }
             }
         });
     });
