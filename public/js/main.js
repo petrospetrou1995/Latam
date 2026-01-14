@@ -988,7 +988,9 @@ function populateBrokerDropdowns(brokers) {
                     
                     // Always show icon first as fallback
                     const icon = getBrokerIcon(broker);
-                    logoContainer.innerHTML = `<i class="${icon}"></i>`;
+                    const iconElement = document.createElement('i');
+                    iconElement.className = icon;
+                    logoContainer.appendChild(iconElement);
                     
                     // Try to get logo URL (from database or generated)
                     const logoUrl = getBrokerLogoUrl(broker);
@@ -996,30 +998,42 @@ function populateBrokerDropdowns(brokers) {
                     if (logoUrl) {
                         // Try to load logo and replace icon if successful
                         const logoImg = document.createElement('img');
-                        logoImg.src = logoUrl;
                         logoImg.alt = `${broker.name} logo - ${broker.name} broker logo image for trading platform`;
                         logoImg.style.width = '100%';
                         logoImg.style.height = '100%';
                         logoImg.style.objectFit = 'contain';
                         logoImg.style.padding = '4px';
-                        logoImg.style.display = 'none'; // Hidden until loaded
                         logoImg.loading = 'lazy';
                         
-                        // Show logo when loaded successfully
-                        logoImg.onload = function() {
-                            logoContainer.innerHTML = ''; // Clear icon
-                            logoContainer.appendChild(this);
-                            this.style.display = 'block';
+                        // Function to replace icon with logo
+                        const replaceIconWithLogo = function() {
+                            if (iconElement.parentNode === logoContainer) {
+                                iconElement.remove();
+                            }
+                            // Only append if not already in container
+                            if (logoImg.parentNode !== logoContainer) {
+                                logoContainer.appendChild(logoImg);
+                            }
                         };
+                        
+                        // Show logo when loaded successfully - replace icon
+                        logoImg.onload = replaceIconWithLogo;
                         
                         // Keep icon if logo fails to load
                         logoImg.onerror = function() {
-                            // Icon is already displayed, just keep it
-                            this.remove();
+                            // Icon is already displayed, just remove failed image if it was added
+                            if (this.parentNode === logoContainer) {
+                                this.remove();
+                            }
                         };
                         
-                        // Add image to container (will replace icon on load)
-                        logoContainer.appendChild(logoImg);
+                        // Set src after handlers are attached - this triggers the load
+                        logoImg.src = logoUrl;
+                        
+                        // Check if image is already loaded (cached images)
+                        if (logoImg.complete && logoImg.naturalHeight !== 0) {
+                            replaceIconWithLogo();
+                        }
                     }
                     
                     // Create name span
