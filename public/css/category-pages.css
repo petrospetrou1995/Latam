@@ -882,6 +882,9 @@
     position: relative;
     box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .broker-card::after {
@@ -991,6 +994,8 @@
     align-items: center;
     gap: 8px;
     justify-content: center;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -1006,6 +1011,8 @@
     align-items: center;
     gap: 8px;
     justify-content: center;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .btn-secondary:hover {
@@ -1017,15 +1024,27 @@
 .broker-actions {
     display: flex !important;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: auto;
+    padding-top: 15px;
     visibility: visible !important;
     opacity: 1 !important;
+    align-items: stretch;
+    width: 100%;
 }
 
 .broker-actions .btn {
-    width: auto;
     flex: 1;
-    min-width: 120px;
+    min-width: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 12px 16px;
+    height: auto;
+    min-height: 44px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 1.4;
 }
 
 /* Analysis Section */
