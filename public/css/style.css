@@ -627,6 +627,12 @@ section:first-of-type {
     background: #f8f9fa;
 }
 
+.brokers-section h2,
+.why-choose-us h2,
+.reviews-section h2 {
+    text-align: center;
+}
+
 .brokers-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
