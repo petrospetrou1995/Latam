@@ -29,6 +29,7 @@
                 dropdown.style.setProperty('opacity', '0', 'important');
                 dropdown.style.setProperty('visibility', 'hidden', 'important');
                 dropdown.style.setProperty('pointer-events', 'none', 'important');
+                dropdown.dataset.userOpened = 'false';
                 console.log('Dropdown hidden');
             } else {
                 // Show dropdown
@@ -38,6 +39,7 @@
                 dropdown.style.setProperty('visibility', 'visible', 'important');
                 dropdown.style.setProperty('z-index', '10000', 'important');
                 dropdown.style.setProperty('pointer-events', 'auto', 'important');
+                dropdown.dataset.userOpened = 'true';
                 console.log('Dropdown shown with forced styles');
             }
         } else {
@@ -65,6 +67,7 @@
             dropdown.style.setProperty('opacity', '0', 'important');
             dropdown.style.setProperty('visibility', 'hidden', 'important');
             dropdown.style.setProperty('pointer-events', 'none', 'important');
+            dropdown.dataset.userOpened = 'false';
         }
         
         // Apply translations immediately
@@ -370,7 +373,27 @@
             dropdown.style.setProperty('opacity', '0', 'important');
             dropdown.style.setProperty('visibility', 'hidden', 'important');
             dropdown.style.setProperty('pointer-events', 'none', 'important');
+            dropdown.dataset.userOpened = 'false';
             console.log('Dropdown initialized as hidden');
+        }
+        
+        // Guard against auto-opening without user intent
+        if (dropdown && !dropdown.dataset.observerAttached) {
+            dropdown.dataset.observerAttached = 'true';
+            const observer = new MutationObserver(() => {
+                const isShown = dropdown.classList.contains('show');
+                const userOpened = dropdown.dataset.userOpened === 'true';
+                if (isShown && !userOpened) {
+                    dropdown.classList.remove('show');
+                    dropdown.style.setProperty('display', 'none', 'important');
+                    dropdown.style.setProperty('opacity', '0', 'important');
+                    dropdown.style.setProperty('visibility', 'hidden', 'important');
+                    dropdown.style.setProperty('pointer-events', 'none', 'important');
+                    dropdown.dataset.userOpened = 'false';
+                    console.log('Blocked auto-open of language dropdown');
+                }
+            });
+            observer.observe(dropdown, { attributes: true, attributeFilter: ['class', 'style'] });
         }
         
         // Close dropdown when clicking outside
@@ -384,6 +407,7 @@
                 dropdownEl.style.setProperty('opacity', '0', 'important');
                 dropdownEl.style.setProperty('visibility', 'hidden', 'important');
                 dropdownEl.style.setProperty('pointer-events', 'none', 'important');
+                dropdownEl.dataset.userOpened = 'false';
                 console.log('Dropdown closed by outside click');
             }
         });
