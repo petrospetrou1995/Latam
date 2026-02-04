@@ -437,8 +437,9 @@
 /* Comparison Table */
 .comparison-table {
     width: 100%;
+    max-width: 1100px;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 20px auto 0;
 }
 
 .comparison-table th,
@@ -731,6 +732,11 @@
 /* Comparison Container */
 .comparison-container {
     margin-top: 20px;
+}
+
+.comparison-table-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .comparison-header {
