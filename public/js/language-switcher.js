@@ -29,6 +29,7 @@
                 dropdown.style.setProperty('opacity', '0', 'important');
                 dropdown.style.setProperty('visibility', 'hidden', 'important');
                 dropdown.style.setProperty('pointer-events', 'none', 'important');
+                dropdown.dataset.userOpened = 'false';
                 console.log('Dropdown hidden');
             } else {
                 // Show dropdown
@@ -38,6 +39,7 @@
                 dropdown.style.setProperty('visibility', 'visible', 'important');
                 dropdown.style.setProperty('z-index', '10000', 'important');
                 dropdown.style.setProperty('pointer-events', 'auto', 'important');
+                dropdown.dataset.userOpened = 'true';
                 console.log('Dropdown shown with forced styles');
             }
         } else {
@@ -65,6 +67,7 @@
             dropdown.style.setProperty('opacity', '0', 'important');
             dropdown.style.setProperty('visibility', 'hidden', 'important');
             dropdown.style.setProperty('pointer-events', 'none', 'important');
+            dropdown.dataset.userOpened = 'false';
         }
         
         // Apply translations immediately
@@ -75,6 +78,9 @@
         
         // Update page title
         updatePageTitle(lang);
+        
+        // Update structured data (JSON-LD)
+        updateStructuredData(lang);
         
         // Update reviews if reviews manager is available
         if (window.reviewsManager) {
@@ -88,6 +94,11 @@
     }
     
     function applyTranslations(lang) {
+        // If no language provided, get from localStorage or default to 'en'
+        if (!lang) {
+            lang = localStorage.getItem('language') || 'en';
+        }
+        
         console.log('Attempting to apply translations for:', lang);
         console.log('Languages object available:', typeof languages !== 'undefined');
         
@@ -100,6 +111,19 @@
                     applyTranslations(lang);
                 } else {
                     console.error('Languages object still not available after timeout');
+                    // Try multiple times
+                    let attempts = 0;
+                    const maxAttempts = 10;
+                    const checkLanguages = setInterval(() => {
+                        attempts++;
+                        if (typeof languages !== 'undefined') {
+                            clearInterval(checkLanguages);
+                            applyTranslations(lang);
+                        } else if (attempts >= maxAttempts) {
+                            clearInterval(checkLanguages);
+                            console.error('Languages object not available after multiple attempts');
+                        }
+                    }, 100);
                 }
             }, 200);
             return;
@@ -129,15 +153,57 @@
                     element.placeholder = value;
                 } else if (element.tagName === 'TITLE') {
                     element.textContent = value;
+                } else if (element.tagName === 'META') {
+                    // Handle meta tags (description, og:title, og:description, etc.)
+                    const property = element.getAttribute('property');
+                    const name = element.getAttribute('name');
+                    if (property) {
+                        element.setAttribute('content', value);
+                    } else if (name) {
+                        element.setAttribute('content', value);
+                    }
                 } else {
-                    // For elements that might contain HTML, preserve structure
+                    // For elements that might contain HTML (like icons), preserve structure
                     if (element.children.length > 0) {
-                        // If element has children, only update text nodes
-                        const textNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
-                        if (textNodes.length > 0) {
-                            textNodes[0].textContent = value;
+                        // Check if element contains icon or other HTML elements
+                        const hasIcon = element.querySelector('i, svg, img');
+                        if (hasIcon) {
+                            // Preserve icon and update only text content
+                            // Find all text nodes
+                            const allNodes = Array.from(element.childNodes);
+                            const textNodes = allNodes.filter(node => node.nodeType === Node.TEXT_NODE);
+                            
+                            // Remove all text nodes (they will be replaced)
+                            textNodes.forEach(node => node.remove());
+                            
+                            // Find the first element child (icon)
+                            const firstElement = element.firstElementChild;
+                            if (firstElement) {
+                                // Insert text node after the icon with a space
+                                const textNode = document.createTextNode(' ' + value);
+                                if (firstElement.nextSibling) {
+                                    element.insertBefore(textNode, firstElement.nextSibling);
+                                } else {
+                                    element.appendChild(textNode);
+                                }
+                            } else {
+                                // Fallback: prepend text
+                                element.insertBefore(document.createTextNode(value + ' '), element.firstChild);
+                            }
                         } else {
-                            element.textContent = value;
+                            // If element has children but no icons, update text nodes
+                            const textNodes = Array.from(element.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+                            if (textNodes.length > 0) {
+                                // Update the first non-whitespace text node
+                                const nonWhitespaceNode = textNodes.find(node => node.textContent.trim().length > 0);
+                                if (nonWhitespaceNode) {
+                                    nonWhitespaceNode.textContent = value;
+                                } else {
+                                    textNodes[0].textContent = value;
+                                }
+                            } else {
+                                element.textContent = value;
+                            }
                         }
                     } else {
                         element.textContent = value;
@@ -176,12 +242,41 @@
     }
     
     function updatePageTitle(lang) {
-        const titleElement = document.querySelector('title');
+        const titleElement = document.querySelector('title[data-translate]');
         if (titleElement) {
-            if (lang === 'es') {
-                titleElement.textContent = 'LatamBrokerReviews - Reseñas de Brokers en América Latina';
-            } else {
-                titleElement.textContent = 'LatamBrokerReviews - Latin America Broker Reviews';
+            const key = titleElement.getAttribute('data-translate');
+            const translations = languages[lang];
+            if (translations) {
+                const value = getNestedValue(translations, key);
+                if (value !== undefined) {
+                    titleElement.textContent = value;
+                }
+            }
+        } else {
+            // Fallback for pages without data-translate on title
+            const titleElementFallback = document.querySelector('title');
+            if (titleElementFallback) {
+                if (lang === 'es') {
+                    titleElementFallback.textContent = 'LatamBrokerReviews - Reseñas de Brokers en América Latina';
+                } else {
+                    titleElementFallback.textContent = 'LatamBrokerReviews - Latin America Broker Reviews';
+                }
+            }
+        }
+    }
+    
+    function updateStructuredData(lang) {
+        const structuredDataScript = document.getElementById('blog-structured-data');
+        if (structuredDataScript && typeof languages !== 'undefined') {
+            const translations = languages[lang];
+            if (translations && translations.blog) {
+                try {
+                    const structuredData = JSON.parse(structuredDataScript.textContent);
+                    structuredData.description = translations.blog.hero.subtitle || translations.blog.pageDescription;
+                    structuredDataScript.textContent = JSON.stringify(structuredData);
+                } catch (e) {
+                    console.error('Error updating structured data:', e);
+                }
             }
         }
     }
@@ -208,6 +303,7 @@
             applyTranslations(savedLang);
             document.documentElement.lang = savedLang;
             updatePageTitle(savedLang);
+            updateStructuredData(savedLang);
         };
         
         // Try immediately
@@ -277,7 +373,27 @@
             dropdown.style.setProperty('opacity', '0', 'important');
             dropdown.style.setProperty('visibility', 'hidden', 'important');
             dropdown.style.setProperty('pointer-events', 'none', 'important');
+            dropdown.dataset.userOpened = 'false';
             console.log('Dropdown initialized as hidden');
+        }
+        
+        // Guard against auto-opening without user intent
+        if (dropdown && !dropdown.dataset.observerAttached) {
+            dropdown.dataset.observerAttached = 'true';
+            const observer = new MutationObserver(() => {
+                const isShown = dropdown.classList.contains('show');
+                const userOpened = dropdown.dataset.userOpened === 'true';
+                if (isShown && !userOpened) {
+                    dropdown.classList.remove('show');
+                    dropdown.style.setProperty('display', 'none', 'important');
+                    dropdown.style.setProperty('opacity', '0', 'important');
+                    dropdown.style.setProperty('visibility', 'hidden', 'important');
+                    dropdown.style.setProperty('pointer-events', 'none', 'important');
+                    dropdown.dataset.userOpened = 'false';
+                    console.log('Blocked auto-open of language dropdown');
+                }
+            });
+            observer.observe(dropdown, { attributes: true, attributeFilter: ['class', 'style'] });
         }
         
         // Close dropdown when clicking outside
@@ -291,6 +407,7 @@
                 dropdownEl.style.setProperty('opacity', '0', 'important');
                 dropdownEl.style.setProperty('visibility', 'hidden', 'important');
                 dropdownEl.style.setProperty('pointer-events', 'none', 'important');
+                dropdownEl.dataset.userOpened = 'false';
                 console.log('Dropdown closed by outside click');
             }
         });

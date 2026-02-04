@@ -118,5 +118,3 @@ Make sure to include `static-brokers.js` in your HTML files when using static mo
 The build includes `_redirects` (Netlify) and `.htaccess` (Apache) files for client-side routing.
 
 
-
-

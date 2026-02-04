@@ -147,5 +147,3 @@ Cloudflare Pages provides:
 **Last Updated:** After converting reviews to hardcoded format with translations
 
 
-
-

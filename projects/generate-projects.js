@@ -362,5 +362,3 @@ Object.keys(projectConfigs).forEach((key, index) => {
 console.log('\n✨ All projects created successfully!');
 console.log(`📁 Projects location: ${PROJECTS_DIR}`);
 
-
-

@@ -349,5 +349,3 @@ if (!projectKey) {
     ensureProjectSeparation(projectKey);
 }
 
-
-

@@ -179,5 +179,3 @@ If resources appear to be shared:
    npm run build:static
    ```
 
-
-

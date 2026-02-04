@@ -47,5 +47,3 @@ The build script (`build-static.js`) still needs MongoDB connection to generate 
 The build will still work without MongoDB, but won't include broker/review data.
 
 
-
-
