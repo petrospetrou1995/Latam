@@ -26,60 +26,11 @@
         return featureName;
     }
     
-    // Translate category name
-    function translateCategory(category) {
-        if (!category) return '';
-        
-        if (typeof languages !== 'undefined') {
-            const currentLang = localStorage.getItem('language') || 'en';
-            const translations = languages[currentLang];
-            
-            // Try brokers.filters.categoryName first
-            if (translations && translations.brokers && translations.brokers.filters) {
-                const categoryMap = {
-                    'forex': translations.brokers.filters.forex || 'Forex',
-                    'stocks': translations.brokers.filters.stocks || 'Stocks',
-                    'crypto': translations.brokers.filters.crypto || 'Crypto',
-                    'cfd': translations.brokers.filters.cfds || 'CFDs',
-                    'commodities': translations.brokers.filters.commodities || 'Commodities'
-                };
-                if (categoryMap[category.toLowerCase()]) {
-                    return categoryMap[category.toLowerCase()];
-                }
-            }
-            
-            // Fallback to nav translations
-            if (translations && translations.nav) {
-                const navMap = {
-                    'forex': translations.nav.forex || 'Forex',
-                    'stocks': translations.nav.stocks || 'Stocks',
-                    'crypto': translations.nav.crypto || 'Crypto',
-                    'cfd': translations.nav.cfds || 'CFDs',
-                    'commodities': translations.nav.commodities || 'Commodities'
-                };
-                if (navMap[category.toLowerCase()]) {
-                    return navMap[category.toLowerCase()];
-                }
-            }
-        }
-        
-        // Final fallback: capitalize first letter
-        return category.charAt(0).toUpperCase() + category.slice(1);
-    }
-    
-    // Get translated broker description
-    function getTranslatedDescription(brokerSlug, lang) {
-        if (typeof languages !== 'undefined' && languages[lang] && languages[lang].brokers && languages[lang].brokers.descriptions) {
-            return languages[lang].brokers.descriptions[brokerSlug] || '';
-        }
-        return '';
-    }
-    
     let brokers = [];
     let filteredBrokers = [];
     let currentView = 'grid';
     let currentPage = 1;
-    let itemsPerPage = 100; // Show all brokers by default
+    let itemsPerPage = 9;
     let comparisonBrokers = [];
     
     // Initialize brokers page
@@ -88,34 +39,14 @@
         setupEventListeners();
         updateView();
         applyUrlFilters();
-        
-        // Listen for language changes to reload translations
-        window.addEventListener('languageChanged', function(event) {
-            console.log('Language changed event received in brokers.js:', event.detail.language);
-            // Update descriptions
-            updateBrokerDescriptions();
-            // Re-display brokers to apply new translations (including review comments)
-            displayBrokers();
-            // Also update comparison view if it's active
-            if (currentView === 'compare' && comparisonBrokers.length > 0) {
-                displayComparisonView();
-            }
-        });
     }
     
-    // Load brokers from static JSON or API
+    // Load brokers from API
     async function loadBrokers() {
         try {
-            // Try static data loader first
-            if (window.loadBrokers) {
-                const data = await window.loadBrokers();
-                brokers = data.brokers || [];
-            } else {
-                // Fallback to direct JSON fetch
-                const response = await fetch('/public/data/brokers.json');
-                const jsonData = await response.json();
-                brokers = jsonData.brokers || [];
-            }
+            const response = await fetch('/api/brokers');
+            const data = await response.json();
+            brokers = data.brokers || [];
             filteredBrokers = [...brokers];
             displayBrokers();
         } catch (error) {
@@ -309,171 +240,47 @@
     }
     
     // Display brokers
-    async function displayBrokers() {
+    function displayBrokers() {
         const container = document.getElementById('brokersContainer');
         if (!container) return;
         
-        // Show all brokers if not in compare view
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const pageBrokers = filteredBrokers.slice(startIndex, endIndex);
+        
         if (currentView === 'compare') {
             displayComparisonView();
         } else {
-            // Show all filtered brokers (no pagination limit)
-            // Use Promise.all to handle async createBrokerCard
-            const brokerCards = await Promise.all(filteredBrokers.map(broker => createBrokerCard(broker)));
-            container.innerHTML = brokerCards.join('');
+            container.innerHTML = pageBrokers.map(broker => createBrokerCard(broker)).join('');
         }
-        
-        // Apply translations to newly created broker cards
-        const currentLang = localStorage.getItem('language') || 'en';
-        if (typeof window.applyTranslations === 'function') {
-            window.applyTranslations(currentLang);
-        }
-        
-        // Update descriptions based on current language
-        updateBrokerDescriptions();
         
         updatePagination();
     }
     
-    // Update broker descriptions when language changes
-    function updateBrokerDescriptions() {
-        const currentLang = localStorage.getItem('language') || 'en';
-        document.querySelectorAll('.broker-description[data-broker-slug]').forEach(descEl => {
-            const brokerSlug = descEl.getAttribute('data-broker-slug');
-            const translatedDesc = getTranslatedDescription(brokerSlug, currentLang);
-            if (translatedDesc) {
-                descEl.textContent = translatedDesc.substring(0, 150) + '...';
-            }
-        });
-    }
-    
     // Create broker card
-    async function createBrokerCard(broker) {
+    function createBrokerCard(broker) {
         const isFeatured = broker.isFeatured ? 'featured' : '';
         const stars = generateStars(broker.rating);
         
-        // Get translated description
-        const currentLang = localStorage.getItem('language') || 'en';
-        let description = broker.description;
-        const translatedDesc = getTranslatedDescription(broker.slug, currentLang);
-        if (translatedDesc) {
-            description = translatedDesc;
-        }
-        
-        // Load a recent review/comment for featured brokers
-        let reviewComment = '';
-        if (isFeatured && typeof window.loadReviews === 'function') {
-            try {
-                const reviewData = await window.loadReviews({ 
-                    broker: broker.slug || broker._id,
-                    limit: 1,
-                    page: 1
-                });
-                if (reviewData && reviewData.reviews && reviewData.reviews.length > 0) {
-                    const review = reviewData.reviews[0];
-                    const reviewContent = review.content || '';
-                    const truncatedContent = reviewContent.length > 100 ? reviewContent.substring(0, 100) + '...' : reviewContent;
-                    reviewComment = `
-                        <div class="broker-comment" style="margin-top: 15px; padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 3px solid #667eea;">
-                            <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                                <div style="width: 32px; height: 32px; border-radius: 50%; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 10px; font-size: 0.9rem;">
-                                    ${review.user.name.charAt(0).toUpperCase()}
-                                </div>
-                                <div>
-                                    <strong style="font-size: 0.9rem; color: #333;">${review.user.name}</strong>
-                                    <div style="font-size: 0.8rem; color: #666;">${generateStars(review.rating)}</div>
-                                </div>
-                            </div>
-                            <p style="margin: 0; font-size: 0.85rem; color: #555; line-height: 1.4;">"${truncatedContent}"</p>
-                        </div>
-                    `;
-                }
-            } catch (error) {
-                console.log('Could not load review comment:', error);
-            }
-        }
-        
-        // Get broker logo URL
-        const getLogoUrl = window.getBrokerLogoUrl || function(broker) {
-            if (broker.logo && broker.logo.trim() !== '') {
-                if (broker.logo.startsWith('http://') || broker.logo.startsWith('https://')) {
-                    return broker.logo;
-                } else if (broker.logo.startsWith('/')) {
-                    return broker.logo;
-                } else {
-                    return `/images/brokers/${broker.logo}`;
-                }
-            }
-            const logoCdnMap = {
-                'libertex': 'https://logo.clearbit.com/libertex.com',
-                'xm-group': 'https://logo.clearbit.com/xm.com',
-                'xm': 'https://logo.clearbit.com/xm.com',
-                'etoro': 'https://logo.clearbit.com/etoro.com',
-                'plus500': 'https://logo.clearbit.com/plus500.com',
-                'avatrade': 'https://logo.clearbit.com/avatrade.com',
-                'ig-markets': 'https://logo.clearbit.com/ig.com',
-                'ig': 'https://logo.clearbit.com/ig.com'
-            };
-            const slug = broker.slug ? broker.slug.toLowerCase() : '';
-            if (logoCdnMap[slug]) {
-                return logoCdnMap[slug];
-            }
-            if (broker.website) {
-                try {
-                    const url = new URL(broker.website);
-                    return `https://logo.clearbit.com/${url.hostname}`;
-                } catch (e) {}
-            }
-            return null;
-        };
-        
-        const getIcon = window.getBrokerIcon || function(broker) {
-            const iconMap = {
-                'libertex': 'fas fa-chart-line',
-                'xm-group': 'fas fa-exchange-alt',
-                'xm': 'fas fa-exchange-alt',
-                'etoro': 'fas fa-coins',
-                'plus500': 'fas fa-chart-bar',
-                'avatrade': 'fas fa-briefcase',
-                'ig-markets': 'fas fa-building',
-                'ig': 'fas fa-building'
-            };
-            const slug = broker.slug ? broker.slug.toLowerCase() : '';
-            return iconMap[slug] || 'fas fa-building';
-        };
-        
-        const logoUrl = getLogoUrl(broker);
-        const iconClass = getIcon(broker);
-        const logoHtml = logoUrl ? 
-            `<div class="broker-logo" style="width: 80px; height: 80px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; overflow: hidden; border: 1px solid #e9ecef;">
-                <img src="${logoUrl}" alt="${broker.name} logo" style="width: 100%; height: 100%; object-fit: contain; padding: 8px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" crossorigin="anonymous">
-                <i class="${iconClass}" style="display: none; font-size: 32px; color: #007bff; align-items: center; justify-content: center; width: 100%; height: 100%;"></i>
-            </div>` :
-            `<div class="broker-logo" style="width: 80px; height: 80px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: #f8f9fa; border-radius: 8px; border: 1px solid #e9ecef;">
-                <i class="${iconClass}" style="font-size: 32px; color: #007bff;"></i>
-            </div>`;
-        
         return `
             <div class="broker-card ${currentView === 'list' ? 'list-view' : ''} ${isFeatured}" ${isFeatured ? `data-featured-text="${getTranslation('brokers.features.Destacado')}"` : ''}>
-                ${logoHtml}
                 <div class="broker-header">
                     <div class="broker-info">
                         <h3>${broker.name}</h3>
                         <div class="broker-rating">
                             <div class="stars">${stars}</div>
                             <span class="rating-number">${broker.rating}/5</span>
-                            <span class="reviews-count">(${broker.totalReviews} <span data-translate="brokers.reviews">${getTranslation('brokers.reviews')}</span>)</span>
+                            <span class="reviews-count">(${broker.totalReviews} ${getTranslation('brokers.reviews')})</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="broker-description" data-broker-slug="${broker.slug}">
-                    ${description.substring(0, 150)}...
+                <div class="broker-description">
+                    ${broker.description.substring(0, 150)}...
                 </div>
-                ${reviewComment}
                 
                 <div class="broker-features">
-                    <h4 data-translate="brokers.mainFeatures">${getTranslation('brokers.mainFeatures') || 'Características principales'}:</h4>
+                    <h4>${getTranslation('brokers.mainFeatures') || 'Características principales'}:</h4>
                     <div class="features-list">
                         ${broker.features.slice(0, 3).map(feature => 
                             `<span class="feature-tag">${translateBrokerFeature(feature.name)}</span>`
@@ -484,34 +291,34 @@
                 <div class="broker-stats">
                     <div class="stat-item">
                         <span class="stat-value">${broker.rating}</span>
-                        <span class="stat-label" data-translate="brokers.rating">${getTranslation('brokers.rating')}</span>
+                        <span class="stat-label">${getTranslation('brokers.rating')}</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">${broker.totalReviews}</span>
-                        <span class="stat-label" data-translate="brokers.reviews">${getTranslation('brokers.reviews')}</span>
+                        <span class="stat-label">${getTranslation('brokers.reviews')}</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">${broker.countries.length}</span>
-                        <span class="stat-label" data-translate="brokers.countries">${getTranslation('brokers.countries')}</span>
+                        <span class="stat-label">${getTranslation('brokers.countries')}</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">${translateCategory(broker.category)}</span>
-                        <span class="stat-label" data-translate="brokers.category">${getTranslation('brokers.category')}</span>
+                        <span class="stat-value">${broker.category}</span>
+                        <span class="stat-label">${getTranslation('brokers.category')}</span>
                     </div>
                 </div>
                 
                 <div class="broker-actions">
-                    <a href="${broker.website}" target="_blank" class="btn-visit" onclick="console.log('Visit site clicked:', '${broker.website}')" data-translate="brokers.visitSite">
+                    <a href="${broker.website}" target="_blank" class="btn-visit" onclick="console.log('Visit site clicked:', '${broker.website}')">
                         <i class="fas fa-external-link-alt"></i>
-                        <span data-translate="brokers.visitSite">${getTranslation('brokers.visitSite')}</span>
+                        ${getTranslation('brokers.visitSite')}
                     </a>
-                    <button class="btn-compare" data-broker-id="${broker._id}" data-action="add-comparison" data-translate="brokers.view.compare">
+                    <button class="btn-compare" data-broker-id="${broker._id}" data-action="add-comparison">
                         <i class="fas fa-balance-scale"></i>
-                        <span data-translate="brokers.view.compare">${getTranslation('brokers.view.compare')}</span>
+                        ${getTranslation('brokers.view.compare')}
                     </button>
-                    <a href="/broker/${broker.slug}.html" class="btn-reviews" data-translate="brokers.reviews">
+                    <a href="/broker/${broker.slug}" class="btn-reviews">
                         <i class="fas fa-star"></i>
-                        <span data-translate="brokers.reviews">${getTranslation('brokers.reviews')}</span>
+                        ${getTranslation('brokers.reviews')}
                     </a>
                 </div>
             </div>
@@ -587,25 +394,20 @@
             container.innerHTML = `
                 <div style="text-align: center; padding: 40px; color: #666;">
                     <i class="fas fa-balance-scale" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.5;"></i>
-                    <h3 data-translate="brokers.comparison.noBrokers">${getTranslation('brokers.comparison.noBrokers')}</h3>
-                    <p data-translate="brokers.comparison.selectBrokers">${getTranslation('brokers.comparison.selectBrokers')}</p>
+                    <h3>Selecciona brokers para comparar</h3>
+                    <p>Haz clic en "Comparar" en las tarjetas de brokers para agregarlos a la comparación.</p>
                 </div>
             `;
-            // Apply translations
-            const currentLang = localStorage.getItem('language') || 'en';
-            if (typeof window.applyTranslations === 'function') {
-                window.applyTranslations(currentLang);
-            }
             return;
         }
         
         container.innerHTML = `
             <div class="comparison-container">
                 <div class="comparison-header">
-                    <h3 data-translate="brokers.comparison.title">${getTranslation('brokers.comparison.title') || 'Comparación de Brokers'}</h3>
-                    <button class="btn btn-primary" id="openComparisonModalBtn" data-translate="brokers.comparison.viewFull">
+                    <h3>Comparación de Brokers</h3>
+                    <button class="btn btn-primary" id="openComparisonModalBtn">
                         <i class="fas fa-expand"></i>
-                        <span data-translate="brokers.comparison.viewFull">${getTranslation('brokers.comparison.viewFull') || 'Ver Comparación Completa'}</span>
+                        Ver Comparación Completa
                     </button>
                 </div>
                 <div class="comparison-grid">
@@ -613,12 +415,6 @@
                 </div>
             </div>
         `;
-        
-        // Apply translations to newly created comparison cards
-        const currentLang = localStorage.getItem('language') || 'en';
-        if (typeof window.applyTranslations === 'function') {
-            window.applyTranslations(currentLang);
-        }
     }
     
     // Create comparison card
@@ -640,22 +436,22 @@
                 
                 <div class="comparison-stats">
                     <div class="stat-row">
-                        <span class="stat-label" data-translate="brokers.reviews">${getTranslation('brokers.reviews')}:</span>
+                        <span class="stat-label">${getTranslation('brokers.reviews')}:</span>
                         <span class="stat-value">${broker.totalReviews}</span>
                     </div>
                     <div class="stat-row">
-                        <span class="stat-label" data-translate="brokers.countries">${getTranslation('brokers.countries')}:</span>
+                        <span class="stat-label">${getTranslation('brokers.countries')}:</span>
                         <span class="stat-value">${broker.countries.length}</span>
                     </div>
                     <div class="stat-row">
-                        <span class="stat-label" data-translate="brokers.category">${getTranslation('brokers.category')}:</span>
-                        <span class="stat-value">${translateCategory(broker.category)}</span>
+                        <span class="stat-label">${getTranslation('brokers.category')}:</span>
+                        <span class="stat-value">${broker.category}</span>
                     </div>
                 </div>
                 
                 <div class="broker-actions">
-                    <a href="${broker.website}" target="_blank" class="btn-visit" data-translate="brokers.visitSite">
-                        <span data-translate="brokers.visitSite">${getTranslation('brokers.visitSite')}</span>
+                    <a href="${broker.website}" target="_blank" class="btn-visit">
+                        ${getTranslation('brokers.visitSite')}
                     </a>
                 </div>
             </div>
@@ -674,11 +470,6 @@
         
         if (modal && table) {
             table.innerHTML = createComparisonTable();
-            // Apply translations to comparison table
-            const currentLang = localStorage.getItem('language') || 'en';
-            if (typeof window.applyTranslations === 'function') {
-                window.applyTranslations(currentLang);
-            }
             modal.style.display = 'block';
         }
     }
@@ -700,17 +491,14 @@
             'languages', 'tradingPlatforms', 'accountTypes', 'regulations'
         ];
         
-        let table = `<table class="comparison-table"><thead><tr><th data-translate="brokers.comparison.feature">${getTranslation('brokers.comparison.feature') || 'Característica'}</th>`;
+        let table = '<table class="comparison-table"><thead><tr><th>Característica</th>';
         comparisonBrokers.forEach(broker => {
             table += `<th>${broker.name}</th>`;
         });
         table += '</tr></thead><tbody>';
         
         features.forEach(feature => {
-            const label = getFeatureLabel(feature);
-            // Add data-translate attribute for feature labels
-            const translateKey = `brokers.${feature === 'totalReviews' ? 'reviews' : feature}`;
-            table += `<tr><td data-translate="${translateKey}">${label}</td>`;
+            table += `<tr><td>${getFeatureLabel(feature)}</td>`;
             comparisonBrokers.forEach(broker => {
                 table += `<td>${getFeatureValue(broker, feature)}</td>`;
             });
@@ -739,9 +527,6 @@
     
     // Get feature value
     function getFeatureValue(broker, feature) {
-        if (feature === 'category') {
-            return translateCategory(broker.category);
-        }
         const value = broker[feature];
         if (Array.isArray(value)) {
             return value.join(', ');

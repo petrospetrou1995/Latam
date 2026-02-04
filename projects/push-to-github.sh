@@ -62,3 +62,5 @@ echo "   cd $PROJECTS_DIR/[project-name]"
 echo "   git remote add origin https://github.com/$GITHUB_USER/[repo-name].git"
 echo "   git push -u origin main"
 
+
+

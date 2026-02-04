@@ -111,3 +111,5 @@ if (process.argv[2]) {
     console.log('Available projects:', Object.keys(themeConfigs.projects).join(', '));
 }
 
+
+

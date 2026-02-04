@@ -41,3 +41,5 @@ done
 
 echo "All projects created in $PROJECTS_DIR"
 
+
+
