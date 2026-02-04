@@ -281,7 +281,27 @@ const languages = {
                 ownPlatform: 'Plataforma Propia'
             },
             viewFullComparison: 'Ver Comparación Completa',
-            compareBrokers: 'Comparar Brokers'
+            compareBrokers: 'Comparar Brokers',
+            related: {
+                title: 'Contenido Relacionado',
+                cards: {
+                    allBrokers: {
+                        title: 'Ver Todos los Brokers',
+                        description: 'Explora nuestra lista completa de brokers revisados y comparados.',
+                        cta: 'Ver Brokers'
+                    },
+                    guides: {
+                        title: 'Guías de Trading',
+                        description: 'Aprende sobre trading con nuestras guías completas y tutoriales.',
+                        cta: 'Ver Guías'
+                    },
+                    blog: {
+                        title: 'Blog',
+                        description: 'Lee artículos sobre brokers, trading e inversiones en Latinoamérica.',
+                        cta: 'Ver Blog'
+                    }
+                }
+            }
         },
         
         // Blog Section
@@ -3867,7 +3887,27 @@ const languages = {
                 ownPlatform: 'Own Platform'
             },
             viewFullComparison: 'View Full Comparison',
-            compareBrokers: 'Compare Brokers'
+            compareBrokers: 'Compare Brokers',
+            related: {
+                title: 'Related Content',
+                cards: {
+                    allBrokers: {
+                        title: 'View All Brokers',
+                        description: 'Explore our complete list of reviewed and compared brokers.',
+                        cta: 'View Brokers'
+                    },
+                    guides: {
+                        title: 'Trading Guides',
+                        description: 'Learn about trading with our complete guides and tutorials.',
+                        cta: 'View Guides'
+                    },
+                    blog: {
+                        title: 'Blog',
+                        description: 'Read articles about brokers, trading and investments in Latin America.',
+                        cta: 'View Blog'
+                    }
+                }
+            }
         },
         
         // Blog Section
